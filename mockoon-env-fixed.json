@@ -1,0 +1,82 @@
+{
+  "uuid": "11111111-2222-3333-4444-555555555555",
+  "name": "jibit-mock-api",
+  "port": 8000,
+  "routes": [
+    {
+      "uuid": "a67d6c7a-a0d7-49cc-9399-2ece47dd10c0",
+      "endpoint": "ide/v1/services/identity",
+      "method": "get",
+      "responses": [
+        {
+          "uuid": "57c1c256-bbeb-451c-a3c7-e0a0e3491c95",
+          "statusCode": 200,
+          "body": "{\n    \"nationalCode\": \"0075741024\",\n    \"birthDate\": \"13600419\",\n    \"identityInfo\": {\n        \"nationalCode\": \"0075741024\",\n        \"firstName\": \"محمد\",\n        \"lastName\": \"خاجي\",\n        \"fatherName\": \"محمدتقي\",\n        \"birthDate\": \"13600419\",\n        \"alive\": true\n    }\n}",
+          "headers": [],
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "nationalCode",
+              "value": "0075741024",
+              "operator": "equals",
+              "invert": false
+            },
+            {
+              "target": "query",
+              "modifier": "birthDate",
+              "value": "13600419",
+              "operator": "equals",
+              "invert": false
+            }
+          ],
+          "latency": 0,
+          "label": "",
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "type": "http",
+      "documentation": "",
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "lastMigration": 33,
+  "endpointPrefix": "",
+  "latency": 0,
+  "hostname": "",
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "a67d6c7a-a0d7-49cc-9399-2ece47dd10c0"
+    }
+  ],
+  "folders": [],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [],
+  "proxyReqHeaders": [],
+  "proxyResHeaders": [],
+  "data": [],
+  "callbacks": []
+}
