@@ -13,10 +13,10 @@ services:
       - userproject
 
   jibit-mock:
-    image: qasazgar/jibit-mock:v3
+    image: qasazgar/jibit-mock:v5
     container_name: jibit-mock
     expose:
-      - "8000"
+      - "8081"
 
   userproject:
     image: qasazgar/usersproject:v1
