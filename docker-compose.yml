@@ -11,15 +11,40 @@ services:
     depends_on:
       - jibit-mock
       - userproject
+      - jenkins
+    networks:
+      - app-network
 
   jibit-mock:
-    image: qasazgar/jibit-mock:v5
+    image: qasazgar/jibit-mock:v3
     container_name: jibit-mock
     expose:
       - "8000"
+    networks:
+      - app-network
 
   userproject:
     image: qasazgar/usersproject:v1
     container_name: userproject
     expose:
       - "80"
+    networks:
+      - app-network
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    expose:
+      - "8080"
+      - "50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    networks:
+      - app-network
+
+volumes:
+  jenkins_home:
+
+networks:
+  app-network:
+    driver: bridge
