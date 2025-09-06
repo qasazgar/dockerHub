@@ -1,10 +1,11 @@
-FROM node:20
+FROM node:18-alpine
 
-# نصب Newman و reporter HTML
-RUN npm install -g newman newman-reporter-htmlextra
+# نصب newman
+RUN npm install -g newman
 
-# دایرکتوری کاری
-WORKDIR /etc/newman
+# کپی تست‌ها
+WORKDIR /app
+COPY ./tests ./tests
 
-# CMD پیشفرض (می‌توان override کرد)
-CMD ["newman", "--help"]
+# دستور پیش‌فرض برای اجرا
+CMD ["newman", "run", "tests/collection.json", "-e", "tests/env.json"]
