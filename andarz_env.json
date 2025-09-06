@@ -1,0 +1,46 @@
+{
+	"id": "23d7244c-7847-49dd-a0b8-12db99f9a671",
+	"name": "Pro-andarz",
+	"values": [
+		{
+			"key": "tokenAdmin",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "tokenUser",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "question_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "auth_token",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "User_id",
+			"value": "",
+			"type": "default",
+			"description": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-08-31T11:22:12.434Z",
+	"_postman_exported_using": "Postman/11.60.4"
+}
