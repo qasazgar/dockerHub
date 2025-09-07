@@ -37,13 +37,22 @@ services:
     expose:
       - "8080"
       - "50000"
+    environment:
+      - JENKINS_OPTS=--prefix=/jenkins
     volumes:
       - jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock  # <== دسترسی Docker host
-      - ./workspace:/var/jenkins_home/workspace    # <== shared workspace برای فایل‌ها
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./workspace:/var/jenkins_home/workspace
     networks:
       - app-network
-
+  postman-tests:
+    image: postman-tests:latest
+    container_name: postman-tests
+    build:
+      context: /root/postman-tests
+      dockerfile: Dockerfile
+    networks:
+      - app-network
 volumes:
   jenkins_home:
 
