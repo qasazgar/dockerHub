@@ -146,6 +146,460 @@
 					}
 				}
 			]
+		},
+		{
+			"name": "Register And logout user",
+			"item": [
+				{
+					"name": "Send otp number",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// تعداد رقم‌های بعد از 09\r",
+									"const digits = 9;\r",
+									"\r",
+									"// تابع برای تولید رقم رندوم\r",
+									"function getRandomDigit() {\r",
+									"    return Math.floor(Math.random() * 10); // عدد 0 تا 9\r",
+									"}\r",
+									"\r",
+									"// تولید شماره رندوم\r",
+									"let phoneNumber = '09';\r",
+									"for (let i = 0; i < digits; i++) {\r",
+									"    phoneNumber += getRandomDigit();\r",
+									"}\r",
+									"\r",
+									"// ذخیره در متغیر محیطی یا سراسری Postman\r",
+									"pm.environment.set(\"iranPhoneNumber\", phoneNumber);\r",
+									"\r",
+									"console.log(\"Generated Iran Phone Number:\", phoneNumber);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{iranPhoneNumber}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://andarzapi.darkube.app/api/auth/otp/request/",
+							"protocol": "https",
+							"host": [
+								"andarzapi",
+								"darkube",
+								"app"
+							],
+							"path": [
+								"api",
+								"auth",
+								"otp",
+								"request",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/auth/otp/request/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"phone_number\":\"09127988412\"}'"
+					},
+					"response": []
+				},
+				{
+					"name": "otp verify user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();\r",
+									"\r",
+									"// ذخیره تو متغیر محیطی یا سراسری\r",
+									"\r",
+									"pm.environment.set(\"tokenUser\", response.token);\r",
+									"\r",
+									"// ذخیره user_id\r",
+									"if (response.user && response.user.user_id) {\r",
+									"    pm.environment.set(\"userId\", response.user.user_id);\r",
+									"}\r",
+									"\r",
+									"console.log(\"token:\", response.token);\r",
+									"console.log(\"User ID:\", response.user.user_id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"otp_code\": \"1234\",\r\n    \"phone_number\": \"{{iranPhoneNumber}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://andarzapi.darkube.app/api/auth/otp/verify/",
+							"protocol": "https",
+							"host": [
+								"andarzapi",
+								"darkube",
+								"app"
+							],
+							"path": [
+								"api",
+								"auth",
+								"otp",
+								"verify",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/auth/otp/verify/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"otp_code\":\"1234\",\"phone_number\":\"09127988412\"}'"
+					},
+					"response": []
+				},
+				{
+					"name": "Register user",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// لیست نمونه اسم‌ها و فامیلی‌ها\r",
+									"const firstNames = [\"امیر\", \"سارا\", \"رضا\", \"نرگس\", \"حسین\", \"لیلا\", \"علی\", \"مریم\"];\r",
+									"const lastNames = [\"احمدی\", \"محمدی\", \"کریمی\", \"حسینی\", \"رستمی\", \"عباسی\", \"زارعی\", \"کاظمی\"];\r",
+									"\r",
+									"// انتخاب رندوم اسم و فامیل\r",
+									"function getRandomItem(arr) {\r",
+									"    return arr[Math.floor(Math.random() * arr.length)];\r",
+									"}\r",
+									"\r",
+									"let randomFirstName = getRandomItem(firstNames);\r",
+									"let randomLastName = getRandomItem(lastNames);\r",
+									"\r",
+									"// ذخیره در متغیر محیطی\r",
+									"pm.environment.set(\"randomFirstName\", randomFirstName);\r",
+									"pm.environment.set(\"randomLastName\", randomLastName);\r",
+									"\r",
+									"console.log(\"Generated Name:\", randomFirstName, randomLastName);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{tokenUser}}"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"{{userId}}\",\r\n    \"field_of_study_id\": \"6be122e5-1e13-43ab-9535-e72b92995a8c\",\r\n    \"grade_id\": \"d9a769fe-8409-41f2-8c5d-24926cf69402\",\r\n    \"level_id\": \"f7baecf2-26f0-414b-b78a-7a5b3e6ced05\",\r\n    \"city_id\": 2,\r\n    \"province_id\": 1,\r\n    \"first_name\": \"{{randomFirstName}}\",\r\n    \"last_name\": \"{{randomLastName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://andarzapi.darkube.app/api/users/{{userId}}/",
+							"protocol": "https",
+							"host": [
+								"andarzapi",
+								"darkube",
+								"app"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{userId}}",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/users/a1685a91-7ee6-4534-bba9-04c86d7a57d9/' \\\r\n  -X 'PATCH' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3MzQ0NTc1LCJpYXQiOjE3NTczNDA5NzUsImp0aSI6ImQ1ZTAxMzJkMjRjNDQ4NWVhYzc1YjI0MGM5NzM5YzNiIiwidXNlcl9pZCI6ImExNjg1YTkxLTdlZTYtNDUzNC1iYmE5LTA0Yzg2ZDdhNTdkOSJ9.2JLmmxbGJ3HVevaVTw8eC2dnwyMiR359AazK0zuP2rE' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"user_id\":\"a1685a91-7ee6-4534-bba9-04c86d7a57d9\",\"field_of_study_id\":\"6be122e5-1e13-43ab-9535-e72b92995a8c\",\"grade_id\":\"d9a769fe-8409-41f2-8c5d-24926cf69402\",\"level_id\":\"f7baecf2-26f0-414b-b78a-7a5b3e6ced05\",\"city_id\":2,\"province_id\":1,\"first_name\":\"ahmad\",\"last_name\":\"sazgar11\"}'"
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{tokenUser}}"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "content-length",
+								"value": "0"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"url": {
+							"raw": "https://andarzapi.darkube.app/api/auth/logout/",
+							"protocol": "https",
+							"host": [
+								"andarzapi",
+								"darkube",
+								"app"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/auth/logout/' \\\r\n  -X 'POST' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3MzQ0ODk4LCJpYXQiOjE3NTczNDEyOTgsImp0aSI6IjdiNWI3Y2QxMDkyMDQxZjc5NzA0OTBhZWVjZmM3NDQzIiwidXNlcl9pZCI6ImM1ZDRkMjdjLTgwMjMtNGM5Mi1hZDAyLWY3Nzk5M2M3MDkzMiJ9.7ZaFKxF1nns-XYEbxjnstqYL6O6wpWJiOT94BS71FYk' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-length: 0' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1'"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						]
+					}
+				}
+			]
 		}
 	]
 }
