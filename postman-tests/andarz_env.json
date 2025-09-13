@@ -74,7 +74,7 @@
 		},
 		{
 			"key": "text_question",
-			"value": "",
+			"value": "مفهوم شی‌گرایی در برنامه‌نویسی چیست؟",
 			"type": "default",
 			"description": {
 				"content": "",
@@ -122,6 +122,6 @@
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2025-09-13T14:12:03.714Z",
+	"_postman_exported_at": "2025-09-13T14:20:31.025Z",
 	"_postman_exported_using": "Postman/11.62.8"
 }
