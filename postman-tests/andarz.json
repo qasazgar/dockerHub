@@ -596,7 +596,10 @@
 							"});\r",
 							"pm.test(\"Response time is less than 200ms\", function () {\r",
 							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});"
+							"});\r",
+							"setTimeout(() => {\r",
+							"    console.log(\"Waited 200ms before sending request\");\r",
+							"}, 100);"
 						]
 					}
 				}
@@ -1156,7 +1159,10 @@
 							"\r",
 							"pm.test(\"Response time is less than 200ms\", function () {\r",
 							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});"
+							"});\r",
+							"setTimeout(() => {\r",
+							"    console.log(\"Waited 200ms before sending request\");\r",
+							"}, 100);"
 						]
 					}
 				}
@@ -1651,7 +1657,11 @@
 							"\r",
 							"pm.test(\"Response time is less than 200ms\", function () {\r",
 							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});"
+							"});\r",
+							"// Pre-request Script\r",
+							"setTimeout(() => {\r",
+							"    console.log(\"Waited 200ms before sending request\");\r",
+							"}, 100);"
 						]
 					}
 				}
