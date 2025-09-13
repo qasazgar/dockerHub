@@ -36,7 +36,10 @@
 			"key": "User_id",
 			"value": "",
 			"type": "default",
-			"description": "",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
 			"enabled": true
 		},
 		{
@@ -68,9 +71,57 @@
 			"value": "",
 			"type": "any",
 			"enabled": true
+		},
+		{
+			"key": "text_question",
+			"value": "",
+			"type": "default",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "SazgarPhoneNumber",
+			"value": "",
+			"type": "default",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "Answer_Admin",
+			"value": "",
+			"type": "default",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "answer_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "answer_exists",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "matched_answer_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2025-09-08T14:42:36.271Z",
-	"_postman_exported_using": "Postman/11.61.10"
+	"_postman_exported_at": "2025-09-13T13:23:32.466Z",
+	"_postman_exported_using": "Postman/11.62.8"
 }
