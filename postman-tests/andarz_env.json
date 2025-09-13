@@ -4,13 +4,13 @@
 	"values": [
 		{
 			"key": "tokenAdmin",
-			"value": "",
+			"value": "db136be19ac17fa1a3bb3e5ac93fc5c262b8e801",
 			"type": "any",
 			"enabled": true
 		},
 		{
 			"key": "tokenUser",
-			"value": "",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3Nzc1MjAxLCJpYXQiOjE3NTc3NzE2MDEsImp0aSI6ImRkMGE1YWM4ZTcwYzQ3YjhiYTA4MjU0OGNiMzU5Nzk5IiwidXNlcl9pZCI6IjI1MDM2ZDc2LTVlMzItNGQ0Ni1iOTRhLWU3ODc3NmJkMzE2MyJ9.Avl8zIjhLK3KZqQ8ffYs0wtreGmN8S_aepnY0bUPWW0",
 			"type": "any",
 			"enabled": true
 		},
@@ -84,7 +84,7 @@
 		},
 		{
 			"key": "SazgarPhoneNumber",
-			"value": "",
+			"value": "09127988405",
 			"type": "default",
 			"description": {
 				"content": "",
@@ -94,7 +94,7 @@
 		},
 		{
 			"key": "Answer_Admin",
-			"value": "",
+			"value": "مفهوم شی‌ءگرایی (Object-Oriented Programming یا به اختصار OOP) یک الگوی برنامه‌نویسی است که بر پایه‌ی شبیه‌سازی مفاهیم دنیای واقعی بنا شده.\\nدر این رویکرد، برنامه به جای آن‌که فقط مجموعه‌ای از توابع و داده‌ها باشد، به صورت مجموعه‌ای از اشیاء (Objects) مدل‌سازی می‌شود.\\nهر شیء شامل دو بخش اصلی است:\\nویژگی‌ها (Attributes / Properties) → داده‌هایی که وضعیت شیء را توصیف می‌کنند.\\nرفتارها (Methods / Functions) → عملیاتی که شیء می‌تواند انجام دهد.",
 			"type": "default",
 			"description": {
 				"content": "",
@@ -122,6 +122,6 @@
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2025-09-13T13:56:57.808Z",
+	"_postman_exported_at": "2025-09-13T14:06:15.757Z",
 	"_postman_exported_using": "Postman/11.62.8"
 }
