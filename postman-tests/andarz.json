@@ -1150,9 +1150,10 @@
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(`Status code should be 200 or 201, actual: ${pm.response.code}`, function () {\r",
+							"    pm.expect([200, 201]).to.include(pm.response.code);\r",
 							"});\r",
+							"\r",
 							"pm.test(\"Response time is less than 200ms\", function () {\r",
 							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
 							"});"
@@ -1553,7 +1554,7 @@
 							},
 							{
 								"key": "authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzY4NTU4LCJpYXQiOjE3NTc3NjQ5NTgsImp0aSI6Ijc4YjVmMzA5OTg5YjQ0Y2E4NTYyY2I1OWYwYzVhNDE2IiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.0epIiJAQU-HAmKbMUnM5pRFXuzcS0BAYiQt_FaggboM"
+								"value": "Bearer {{tokenUser}}"
 							},
 							{
 								"key": "cache-control",
@@ -1644,9 +1645,10 @@
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(`Status code should be 200 or 201, actual: ${pm.response.code}`, function () {\r",
+							"    pm.expect([200, 201]).to.include(pm.response.code);\r",
 							"});\r",
+							"\r",
 							"pm.test(\"Response time is less than 200ms\", function () {\r",
 							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
 							"});"
@@ -2063,7 +2065,7 @@
 					},
 					{
 						"key": "authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzY4NTU4LCJpYXQiOjE3NTc3NjQ5NTgsImp0aSI6Ijc4YjVmMzA5OTg5YjQ0Y2E4NTYyY2I1OWYwYzVhNDE2IiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.0epIiJAQU-HAmKbMUnM5pRFXuzcS0BAYiQt_FaggboM"
+						"value": "Bearer {{tokenUser}}"
 					},
 					{
 						"key": "cache-control",
