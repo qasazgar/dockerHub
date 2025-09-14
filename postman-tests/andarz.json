@@ -1695,7 +1695,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "postman-cloud:///1f06c72b-0597-4690-8616-3f8132353e7f"
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
@@ -2374,7 +2374,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/API/Andarz/dockerHub/postman-tests/resources/Voice.wav"
+									"src": "./resources/Voice.mp3"
 								}
 							]
 						},
@@ -3104,7 +3104,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/API/Andarz/dockerHub/postman-tests/resources/Voice.mp3"
+									"src": "./resources/Voice.mp3"
 								}
 							]
 						},
@@ -3220,7 +3220,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "postman-cloud:///1f06c72b-0597-4690-8616-3f8132353e7f"
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
@@ -3949,7 +3949,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/API/Andarz/dockerHub/postman-tests/resources/Voice.wav"
+									"src": "./resources/Voice.mp3"
 								}
 							]
 						},
@@ -4065,7 +4065,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "postman-cloud:///1f07828c-22e1-43f0-826f-70fe894103be"
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
@@ -5504,7 +5504,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "postman-cloud:///1f06c72b-0597-4690-8616-3f8132353e7f"
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
@@ -5620,7 +5620,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/API/Andarz/dockerHub/postman-tests/resources/Voice.mp3"
+									"src": "./resources/Voice.mp3"
 								}
 							]
 						},
