@@ -5656,6 +5656,8 @@
 									"pm.environment.set(\"answer_id\", jsonData.answer_id);\r",
 									"\r",
 									"console.log(\"answer_id saved:\", jsonData.answer_id);\r",
+									"\r",
+									"console.log(\"➡️ Request Body:\", pm.request.body);\r",
 									""
 								],
 								"type": "text/javascript",
