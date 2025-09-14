@@ -5422,7 +5422,7 @@
 									"const jsonData = pm.response.json();\r",
 									"\r",
 									"// ذخیره media_id در Environment\r",
-									"pm.environment.set(\"Media_id\", jsonData.media.media_id);\r",
+									"pm.environment.set(\"Media_id_Image\", jsonData.media.media_id);\r",
 									"\r",
 									"console.log(\"media_id saved:\", jsonData.media.media_id);"
 								],
@@ -5538,7 +5538,7 @@
 									"const jsonData = pm.response.json();\r",
 									"\r",
 									"// ذخیره media_id در Environment\r",
-									"pm.environment.set(\"Media_id\", jsonData.media.media_id);\r",
+									"pm.environment.set(\"Media_id_Voice\", jsonData.media.media_id);\r",
 									"\r",
 									"console.log(\"media_id saved:\", jsonData.media.media_id);"
 								],
