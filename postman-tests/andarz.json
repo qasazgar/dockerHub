@@ -2264,7 +2264,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "./resources/Voice.wav"
+									"src": "./resources/Voice.mp3",
 								}
 							]
 						},
@@ -2993,7 +2993,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "./resources/Voice.wav"
+									"src": "./resources/Voice.mp3"
 								}
 							]
 						},
@@ -3109,7 +3109,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "./resources/Voice.mp3"
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
