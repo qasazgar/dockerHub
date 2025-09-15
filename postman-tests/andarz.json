@@ -2363,12 +2363,12 @@
 								},
 								{
 									"key": "description",
-									"value": "d1",
+									"value": "d",
 									"type": "text"
 								},
 								{
 									"key": "tags",
-									"value": "\"audio1\"",
+									"value": "\"d\"",
 									"type": "text"
 								},
 								{
@@ -3214,7 +3214,7 @@
 								},
 								{
 									"key": "tags",
-									"value": "\"image\"",
+									"value": "\"d\"",
 									"type": "text"
 								},
 								{
@@ -4851,7 +4851,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id_text}}/",
+							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id}}/",
 							"protocol": "https",
 							"host": [
 								"andarzapi",
@@ -4861,7 +4861,7 @@
 							"path": [
 								"api",
 								"questions",
-								"{{question_id_text}}",
+								"{{question_id}}",
 								""
 							]
 						},
@@ -5698,7 +5698,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id_text}}/",
+							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id}}/",
 							"protocol": "https",
 							"host": [
 								"andarzapi",
@@ -5708,7 +5708,7 @@
 							"path": [
 								"api",
 								"questions",
-								"{{question_id_text}}",
+								"{{question_id}}",
 								""
 							]
 						},
@@ -6273,10 +6273,7 @@
 									"// ذخیره media_id در Environment\r",
 									"pm.environment.set(\"Media_id_Image\", jsonData.media.media_id);\r",
 									"\r",
-									"console.log(\"media_id saved:\", jsonData.media.media_id);\r",
-									"setTimeout(() => {\r",
-									"    console.log(\"Waited 200ms before sending request\");\r",
-									"}, 100);"
+									"console.log(\"media_id saved:\", jsonData.media.media_id);"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -6350,7 +6347,7 @@
 								},
 								{
 									"key": "tags",
-									"value": "\"image\"",
+									"value": "\"d\"",
 									"type": "text"
 								},
 								{
@@ -6466,7 +6463,7 @@
 								},
 								{
 									"key": "tags",
-									"value": "\"audio\"",
+									"value": "\"d\"",
 									"type": "text"
 								},
 								{
@@ -6664,7 +6661,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id_text}}/",
+							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id}}/",
 							"protocol": "https",
 							"host": [
 								"andarzapi",
@@ -6674,7 +6671,7 @@
 							"path": [
 								"api",
 								"questions",
-								"{{question_id_text}}",
+								"{{question_id}}",
 								""
 							]
 						},
