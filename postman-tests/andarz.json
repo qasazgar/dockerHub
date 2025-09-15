@@ -599,7 +599,9 @@
 							"});\r",
 							"setTimeout(() => {\r",
 							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);"
+							"}, 100);\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);\r",
+							""
 						]
 					}
 				}
@@ -1272,7 +1274,8 @@
 							"});\r",
 							"setTimeout(() => {\r",
 							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);"
+							"}, 100);\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);"
 						]
 					}
 				}
@@ -1951,7 +1954,8 @@
 							"});\r",
 							"setTimeout(() => {\r",
 							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);"
+							"}, 100);\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);"
 						]
 					}
 				}
@@ -2363,12 +2367,12 @@
 								},
 								{
 									"key": "description",
-									"value": "d",
+									"value": "d1",
 									"type": "text"
 								},
 								{
 									"key": "tags",
-									"value": "\"d\"",
+									"value": "\"audio1\"",
 									"type": "text"
 								},
 								{
@@ -2681,7 +2685,10 @@
 							"});\r",
 							"setTimeout(() => {\r",
 							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);"
+							"}, 100);\r",
+							"\r",
+							"\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);"
 						]
 					}
 				}
@@ -3214,7 +3221,7 @@
 								},
 								{
 									"key": "tags",
-									"value": "\"d\"",
+									"value": "\"image\"",
 									"type": "text"
 								},
 								{
@@ -3526,7 +3533,8 @@
 							"});\r",
 							"setTimeout(() => {\r",
 							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);"
+							"}, 100);\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);"
 						]
 					}
 				}
@@ -4255,7 +4263,8 @@
 							"// Pre-request Script\r",
 							"setTimeout(() => {\r",
 							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);"
+							"}, 100);\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);"
 						]
 					}
 				}
@@ -4851,7 +4860,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id}}/",
+							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id_text}}/",
 							"protocol": "https",
 							"host": [
 								"andarzapi",
@@ -4861,7 +4870,7 @@
 							"path": [
 								"api",
 								"questions",
-								"{{question_id}}",
+								"{{question_id_text}}",
 								""
 							]
 						},
@@ -5102,7 +5111,8 @@
 							"// Pre-request Script\r",
 							"setTimeout(() => {\r",
 							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);"
+							"}, 100);\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);"
 						]
 					}
 				}
@@ -5698,7 +5708,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id}}/",
+							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id_text}}/",
 							"protocol": "https",
 							"host": [
 								"andarzapi",
@@ -5708,7 +5718,7 @@
 							"path": [
 								"api",
 								"questions",
-								"{{question_id}}",
+								"{{question_id_text}}",
 								""
 							]
 						},
@@ -5949,7 +5959,8 @@
 							"// Pre-request Script\r",
 							"setTimeout(() => {\r",
 							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);"
+							"}, 100);\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);"
 						]
 					}
 				}
@@ -6273,7 +6284,10 @@
 									"// ذخیره media_id در Environment\r",
 									"pm.environment.set(\"Media_id_Image\", jsonData.media.media_id);\r",
 									"\r",
-									"console.log(\"media_id saved:\", jsonData.media.media_id);"
+									"console.log(\"media_id saved:\", jsonData.media.media_id);\r",
+									"setTimeout(() => {\r",
+									"    console.log(\"Waited 200ms before sending request\");\r",
+									"}, 100);"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -6347,7 +6361,7 @@
 								},
 								{
 									"key": "tags",
-									"value": "\"d\"",
+									"value": "\"image\"",
 									"type": "text"
 								},
 								{
@@ -6463,7 +6477,7 @@
 								},
 								{
 									"key": "tags",
-									"value": "\"d\"",
+									"value": "\"audio\"",
 									"type": "text"
 								},
 								{
@@ -6661,7 +6675,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id}}/",
+							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id_text}}/",
 							"protocol": "https",
 							"host": [
 								"andarzapi",
@@ -6671,7 +6685,7 @@
 							"path": [
 								"api",
 								"questions",
-								"{{question_id}}",
+								"{{question_id_text}}",
 								""
 							]
 						},
@@ -6912,11 +6926,34 @@
 							"// Pre-request Script\r",
 							"setTimeout(() => {\r",
 							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);"
+							"}, 100);\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);"
 						]
 					}
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
