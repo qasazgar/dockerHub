@@ -60,30 +60,18 @@
 			"key": "text_question",
 			"value": "مفهوم شی‌گرایی در برنامه‌نویسی چیست؟",
 			"type": "default",
-			"description": {
-				"content": "",
-				"type": "text/plain"
-			},
 			"enabled": true
 		},
 		{
 			"key": "SazgarPhoneNumber",
 			"value": "09127988405",
 			"type": "default",
-			"description": {
-				"content": "",
-				"type": "text/plain"
-			},
 			"enabled": true
 		},
 		{
 			"key": "Answer_Admin",
 			"value": "مفهوم شی‌ءگرایی (Object-Oriented Programming یا به اختصار OOP) یک الگوی برنامه‌نویسی است که بر پایه‌ی شبیه‌سازی مفاهیم دنیای واقعی بنا شده.\\nدر این رویکرد، برنامه به جای آن‌که فقط مجموعه‌ای از توابع و داده‌ها باشد، به صورت مجموعه‌ای از اشیاء (Objects) مدل‌سازی می‌شود.\\nهر شیء شامل دو بخش اصلی است:\\nویژگی‌ها (Attributes / Properties) → داده‌هایی که وضعیت شیء را توصیف می‌کنند.\\nرفتارها (Methods / Functions) → عملیاتی که شیء می‌تواند انجام دهد.",
 			"type": "default",
-			"description": {
-				"content": "",
-				"type": "text/plain"
-			},
 			"enabled": true
 		},
 		{
@@ -141,6 +129,78 @@
 			"enabled": true
 		},
 		{
+			"key": "Session_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "grade_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "level_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "province_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "city_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "Session_id_image",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "question_id_image",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "question_id_Voice",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "Session_id_Voice",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "random_slug",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "randomAnswer_Admin",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "ُSession_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
 			"key": "matched_answer_id",
 			"value": "",
 			"type": "any",
@@ -148,6 +208,6 @@
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2025-09-16T10:46:06.797Z",
-	"_postman_exported_using": "Postman/11.63.1"
+	"_postman_exported_at": "2025-09-24T14:00:13.050Z",
+	"_postman_exported_using": "Postman/11.64.1"
 }
