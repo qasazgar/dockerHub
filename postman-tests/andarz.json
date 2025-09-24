@@ -3995,7 +3995,8 @@
 									""
 								],
 								"type": "text/javascript",
-								"packages": {}
+								"packages": {},
+								"requests": {}
 							}
 						}
 					],
@@ -4586,12 +4587,9 @@
 							}
 						],
 						"url": {
-							"raw": "https://andarzapi-stage.darkube.app/api/sessions/{{Session_id}}/",
-							"protocol": "https",
+							"raw": "{{UrlStage}}/api/sessions/{{Session_id}}/",
 							"host": [
-								"andarzapi-stage",
-								"darkube",
-								"app"
+								"{{UrlStage}}"
 							],
 							"path": [
 								"api",
@@ -6259,7 +6257,8 @@
 									""
 								],
 								"type": "text/javascript",
-								"packages": {}
+								"packages": {},
+								"requests": {}
 							}
 						}
 					],
@@ -6324,12 +6323,9 @@
 							}
 						],
 						"url": {
-							"raw": "https://andarzapi.darkube.app/api/questions/{{question_id_text}}/",
-							"protocol": "https",
+							"raw": "{{UrlStage}}/api/questions/{{question_id_text}}/",
 							"host": [
-								"andarzapi",
-								"darkube",
-								"app"
+								"{{UrlStage}}"
 							],
 							"path": [
 								"api",
