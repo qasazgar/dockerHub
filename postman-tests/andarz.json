@@ -1123,6 +1123,34 @@
 				},
 				{
 					"name": "Get courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Fixed SyntaxError by removing extra code\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"// انتخاب رندوم یکی از آیتم‌ها\r",
+									"let randomIndex = Math.floor(Math.random() * response.length);\r",
+									"let randomSlug = response[randomIndex].slug;\r",
+									"\r",
+									"// ذخیره در Environment\r",
+									"pm.environment.set(\"random_slug\", randomSlug);\r",
+									"\r",
+									"// ذخیره در Collection (اختیاری)\r",
+									"\r",
+									"console.log(\"✅ slug به صورت رندوم ذخیره شد:\", randomSlug);\r",
+									"\r",
+									"console.log(\"⚠️ پاسخ خالی یا فرمت درست نیست\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -3998,7 +4026,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n    \"subject\": \"{{random_slug}}\",\r\n    \"text_content\": \"{{randomQuestion}}\",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": [\"{{Media_id_Voice}}\",\"{{Media_id_Image}\"]\r\n}",
+							"raw": "\r\n{\r\n    \"subject\": \"{{random_slug}}\",\r\n    \"text_content\": \"{{randomQuestion}}\",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": [\"{{Media_id_Voice}}\",\"{{Media_id_Image}}\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7717,7 +7745,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \r\n  \"first_name\": \"{{randomFirstName}}\",\r\n  \"last_name\": \"{{randomLastName}}\",\r\n  \"grade_id\": \"{{grade_id}}\",\r\n  \"level_id\": \"{{level_id}}\",\r\n  \"province_id\": 1,\r\n  \"city_id\": 1\r\n}",
+							"raw": "{\r\n    \"phone_number\": \"{{SazgarPhoneNumber}}\",\r\n    \"first_name\": \"{{randomFirstName}}\",\r\n    \"last_name\": \"{{randomLastName}}\",\r\n    \"grade_id\": \"{{grade_id}}\",\r\n    \"level_id\": \"{{level_id}}\",\r\n    \"province_id\": 1,\r\n    \"city_id\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
