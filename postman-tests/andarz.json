@@ -2019,6 +2019,34 @@
 				},
 				{
 					"name": "Get courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Fixed SyntaxError by removing extra code\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"// انتخاب رندوم یکی از آیتم‌ها\r",
+									"let randomIndex = Math.floor(Math.random() * response.length);\r",
+									"let randomSlug = response[randomIndex].slug;\r",
+									"\r",
+									"// ذخیره در Environment\r",
+									"pm.environment.set(\"random_slug\", randomSlug);\r",
+									"\r",
+									"// ذخیره در Collection (اختیاری)\r",
+									"\r",
+									"console.log(\"✅ slug به صورت رندوم ذخیره شد:\", randomSlug);\r",
+									"\r",
+									"console.log(\"⚠️ پاسخ خالی یا فرمت درست نیست\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2812,24 +2840,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"// پاسخ JSON رو بگیر\r",
+									"// Fixed SyntaxError by removing extra code\r",
 									"let response = pm.response.json();\r",
 									"\r",
-									"// اگر آرایه باشه\r",
-									"if (Array.isArray(response)) {\r",
-									"    // انتخاب ایندکس تصادفی\r",
-									"    let randomIndex = Math.floor(Math.random() * response.length);\r",
-									"    \r",
-									"    // انتخاب مقدار slug\r",
-									"    let randomSlug = response[randomIndex].slug;\r",
-									"    \r",
-									"    // ذخیره در Environment Variable\r",
-									"    pm.environment.set(\"random_slug\", randomSlug);\r",
-									"    \r",
-									"    console.log(\"Slug انتخاب‌شده:\", randomSlug);\r",
-									"} else {\r",
-									"    console.log(\"Response آرایه نیست!\");\r",
-									"}"
+									"// انتخاب رندوم یکی از آیتم‌ها\r",
+									"let randomIndex = Math.floor(Math.random() * response.length);\r",
+									"let randomSlug = response[randomIndex].slug;\r",
+									"\r",
+									"// ذخیره در Environment\r",
+									"pm.environment.set(\"random_slug\", randomSlug);\r",
+									"\r",
+									"// ذخیره در Collection (اختیاری)\r",
+									"\r",
+									"console.log(\"✅ slug به صورت رندوم ذخیره شد:\", randomSlug);\r",
+									"\r",
+									"console.log(\"⚠️ پاسخ خالی یا فرمت درست نیست\");\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -3745,6 +3771,34 @@
 				},
 				{
 					"name": "Get courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Fixed SyntaxError by removing extra code\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"// انتخاب رندوم یکی از آیتم‌ها\r",
+									"let randomIndex = Math.floor(Math.random() * response.length);\r",
+									"let randomSlug = response[randomIndex].slug;\r",
+									"\r",
+									"// ذخیره در Environment\r",
+									"pm.environment.set(\"random_slug\", randomSlug);\r",
+									"\r",
+									"// ذخیره در Collection (اختیاری)\r",
+									"\r",
+									"console.log(\"✅ slug به صورت رندوم ذخیره شد:\", randomSlug);\r",
+									"\r",
+									"console.log(\"⚠️ پاسخ خالی یا فرمت درست نیست\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
