@@ -28,7 +28,8 @@
 									"}"
 								],
 								"type": "text/javascript",
-								"packages": {}
+								"packages": {},
+								"requests": {}
 							}
 						}
 					],
@@ -63,12 +64,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://andarzapi.darkube.app/api/auth/token/",
-							"protocol": "https",
+							"raw": "{{UrlStage}}/api/auth/token/",
 							"host": [
-								"andarzapi",
-								"darkube",
-								"app"
+								"{{UrlStage}}"
 							],
 							"path": [
 								"api",
@@ -104,12 +102,9 @@
 							}
 						],
 						"url": {
-							"raw": "https://andarzapi.darkube.app/api/users/",
-							"protocol": "https",
+							"raw": "{{UrlStage}}/api/users/",
 							"host": [
-								"andarzapi",
-								"darkube",
-								"app"
+								"{{UrlStage}}"
 							],
 							"path": [
 								"api",
