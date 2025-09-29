@@ -2808,7 +2808,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"question\": \"{{question_id_image}}\",\r\n  \"text_content\": \"{{Answer_Admin}}\",\r\n  \"audio_url\": \"\",\r\n  \"image_url\": \"\",\r\n  \"video_link\": \"\",\r\n  \"media_ids\": [\r\n    \"{{Session_id_image}}\",\"{{Media_id_Image}}\"\r\n  ]\r\n}",
+							"raw": "{\r\n  \"question\": \"{{question_id_image}}\",\r\n  \"text_content\": \"{{randomAnswer_Admin}}\",\r\n  \"audio_url\": \"\",\r\n  \"image_url\": \"\",\r\n  \"video_link\": \"\",\r\n  \"media_ids\": [\r\n    \"{{Session_id_image}}\",\"{{Media_id_Image}}\"\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3898,6 +3898,13 @@
 								"packages": {},
 								"requests": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
@@ -3922,7 +3929,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"question\": \"{{question_id_Voice}}\",\r\n  \"text_content\": \"{{Answer_Admin}}\",\r\n  \"audio_url\": \"\",\r\n  \"image_url\": \"\",\r\n  \"video_link\": \"\",\r\n  \"media_ids\": [\r\n    \"{{Session_id_Voice}}\",\"{{Media_id_Voice}}\"\r\n  ]\r\n}",
+							"raw": "{\r\n  \"question\": \"{{question_id_Voice}}\",\r\n  \"text_content\": \"{{randomAnswer_Admin}}\",\r\n  \"audio_url\": \"\",\r\n  \"image_url\": \"\",\r\n  \"video_link\": \"\",\r\n  \"media_ids\": [\r\n    \"{{Session_id_Voice}}\",\"{{Media_id_Voice}}\"\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5270,7 +5277,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"question\": \"{{question_id_medias}}\",\r\n  \"text_content\": \"{{Answer_Admin}}\",\r\n  \"audio_url\": \"\",\r\n  \"image_url\": \"\",\r\n  \"video_link\": \"\",\r\n  \"media_ids\": [\r\n    \"{{Session_id_medias}}\",\"{{Media_id_Voice}}\",\"{{Media_id_Image}}\"\r\n  ]\r\n}",
+							"raw": "{\r\n  \"question\": \"{{question_id_medias}}\",\r\n  \"text_content\": \"{{randomAnswer_Admin}}\",\r\n  \"audio_url\": \"\",\r\n  \"image_url\": \"\",\r\n  \"video_link\": \"\",\r\n  \"media_ids\": [\r\n    \"{{Session_id_medias}}\",\"{{Media_id_Voice}}\",\"{{Media_id_Image}}\"\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
