@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "ba30990b-cb5d-4e00-8b7d-a4057d220301",
-		"name": "Answer & Questions test",
+		"_postman_id": "e6dd57e9-f8f9-48ac-85d8-e2f11df68e9b",
+		"name": "Answer & Questions test Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "39309194"
 	},
@@ -80,6 +80,230 @@
 					"response": []
 				},
 				{
+					"name": "Send otp number",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// تعداد رقم‌های بعد از 09\r",
+									"const digits = 9;\r",
+									"\r",
+									"// تابع برای تولید رقم رندوم\r",
+									"function getRandomDigit() {\r",
+									"    return Math.floor(Math.random() * 10); // عدد 0 تا 9\r",
+									"}\r",
+									"\r",
+									"// تولید شماره رندوم\r",
+									"let phoneNumber = '09';\r",
+									"for (let i = 0; i < digits; i++) {\r",
+									"    phoneNumber += getRandomDigit();\r",
+									"}\r",
+									"\r",
+									"// ذخیره در متغیر محیطی یا سراسری Postman\r",
+									"pm.environment.set(\"iranPhoneNumber\", phoneNumber);\r",
+									"\r",
+									"console.log(\"Generated Iran Phone Number:\", phoneNumber);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{SazgarPhoneNumber}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UrlStage}}/api/auth/otp/request/",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"otp",
+								"request",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/auth/otp/request/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"phone_number\":\"09127988412\"}'"
+					},
+					"response": []
+				},
+				{
+					"name": "otp verify user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();\r",
+									"\r",
+									"// ذخیره تو متغیر محیطی یا سراسری\r",
+									"\r",
+									"pm.environment.set(\"tokenUser\", response.token);\r",
+									"\r",
+									"// ذخیره user_id\r",
+									"if (response.user && response.user.user_id) {\r",
+									"    pm.environment.set(\"userId\", response.user.user_id);\r",
+									"}\r",
+									"\r",
+									"console.log(\"token:\", response.token);\r",
+									"console.log(\"User ID:\", response.user.user_id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"otp_code\": \"1234\",\r\n    \"phone_number\": \"{{SazgarPhoneNumber}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UrlStage}}/api/auth/otp/verify/",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"otp",
+								"verify",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/auth/otp/verify/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"otp_code\":\"1234\",\"phone_number\":\"09127988412\"}'"
+					},
+					"response": []
+				},
+				{
 					"name": "list users",
 					"request": {
 						"method": "GET",
@@ -145,6 +369,233 @@
 		{
 			"name": "Register And logout user",
 			"item": [
+				{
+					"name": "Send otp number",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// تعداد رقم‌های بعد از 09\r",
+									"const digits = 9;\r",
+									"\r",
+									"// تابع برای تولید رقم رندوم\r",
+									"function getRandomDigit() {\r",
+									"    return Math.floor(Math.random() * 10); // عدد 0 تا 9\r",
+									"}\r",
+									"\r",
+									"// تولید شماره رندوم\r",
+									"let phoneNumber = '09';\r",
+									"for (let i = 0; i < digits; i++) {\r",
+									"    phoneNumber += getRandomDigit();\r",
+									"}\r",
+									"\r",
+									"// ذخیره در متغیر محیطی یا سراسری Postman\r",
+									"pm.environment.set(\"iranPhoneNumber\", phoneNumber);\r",
+									"\r",
+									"console.log(\"Generated Iran Phone Number:\", phoneNumber);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{iranPhoneNumber}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UrlStage}}/api/auth/otp/request/",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"otp",
+								"request",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/auth/otp/request/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"phone_number\":\"09127988412\"}'"
+					},
+					"response": []
+				},
+				{
+					"name": "otp verify user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();\r",
+									"\r",
+									"// ذخیره تو متغیر محیطی یا سراسری\r",
+									"\r",
+									"pm.environment.set(\"access_token\", response.token);\r",
+									"\r",
+									"// ذخیره user_id\r",
+									"if (response.user && response.user.user_id) {\r",
+									"    pm.environment.set(\"userId\", response.user.user_id);\r",
+									"}\r",
+									"\r",
+									"console.log(\"token:\", response.token);\r",
+									"console.log(\"User ID:\", response.user.user_id);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"otp_code\": \"1234\",\r\n    \"phone_number\": \"{{iranPhoneNumber}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UrlStage}}/api/auth/otp/verify/",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"otp",
+								"verify",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/auth/otp/verify/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"otp_code\":\"1234\",\"phone_number\":\"09127988412\"}'"
+					},
+					"response": []
+				},
 				{
 					"name": "Get grades",
 					"event": [
@@ -581,230 +1032,6 @@
 			"name": "Answer Admin & question Text",
 			"item": [
 				{
-					"name": "Send otp number",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"// تعداد رقم‌های بعد از 09\r",
-									"const digits = 9;\r",
-									"\r",
-									"// تابع برای تولید رقم رندوم\r",
-									"function getRandomDigit() {\r",
-									"    return Math.floor(Math.random() * 10); // عدد 0 تا 9\r",
-									"}\r",
-									"\r",
-									"// تولید شماره رندوم\r",
-									"let phoneNumber = '09';\r",
-									"for (let i = 0; i < digits; i++) {\r",
-									"    phoneNumber += getRandomDigit();\r",
-									"}\r",
-									"\r",
-									"// ذخیره در متغیر محیطی یا سراسری Postman\r",
-									"pm.environment.set(\"iranPhoneNumber\", phoneNumber);\r",
-									"\r",
-									"console.log(\"Generated Iran Phone Number:\", phoneNumber);\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "content-type",
-								"value": "application/json"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"phone_number\": \"{{SazgarPhoneNumber}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/auth/otp/request/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"auth",
-								"otp",
-								"request",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/auth/otp/request/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"phone_number\":\"09127988412\"}'"
-					},
-					"response": []
-				},
-				{
-					"name": "otp verify user",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"let response = pm.response.json();\r",
-									"\r",
-									"// ذخیره تو متغیر محیطی یا سراسری\r",
-									"\r",
-									"pm.environment.set(\"tokenUser\", response.token);\r",
-									"\r",
-									"// ذخیره user_id\r",
-									"if (response.user && response.user.user_id) {\r",
-									"    pm.environment.set(\"userId\", response.user.user_id);\r",
-									"}\r",
-									"\r",
-									"console.log(\"token:\", response.token);\r",
-									"console.log(\"User ID:\", response.user.user_id);"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "content-type",
-								"value": "application/json"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"otp_code\": \"1234\",\r\n    \"phone_number\": \"{{SazgarPhoneNumber}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/auth/otp/verify/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"auth",
-								"otp",
-								"verify",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/auth/otp/verify/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"otp_code\":\"1234\",\"phone_number\":\"09127988412\"}'"
-					},
-					"response": []
-				},
-				{
 					"name": "balance  Student",
 					"event": [
 						{
@@ -999,6 +1226,91 @@
 							]
 						},
 						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/courses/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4NjE3ODYyLCJpYXQiOjE3NTg2MTQyNjIsImp0aSI6IjAzMzFjYzQ3ZDIxMTQ2MGNhZWMxNDIyMTY2ZTIyZGQ0IiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjJ9.CZkI7WGmrvrNSsaXx302oD0jEpIg_hLmqwlQYtsq5bs' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1'"
+					},
+					"response": []
+				},
+				{
+					"name": "Add question Student(Text)111",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{tokenUser}}"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://stage-andarz-front.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://stage-andarz-front.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subject\": \"def_09\",\r\n    \"text_content\": \"تست تست تست \",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://andarzapi-stage.darkube.app/api/questions/",
+							"protocol": "https",
+							"host": [
+								"andarzapi-stage",
+								"darkube",
+								"app"
+							],
+							"path": [
+								"api",
+								"questions",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/questions/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMDk0OTI0LCJpYXQiOjE3NTkyMzA5MjQsImp0aSI6ImNmYTg2YTFlZmRlMDQyY2U5MmYyZjZjMjU5YTMyZWVlIiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjd9.TUPFpJHVYAcOjOU7_fAault0yI2pXk5HjrdpdxJUjz8' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"subject\":\"def_09\",\"text_content\":\"تست تست تست \",\"tag\":[\"string\"],\"type\":\"explain\",\"urgency_level\":1,\"media_ids\":[]}'"
 					},
 					"response": []
 				},
@@ -1724,7 +2036,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "postman-cloud:///1f06c72b-0597-4690-8616-3f8132353e7f"
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
@@ -2189,7 +2501,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "postman-cloud:///1f06c72b-0597-4690-8616-3f8132353e7f"
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
@@ -2425,2925 +2737,6 @@
 					}
 				}
 			]
-		},
-		{
-			"name": "Answer & question(Text+Voice)",
-			"item": [
-				{
-					"name": "balance  Student",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// تست: بالانس باید بیشتر از 50 باشه\r",
-									"pm.test(\"Balance is greater than 50\", function () {\r",
-									"    pm.expect(jsonData.balance).to.be.above(50);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"url": {
-							"raw": "{{UrlStage}}/api/anddo/balance/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"anddo",
-								"balance",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/anddo/balance/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzYxMzEyLCJpYXQiOjE3NTc3NTc3MTIsImp0aSI6IjdkMjAxNWFjNzY3NTQ2OWZhZDhmZjU3Njg4ZWQwNmJlIiwidXNlcl9pZCI6IjVlZDA2ODE2LWNmYjUtNGYxNC1iYzBmLTFiNTExODA1MWNkYSJ9.n8HmFuhA15MG5u0aZAxa8WbXIGKF8lg6wn7vaAGeuQs' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1'"
-					},
-					"response": []
-				},
-				{
-					"name": "upload media-voice",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// ذخیره media_id در Environment\r",
-									"pm.environment.set(\"Media_id_Voice\", jsonData.media.media_id);\r",
-									"\r",
-									"console.log(\"media_id saved:\", jsonData.media.media_id);"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "media_type",
-									"value": "audio",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "d1",
-									"type": "text"
-								},
-								{
-									"key": "tags",
-									"value": "[\"string\"]",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"type": "file",
-									"src": "./resources/Voice.mp3"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/media/upload/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"media",
-								"upload",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/media/upload/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3Nzc0MjkzLCJpYXQiOjE3NTc3NzA2OTMsImp0aSI6ImE3NzFkZTZjZDc3YjQ3MTA5MzRkYzBkMzJjYWUyOGQ1IiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.ZGoE_5AR7UabSfdlZNkHKmJUR9i0NJXI8QtD0ZmPRXc' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary9IPOWW8TQex8D70g' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw $'------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"media_type\"\\r\\n\\r\\nimage\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"description\"\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"tags\"\\r\\n\\r\\n[\"string\"]\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"file\"; filename=\"pic 1.jpg\"\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g--\\r\\n'"
-					},
-					"response": []
-				},
-				{
-					"name": "Get courses",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// Fixed SyntaxError by removing extra code\r",
-									"let response = pm.response.json();\r",
-									"\r",
-									"// انتخاب رندوم یکی از آیتم‌ها\r",
-									"let randomIndex = Math.floor(Math.random() * response.length);\r",
-									"let randomSlug = response[randomIndex].slug;\r",
-									"\r",
-									"// ذخیره در Environment\r",
-									"pm.environment.set(\"random_slug\", randomSlug);\r",
-									"\r",
-									"// ذخیره در Collection (اختیاری)\r",
-									"\r",
-									"console.log(\"✅ slug به صورت رندوم ذخیره شد:\", randomSlug);\r",
-									"\r",
-									"console.log(\"⚠️ پاسخ خالی یا فرمت درست نیست\");\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://stage-andarz-front.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://stage-andarz-front.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"url": {
-							"raw": "https://andarzapi-stage.darkube.app/api/courses/",
-							"protocol": "https",
-							"host": [
-								"andarzapi-stage",
-								"darkube",
-								"app"
-							],
-							"path": [
-								"api",
-								"courses",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/courses/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4NjE3ODYyLCJpYXQiOjE3NTg2MTQyNjIsImp0aSI6IjAzMzFjYzQ3ZDIxMTQ2MGNhZWMxNDIyMTY2ZTIyZGQ0IiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjJ9.CZkI7WGmrvrNSsaXx302oD0jEpIg_hLmqwlQYtsq5bs' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1'"
-					},
-					"response": []
-				},
-				{
-					"name": "Add question Student (Text+Voice)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"\r",
-									"const json = pm.response.json();\r",
-									"\r",
-									"pm.environment.set(\"question_id_Voice\", json.question.question_id);\r",
-									"pm.environment.set(\"Session_id_Voice\", json.session.session_id);\r",
-									"console.log(\"Saved question_id:\", json.question.question_id);\r",
-									"console.log(\"Saved session_id:\", json.session.session_id);\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"// بانک سوالات اصلی (بدون تغییر)\r",
-									"const questionsBank = {\r",
-									"    \"Math\": [\r",
-									"        { type: \"MCQ\", question: \"5 + 7 = ?\", options: [\"10\",\"12\",\"13\",\"11\"], answer: \"12\" },\r",
-									"        { type: \"True/False\", question: \"9 * 0 = 0\", answer: true },\r",
-									"        { type: \"Short\", question: \"توضیح بده مفهوم عدد اول چیست؟\" }\r",
-									"    ],\r",
-									"    \"Science\": [\r",
-									"        { type: \"MCQ\", question: \"آب از چه چیزی تشکیل شده است؟\", options: [\"H2O\",\"CO2\",\"O2\",\"NaCl\"], answer: \"H2O\" },\r",
-									"        { type: \"True/False\", question: \"زمین مرکز منظومه شمسی است.\", answer: false },\r",
-									"        { type: \"Short\", question: \"عمل فتوسنتز چیست؟\" }\r",
-									"    ],\r",
-									"    \"History\": [\r",
-									"        { type: \"MCQ\", question: \"سال کشف آمریکا توسط کریستف کلمب؟\", options: [\"1492\",\"1500\",\"1600\",\"1450\"], answer: \"1492\" },\r",
-									"        { type: \"True/False\", question: \"انقلاب فرانسه در 1789 رخ داد.\", answer: true },\r",
-									"        { type: \"Short\", question: \"چه کسی اولین رئیس جمهور آمریکا بود؟\" }\r",
-									"    ],\r",
-									"    \"Programming\": [\r",
-									"        { type: \"MCQ\", question: \"زبان پایتون توسط چه کسی طراحی شد؟\", options: [\"Guido van Rossum\", \"James Gosling\", \"Bjarne Stroustrup\", \"Linus Torvalds\"], answer: \"Guido van Rossum\" },\r",
-									"        { type: \"True/False\", question: \"Python یک زبان کامپایل شده است.\", answer: false },\r",
-									"        { type: \"Short\", question: \"تفاوت لیست و تاپل در پایتون چیست؟\" }\r",
-									"    ],\r",
-									"    \"General\": [\r",
-									"        { type: \"MCQ\", question: \"رنگ آسمان در روز آفتابی چیست؟\", options: [\"سبز\", \"آبی\", \"قرمز\", \"زرد\"], answer: \"آبی\" },\r",
-									"        { type: \"True/False\", question: \"خورشید از ستاره‌هاست.\", answer: true },\r",
-									"        { type: \"Short\", question: \"یک حیوان در حال انقراض نام ببر.\" }\r",
-									"    ]\r",
-									"};\r",
-									"\r",
-									"// انتخاب موضوع و سپس یک سوال تصادفی\r",
-									"const subjects = Object.keys(questionsBank);\r",
-									"const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];\r",
-									"const questionList = questionsBank[randomSubject];\r",
-									"const randomQuestion = questionList[Math.floor(Math.random() * questionList.length)];\r",
-									"\r",
-									"// فقط متن سوال را در متغیر محیطی ذخیره می‌کنیم\r",
-									"pm.environment.set(\"randomQuestion\", randomQuestion.question);\r",
-									"pm.environment.set(\"randomAnswer_Admin\", randomQuestion.answer);\r",
-									"\r",
-									"// نمایش در Console Postman برای بررسی\r",
-									"console.log(\"Random Question:\", randomQuestion.question);\r",
-									"console.log(\"Answer:\", randomQuestion.answer);"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "content-type",
-								"value": "application/json"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"subject\": \"{{random_slug}}\",\r\n    \"text_content\": \"{{randomQuestion}}\",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": [\"{{Media_id_Voice}}\"]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/questions/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"questions",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/questions/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzU1ODgxLCJpYXQiOjE3NTc3NTIyODEsImp0aSI6IjkyZjg0MThlZjNmZjRhN2Q5YTBiNjUwOGM5NzM0ZTRhIiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.Wqfe8blch7O5Owbzu8XghkryeDF1uTGv8L-TC9jjklY' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"subject\":\"other\",\"text_content\":\"مفهوم شی‌گرایی در برنامه‌نویسی چیست؟\",\"tag\":[\"string\"],\"type\":\"explain\",\"urgency_level\":1,\"media_ids\":[]}'"
-					},
-					"response": []
-				},
-				{
-					"name": "find question in qusetion list Student",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// مقدار وریبل ذخیره شده\r",
-									"const text_question = pm.environment.get(\"text_question\");\r",
-									"\r",
-									"// گرفتن JSON ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// فرض می‌کنیم \"results\" یک آرایه است\r",
-									"let foundMatch = false;\r",
-									"\r",
-									"jsonData.results.forEach(item => {\r",
-									"    if (item.text_content === text_question) {\r",
-									"        foundMatch = true;\r",
-									"        console.log(\"Match found ✅:\", item.text_content);\r",
-									"    }\r",
-									"});\r",
-									"\r",
-									"// تست برای اطمینان\r",
-									"pm.test(\"Check if text_question exists in response text_content\", function () {\r",
-									"    pm.expect(foundMatch).to.eql(true);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"url": {
-							"raw": "{{UrlStage}}/api/questions/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"questions",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/questions/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzU1ODgxLCJpYXQiOjE3NTc3NTIyODEsImp0aSI6IjkyZjg0MThlZjNmZjRhN2Q5YTBiNjUwOGM5NzM0ZTRhIiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.Wqfe8blch7O5Owbzu8XghkryeDF1uTGv8L-TC9jjklY' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1'"
-					},
-					"response": []
-				},
-				{
-					"name": "upload media-voice",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// ذخیره media_id در Environment\r",
-									"pm.environment.set(\"Media_id_Voice\", jsonData.media.media_id);\r",
-									"\r",
-									"console.log(\"media_id saved:\", jsonData.media.media_id);"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "media_type",
-									"value": "audio",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "d",
-									"type": "text"
-								},
-								{
-									"key": "tags",
-									"value": "[\"string\"]",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"type": "file",
-									"src": "./resources/Voice.mp3"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/media/upload/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"media",
-								"upload",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/media/upload/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3Nzc0MjkzLCJpYXQiOjE3NTc3NzA2OTMsImp0aSI6ImE3NzFkZTZjZDc3YjQ3MTA5MzRkYzBkMzJjYWUyOGQ1IiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.ZGoE_5AR7UabSfdlZNkHKmJUR9i0NJXI8QtD0ZmPRXc' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary9IPOWW8TQex8D70g' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw $'------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"media_type\"\\r\\n\\r\\nimage\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"description\"\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"tags\"\\r\\n\\r\\n[\"string\"]\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"file\"; filename=\"pic 1.jpg\"\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g--\\r\\n'"
-					},
-					"response": []
-				},
-				{
-					"name": "answers admin",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// ذخیره در Environment\r",
-									"pm.environment.set(\"answer_id\", jsonData.answer_id);\r",
-									"\r",
-									"console.log(\"answer_id saved:\", jsonData.answer_id);\r",
-									"\r",
-									"console.log(\"➡️ Request Body:\", pm.request.body);\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"packages": {},
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Token {{tokenAdmin}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-CSRFTOKEN",
-								"value": "rueP9f4k9Sh43LXCR7ZE0X5BOGoaZvMK4RG4IazpbnTXF044jDt1pBm0ficNOYG0"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"question\": \"{{question_id_Voice}}\",\r\n  \"text_content\": \"{{randomAnswer_Admin}}\",\r\n  \"audio_url\": \"\",\r\n  \"image_url\": \"\",\r\n  \"video_link\": \"\",\r\n  \"media_ids\": [\r\n    \"{{Session_id_Voice}}\",\"{{Media_id_Voice}}\"\r\n  ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://andarzapi-stage.darkube.app/api/answers/",
-							"protocol": "https",
-							"host": [
-								"andarzapi-stage",
-								"darkube",
-								"app"
-							],
-							"path": [
-								"api",
-								"answers",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://andarzapi-stage.darkube.app/api/answers/' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Authorization: db136be19ac17fa1a3bb3e5ac93fc5c262b8e801' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'X-CSRFTOKEN: rueP9f4k9Sh43LXCR7ZE0X5BOGoaZvMK4RG4IazpbnTXF044jDt1pBm0ficNOYG0' \\\r\n  -d '{\r\n  \"question\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"text_content\": \"string\",\r\n  \"audio_url\": \"string\",\r\n  \"image_url\": \"string\",\r\n  \"video_link\": \"string\",\r\n  \"media_ids\": [\r\n    \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n  ]\r\n}'"
-					},
-					"response": []
-				},
-				{
-					"name": "show question & Answer Student",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن مقدار Answer_Admin از متغیرهای پستمن و تبدیل \\n به خط جدید واقعی\r",
-									"let answerAdmin = pm.variables.get(\"Answer_Admin\").replace(/\\\\n/g, \"\\n\");\r",
-									"console.log(\"Answer_Admin (after \\\\n replaced):\", answerAdmin);\r",
-									"\r",
-									"// گرفتن بادی ریسپانس\r",
-									"let jsonData = pm.response.json();\r",
-									"\r",
-									"// بررسی وجود متن در بین پاسخ‌ها\r",
-									"let matchedAnswer = jsonData.answers.find(ans => {\r",
-									"    console.log(\"Current answer text_content:\", ans.text_content); // لاگ هر text_content\r",
-									"    return ans.text_content === answerAdmin;\r",
-									"});\r",
-									"\r",
-									"// تست پاس/فیل\r",
-									"pm.test(\"Check if text_content matches {{Answer_Admin}}\", function () {\r",
-									"    pm.expect(!!matchedAnswer).to.eql(true);\r",
-									"});\r",
-									"\r",
-									"// ذخیره نتیجه در متغیر محیطی (اختیاری)\r",
-									"pm.environment.set(\"answer_exists\", matchedAnswer ? true : false);\r",
-									"if (matchedAnswer) {\r",
-									"    pm.environment.set(\"matched_answer_id\", matchedAnswer.answer_id);\r",
-									"} else {\r",
-									"    pm.environment.unset(\"matched_answer_id\");\r",
-									"}\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "sec-ch-ua",
-								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
-							},
-							{
-								"key": "sec-ch-ua-mobile",
-								"value": "?0"
-							},
-							{
-								"key": "sec-ch-ua-platform",
-								"value": "\"Windows\""
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
-							}
-						],
-						"url": {
-							"raw": "{{UrlStage}}/api/questions/{{question_id_text}}/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"questions",
-								"{{question_id_text}}",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/questions/53cbd7e8-ff81-4884-828f-be3ed1eac6b6/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzY0NDg3LCJpYXQiOjE3NTc3NjA4ODcsImp0aSI6IjczYmEyZjAyZWQxMzRkYWNiOTIzYzhhNzdjMDBjMmExIiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.OkfNiSDo1cGRzS59a9S46m_iQ9o8VOOLiVSV47F47KI' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'sec-ch-ua: \"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36'"
-					},
-					"response": []
-				}
-			],
-			"description": "**Feature**: Student asks a question and teacher answers  \n**As** a student user  \nI want to login and ask my academic question  \n**So** that I can receive an answer from a teacher\n\n**Background**:\n\n**Given** the student is on the login page\n\n**Scenario**: **Student logs in and submits a question**  \n**When** the student enters a valid phone number  \n**And** the system sends an OTP code to the student  \n**And** the student submits the correct OTP code  \n**Then** the student should be logged in successfully  \n**And** the student should be redirected to the Question page  \n**When** the student navigates to the \"Ask a Question\" page  \n**And** the student types the question \"مفهوم شی‌گرایی در برنامه‌نویسی چیست؟\"  \n**And** the student upload Vioce in the question  \n**And** the student submits the question  \n**Then** the system should display a confirmation message \"سوال شما با موفقیت ثبت شد\"  \n**Then** the question should be visible in the admin/teacher panel  \n**Then** the question should be visible in the student panel",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"packages": {},
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"packages": {},
-						"exec": [
-							"pm.test(`Status code should be 200 or 201, actual: ${pm.response.code}`, function () {\r",
-							"    pm.expect([200, 201]).to.include(pm.response.code);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response time is less than 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"setTimeout(() => {\r",
-							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);\r",
-							"\r",
-							"\r",
-							"console.log(\"➡️ Request Body:\", pm.request.body);"
-						]
-					}
-				}
-			]
-		},
-		{
-			"name": "Answer & question(Text+Voice+ image)",
-			"item": [
-				{
-					"name": "balance  Student",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// تست: بالانس باید بیشتر از 50 باشه\r",
-									"pm.test(\"Balance is greater than 50\", function () {\r",
-									"    pm.expect(jsonData.balance).to.be.above(50);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"url": {
-							"raw": "{{UrlStage}}/api/anddo/balance/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"anddo",
-								"balance",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/anddo/balance/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzYxMzEyLCJpYXQiOjE3NTc3NTc3MTIsImp0aSI6IjdkMjAxNWFjNzY3NTQ2OWZhZDhmZjU3Njg4ZWQwNmJlIiwidXNlcl9pZCI6IjVlZDA2ODE2LWNmYjUtNGYxNC1iYzBmLTFiNTExODA1MWNkYSJ9.n8HmFuhA15MG5u0aZAxa8WbXIGKF8lg6wn7vaAGeuQs' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1'"
-					},
-					"response": []
-				},
-				{
-					"name": "upload media-voice",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// ذخیره media_id در Environment\r",
-									"pm.environment.set(\"Media_id_Voice\", jsonData.media.media_id);\r",
-									"\r",
-									"console.log(\"media_id saved:\", jsonData.media.media_id);"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "media_type",
-									"value": "audio",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "d",
-									"type": "text"
-								},
-								{
-									"key": "tags",
-									"value": "[\"string\"]",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"type": "file",
-									"src": "./resources/Voice.mp3"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/media/upload/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"media",
-								"upload",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/media/upload/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3Nzc0MjkzLCJpYXQiOjE3NTc3NzA2OTMsImp0aSI6ImE3NzFkZTZjZDc3YjQ3MTA5MzRkYzBkMzJjYWUyOGQ1IiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.ZGoE_5AR7UabSfdlZNkHKmJUR9i0NJXI8QtD0ZmPRXc' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary9IPOWW8TQex8D70g' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw $'------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"media_type\"\\r\\n\\r\\nimage\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"description\"\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"tags\"\\r\\n\\r\\n[\"string\"]\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"file\"; filename=\"pic 1.jpg\"\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g--\\r\\n'"
-					},
-					"response": []
-				},
-				{
-					"name": "upload media-image",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// ذخیره media_id در Environment\r",
-									"pm.environment.set(\"Media_id_Image\", jsonData.media.media_id);\r",
-									"\r",
-									"console.log(\"media_id saved:\", jsonData.media.media_id);\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "media_type",
-									"value": "image",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "d",
-									"type": "text"
-								},
-								{
-									"key": "tags",
-									"value": "[\"string\"]",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"type": "file",
-									"src": "./resources/math1.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/media/upload/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"media",
-								"upload",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/media/upload/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3Nzc0MjkzLCJpYXQiOjE3NTc3NzA2OTMsImp0aSI6ImE3NzFkZTZjZDc3YjQ3MTA5MzRkYzBkMzJjYWUyOGQ1IiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.ZGoE_5AR7UabSfdlZNkHKmJUR9i0NJXI8QtD0ZmPRXc' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary9IPOWW8TQex8D70g' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw $'------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"media_type\"\\r\\n\\r\\nimage\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"description\"\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"tags\"\\r\\n\\r\\n[\"string\"]\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"file\"; filename=\"pic 1.jpg\"\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g--\\r\\n'"
-					},
-					"response": []
-				},
-				{
-					"name": "Get courses",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// Fixed SyntaxError by removing extra code\r",
-									"let response = pm.response.json();\r",
-									"\r",
-									"// انتخاب رندوم یکی از آیتم‌ها\r",
-									"let randomIndex = Math.floor(Math.random() * response.length);\r",
-									"let randomSlug = response[randomIndex].slug;\r",
-									"\r",
-									"// ذخیره در Environment\r",
-									"pm.environment.set(\"random_slug\", randomSlug);\r",
-									"\r",
-									"// ذخیره در Collection (اختیاری)\r",
-									"\r",
-									"console.log(\"✅ slug به صورت رندوم ذخیره شد:\", randomSlug);\r",
-									"\r",
-									"console.log(\"⚠️ پاسخ خالی یا فرمت درست نیست\");\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://stage-andarz-front.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://stage-andarz-front.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"url": {
-							"raw": "https://andarzapi-stage.darkube.app/api/courses/",
-							"protocol": "https",
-							"host": [
-								"andarzapi-stage",
-								"darkube",
-								"app"
-							],
-							"path": [
-								"api",
-								"courses",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/courses/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4NjE3ODYyLCJpYXQiOjE3NTg2MTQyNjIsImp0aSI6IjAzMzFjYzQ3ZDIxMTQ2MGNhZWMxNDIyMTY2ZTIyZGQ0IiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjJ9.CZkI7WGmrvrNSsaXx302oD0jEpIg_hLmqwlQYtsq5bs' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1'"
-					},
-					"response": []
-				},
-				{
-					"name": "Add question Student (Text+Voice+ image)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const json = pm.response.json();\r",
-									"\r",
-									"pm.environment.set(\"Session_id_medias\", json.question.session_id);\r",
-									"pm.environment.set(\"question_id_medias\", json.question.question_id);\r",
-									"console.log(\"question_id saved:\", json.question.question_id);\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"// بانک سوالات اصلی (بدون تغییر)\r",
-									"const questionsBank = {\r",
-									"    \"Math\": [\r",
-									"        { type: \"MCQ\", question: \"5 + 7 = ?\", options: [\"10\",\"12\",\"13\",\"11\"], answer: \"12\" },\r",
-									"        { type: \"True/False\", question: \"9 * 0 = 0\", answer: true },\r",
-									"        { type: \"Short\", question: \"توضیح بده مفهوم عدد اول چیست؟\" }\r",
-									"    ],\r",
-									"    \"Science\": [\r",
-									"        { type: \"MCQ\", question: \"آب از چه چیزی تشکیل شده است؟\", options: [\"H2O\",\"CO2\",\"O2\",\"NaCl\"], answer: \"H2O\" },\r",
-									"        { type: \"True/False\", question: \"زمین مرکز منظومه شمسی است.\", answer: false },\r",
-									"        { type: \"Short\", question: \"عمل فتوسنتز چیست؟\" }\r",
-									"    ],\r",
-									"    \"History\": [\r",
-									"        { type: \"MCQ\", question: \"سال کشف آمریکا توسط کریستف کلمب؟\", options: [\"1492\",\"1500\",\"1600\",\"1450\"], answer: \"1492\" },\r",
-									"        { type: \"True/False\", question: \"انقلاب فرانسه در 1789 رخ داد.\", answer: true },\r",
-									"        { type: \"Short\", question: \"چه کسی اولین رئیس جمهور آمریکا بود؟\" }\r",
-									"    ],\r",
-									"    \"Programming\": [\r",
-									"        { type: \"MCQ\", question: \"زبان پایتون توسط چه کسی طراحی شد؟\", options: [\"Guido van Rossum\", \"James Gosling\", \"Bjarne Stroustrup\", \"Linus Torvalds\"], answer: \"Guido van Rossum\" },\r",
-									"        { type: \"True/False\", question: \"Python یک زبان کامپایل شده است.\", answer: false },\r",
-									"        { type: \"Short\", question: \"تفاوت لیست و تاپل در پایتون چیست؟\" }\r",
-									"    ],\r",
-									"    \"General\": [\r",
-									"        { type: \"MCQ\", question: \"رنگ آسمان در روز آفتابی چیست؟\", options: [\"سبز\", \"آبی\", \"قرمز\", \"زرد\"], answer: \"آبی\" },\r",
-									"        { type: \"True/False\", question: \"خورشید از ستاره‌هاست.\", answer: true },\r",
-									"        { type: \"Short\", question: \"یک حیوان در حال انقراض نام ببر.\" }\r",
-									"    ]\r",
-									"};\r",
-									"\r",
-									"// انتخاب موضوع و سپس یک سوال تصادفی\r",
-									"const subjects = Object.keys(questionsBank);\r",
-									"const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];\r",
-									"const questionList = questionsBank[randomSubject];\r",
-									"const randomQuestion = questionList[Math.floor(Math.random() * questionList.length)];\r",
-									"\r",
-									"// فقط متن سوال را در متغیر محیطی ذخیره می‌کنیم\r",
-									"pm.environment.set(\"randomQuestion\", randomQuestion.question);\r",
-									"\r",
-									"// نمایش در Console Postman برای بررسی\r",
-									"console.log(\"Random Question:\", randomQuestion.question);\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "content-type",
-								"value": "application/json"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "\r\n{\r\n    \"subject\": \"{{random_slug}}\",\r\n    \"text_content\": \"{{randomQuestion}}\",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": [\"{{Media_id_Voice}}\",\"{{Media_id_Image}}\"]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/questions/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"questions",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/questions/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzU1ODgxLCJpYXQiOjE3NTc3NTIyODEsImp0aSI6IjkyZjg0MThlZjNmZjRhN2Q5YTBiNjUwOGM5NzM0ZTRhIiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.Wqfe8blch7O5Owbzu8XghkryeDF1uTGv8L-TC9jjklY' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"subject\":\"other\",\"text_content\":\"مفهوم شی‌گرایی در برنامه‌نویسی چیست؟\",\"tag\":[\"string\"],\"type\":\"explain\",\"urgency_level\":1,\"media_ids\":[]}'"
-					},
-					"response": []
-				},
-				{
-					"name": "find question in qusetion list Student",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن question_id از اینوارمنت\r",
-									"const questionId = pm.environment.get(\"question_id_text\");\r",
-									"\r",
-									"// گرفتن خروجی API\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"pm.test(\"Question ID must exist in response list\", function () {\r",
-									"    if (Array.isArray(jsonData)) {\r",
-									"        const foundItem = jsonData.find(item => item.question_id === String(questionId).trim());\r",
-									"\r",
-									"        pm.expect(!!foundItem, \"❌ Question ID not found in response\").to.be.true;\r",
-									"\r",
-									"        if (foundItem) {\r",
-									"            console.log(\"✅ Found Question ID:\", foundItem.question_id);\r",
-									"        }\r",
-									"    } else {\r",
-									"        pm.expect.fail(\"⚠️ Response is not an array!\");\r",
-									"    }\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"url": {
-							"raw": "{{UrlStage}}/api/questions/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"questions",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/questions/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzU1ODgxLCJpYXQiOjE3NTc3NTIyODEsImp0aSI6IjkyZjg0MThlZjNmZjRhN2Q5YTBiNjUwOGM5NzM0ZTRhIiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.Wqfe8blch7O5Owbzu8XghkryeDF1uTGv8L-TC9jjklY' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1'"
-					},
-					"response": []
-				},
-				{
-					"name": "upload media-image-Admin",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// ذخیره media_id در Environment\r",
-									"pm.environment.set(\"Media_id_Image\", jsonData.media.media_id);\r",
-									"\r",
-									"console.log(\"media_id saved:\", jsonData.media.media_id);\r",
-									"setTimeout(() => {\r",
-									"    console.log(\"Waited 200ms before sending request\");\r",
-									"}, 100);"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "media_type",
-									"value": "image",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "d",
-									"type": "text"
-								},
-								{
-									"key": "tags",
-									"value": "[\"string\"]",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"type": "file",
-									"src": "postman-cloud:///1f06c72b-0597-4690-8616-3f8132353e7f"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/media/upload/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"media",
-								"upload",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/media/upload/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3Nzc0MjkzLCJpYXQiOjE3NTc3NzA2OTMsImp0aSI6ImE3NzFkZTZjZDc3YjQ3MTA5MzRkYzBkMzJjYWUyOGQ1IiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.ZGoE_5AR7UabSfdlZNkHKmJUR9i0NJXI8QtD0ZmPRXc' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary9IPOWW8TQex8D70g' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw $'------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"media_type\"\\r\\n\\r\\nimage\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"description\"\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"tags\"\\r\\n\\r\\n[\"string\"]\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"file\"; filename=\"pic 1.jpg\"\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g--\\r\\n'"
-					},
-					"response": []
-				},
-				{
-					"name": "upload media-voice-Admin",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// ذخیره media_id در Environment\r",
-									"pm.environment.set(\"Media_id_Voice\", jsonData.media.media_id);\r",
-									"\r",
-									"console.log(\"media_id saved:\", jsonData.media.media_id);"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "media_type",
-									"value": "audio",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "d1",
-									"type": "text"
-								},
-								{
-									"key": "tags",
-									"value": "[\"string\"]",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"type": "file",
-									"src": "./resources/Voice.mp3"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/media/upload/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"media",
-								"upload",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/media/upload/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3Nzc0MjkzLCJpYXQiOjE3NTc3NzA2OTMsImp0aSI6ImE3NzFkZTZjZDc3YjQ3MTA5MzRkYzBkMzJjYWUyOGQ1IiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.ZGoE_5AR7UabSfdlZNkHKmJUR9i0NJXI8QtD0ZmPRXc' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary9IPOWW8TQex8D70g' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw $'------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"media_type\"\\r\\n\\r\\nimage\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"description\"\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"tags\"\\r\\n\\r\\n[\"string\"]\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"file\"; filename=\"pic 1.jpg\"\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g--\\r\\n'"
-					},
-					"response": []
-				},
-				{
-					"name": "answers admin(Text+Voice+ image)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// ذخیره در Environment\r",
-									"pm.environment.set(\"answer_id\", jsonData.answer_id);\r",
-									"\r",
-									"console.log(\"answer_id saved:\", jsonData.answer_id);\r",
-									"\r",
-									"console.log(\"➡️ Request Body:\", pm.request.body);\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Token {{tokenAdmin}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-CSRFTOKEN",
-								"value": "rueP9f4k9Sh43LXCR7ZE0X5BOGoaZvMK4RG4IazpbnTXF044jDt1pBm0ficNOYG0"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"question\": \"{{question_id_medias}}\",\r\n  \"text_content\": \"{{randomAnswer_Admin}}\",\r\n  \"audio_url\": \"\",\r\n  \"image_url\": \"\",\r\n  \"video_link\": \"\",\r\n  \"media_ids\": [\r\n    \"{{Session_id_medias}}\",\"{{Media_id_Voice}}\",\"{{Media_id_Image}}\"\r\n  ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/answers/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"answers",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://andarzapi-stage.darkube.app/api/answers/' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Authorization: db136be19ac17fa1a3bb3e5ac93fc5c262b8e801' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'X-CSRFTOKEN: rueP9f4k9Sh43LXCR7ZE0X5BOGoaZvMK4RG4IazpbnTXF044jDt1pBm0ficNOYG0' \\\r\n  -d '{\r\n  \"question\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"text_content\": \"string\",\r\n  \"audio_url\": \"string\",\r\n  \"image_url\": \"string\",\r\n  \"video_link\": \"string\",\r\n  \"media_ids\": [\r\n    \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n  ]\r\n}'"
-					},
-					"response": []
-				},
-				{
-					"name": "show question & Answer Student",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن مقدار Answer_Admin از متغیرهای پستمن و تبدیل \\n به خط جدید واقعی\r",
-									"let answerAdmin = pm.variables.get(\"Answer_Admin\").replace(/\\\\n/g, \"\\n\");\r",
-									"console.log(\"Answer_Admin (after \\\\n replaced):\", answerAdmin);\r",
-									"\r",
-									"// گرفتن بادی ریسپانس\r",
-									"let jsonData = pm.response.json();\r",
-									"\r",
-									"// بررسی وجود متن در بین پاسخ‌ها\r",
-									"let matchedAnswer = jsonData.answers.find(ans => {\r",
-									"    console.log(\"Current answer text_content:\", ans.text_content); // لاگ هر text_content\r",
-									"    return ans.text_content === answerAdmin;\r",
-									"});\r",
-									"\r",
-									"// تست پاس/فیل\r",
-									"pm.test(\"Check if text_content matches {{Answer_Admin}}\", function () {\r",
-									"    pm.expect(!!matchedAnswer).to.eql(true);\r",
-									"});\r",
-									"\r",
-									"// ذخیره نتیجه در متغیر محیطی (اختیاری)\r",
-									"pm.environment.set(\"answer_exists\", matchedAnswer ? true : false);\r",
-									"if (matchedAnswer) {\r",
-									"    pm.environment.set(\"matched_answer_id\", matchedAnswer.answer_id);\r",
-									"} else {\r",
-									"    pm.environment.unset(\"matched_answer_id\");\r",
-									"}\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "sec-ch-ua",
-								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
-							},
-							{
-								"key": "sec-ch-ua-mobile",
-								"value": "?0"
-							},
-							{
-								"key": "sec-ch-ua-platform",
-								"value": "\"Windows\""
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
-							}
-						],
-						"url": {
-							"raw": "{{UrlStage}}/api/questions/{{question_id_text}}/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"questions",
-								"{{question_id_text}}",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/questions/53cbd7e8-ff81-4884-828f-be3ed1eac6b6/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzY0NDg3LCJpYXQiOjE3NTc3NjA4ODcsImp0aSI6IjczYmEyZjAyZWQxMzRkYWNiOTIzYzhhNzdjMDBjMmExIiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.OkfNiSDo1cGRzS59a9S46m_iQ9o8VOOLiVSV47F47KI' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'sec-ch-ua: \"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36'"
-					},
-					"response": []
-				}
-			],
-			"description": "**Feature**: Student asks a question and teacher answers  \n**As** a student user  \nI want to login and ask my academic question  \n**So** that I can receive an answer from a teacher\n\n**Background**:\n\n**Given** the student is on the login page\n\n**Scenario**: **Student logs in and submits a question**  \n**When** the student enters a valid phone number  \n**And** the system sends an OTP code to the student  \n**And** the student submits the correct OTP code  \n**Then** the student should be logged in successfully  \n**And** the student should be redirected to the Question page  \n**When** the student navigates to the \"Ask a Question\" page  \n**And** the student types the question \"مفهوم شی‌گرایی در برنامه‌نویسی چیست؟\"  \n**And** the student upload Vioce in the question  \n**And** the student upload image in the question  \n**And** the student submits the question  \n**Then** the system should display a confirmation message \"سوال شما با موفقیت ثبت شد\"  \n**Then** the question should be visible in the admin/teacher panel  \n**Then** the question should be visible in the student panel",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"packages": {},
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"packages": {},
-						"exec": [
-							"pm.test(`Status code should be 200 or 201, actual: ${pm.response.code}`, function () {\r",
-							"    pm.expect([200, 201]).to.include(pm.response.code);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response time is less than 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"setTimeout(() => {\r",
-							"    console.log(\"Waited 200ms before sending request\");\r",
-							"}, 100);\r",
-							"console.log(\"➡️ Request Body:\", pm.request.body);"
-						]
-					}
-				}
-			]
-		},
-		{
-			"name": "Student logs in and submits a question by Andi(Text)",
-			"item": [
-				{
-					"name": "balance  Student",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// تست: بالانس باید بیشتر از 50 باشه\r",
-									"pm.test(\"Balance is greater than 50\", function () {\r",
-									"    pm.expect(jsonData.balance).to.be.above(50);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"url": {
-							"raw": "{{UrlStage}}/api/anddo/balance/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"anddo",
-								"balance",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/anddo/balance/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzYxMzEyLCJpYXQiOjE3NTc3NTc3MTIsImp0aSI6IjdkMjAxNWFjNzY3NTQ2OWZhZDhmZjU3Njg4ZWQwNmJlIiwidXNlcl9pZCI6IjVlZDA2ODE2LWNmYjUtNGYxNC1iYzBmLTFiNTExODA1MWNkYSJ9.n8HmFuhA15MG5u0aZAxa8WbXIGKF8lg6wn7vaAGeuQs' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1'"
-					},
-					"response": []
-				},
-				{
-					"name": "ask andi",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// تبدیل پاسخ به JSON\r",
-									"let response = pm.response.json();\r",
-									"\r",
-									"// چک کن session_id وجود داشته باشه\r",
-									"\r",
-									"    // ذخیره در Environment\r",
-									"pm.environment.set(\"Session_id\", response.session_id);\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://stage-andarz-front.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://stage-andarz-front.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "subject",
-									"value": "{{random_slug}}",
-									"type": "text"
-								},
-								{
-									"key": "language",
-									"value": "fa",
-									"type": "text"
-								},
-								{
-									"key": "input",
-									"value": "{{randomAnswer_Admin}}",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://andarzapi-stage.darkube.app/api/andi/ask/",
-							"protocol": "https",
-							"host": [
-								"andarzapi-stage",
-								"darkube",
-								"app"
-							],
-							"path": [
-								"api",
-								"andi",
-								"ask",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/andi/ask/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4NjI4NjU2LCJpYXQiOjE3NTg2MjUwNTYsImp0aSI6IjZkOWZiYzQ5NjllYzQ4MTRiYWQ0NWNmNzEyNTc4MDdkIiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjN9.r9-C4JfGt3SDTwQULM6ePNpGxG7hXFGgZivNKdbwpj8' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundaryR00mtljdoHkqXogW' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw $'------WebKitFormBoundaryR00mtljdoHkqXogW\\r\\nContent-Disposition: form-data; name=\"subject\"\\r\\n\\r\\nmath_01\\r\\n------WebKitFormBoundaryR00mtljdoHkqXogW\\r\\nContent-Disposition: form-data; name=\"language\"\\r\\n\\r\\nfa\\r\\n------WebKitFormBoundaryR00mtljdoHkqXogW\\r\\nContent-Disposition: form-data; name=\"input\"\\r\\n\\r\\n2+2 \\r\\nچند میشه\\r\\n------WebKitFormBoundaryR00mtljdoHkqXogW--\\r\\n'"
-					},
-					"response": []
-				},
-				{
-					"name": "Get answer Andi",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://stage-andarz-front.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://stage-andarz-front.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"url": {
-							"raw": "{{UrlStage}}/api/sessions/{{Session_id}}/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"sessions",
-								"{{Session_id}}",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/sessions/6dcdca2c-18a1-4f74-956f-0a62df74cc83/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4NjM3MzQ5LCJpYXQiOjE3NTg2MzM3NDksImp0aSI6ImU3NTU4NjQ4MzA4MzRhZWQ5ZTNmZDU5ODVlMzJiZjdmIiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjN9.Sz38MShiMzNY5Kv9JPy_jfLMOnnjnOTwVB1CK9NrBYM' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1'"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Edit profile",
-			"item": [
-				{
-					"name": "Get user id",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// ذخیره user_id در Environment\r",
-									"pm.environment.set(\"userId\", jsonData.user_id);\r",
-									"\r",
-									"console.log(\"user_id saved:\", jsonData.user_id);\r",
-									"\r",
-									"// تست برای اطمینان\r",
-									"pm.test(\"user_id موجود است\", function () {\r",
-									"    pm.expect(jsonData.user_id).to.not.be.undefined;\r",
-									"    pm.expect(jsonData.user_id).to.not.be.null;\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://stage-andarz-front.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://stage-andarz-front.darkube.app/"
-							},
-							{
-								"key": "sec-ch-ua",
-								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
-							},
-							{
-								"key": "sec-ch-ua-mobile",
-								"value": "?0"
-							},
-							{
-								"key": "sec-ch-ua-platform",
-								"value": "\"Windows\""
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
-							}
-						],
-						"url": {
-							"raw": "https://andarzapi-stage.darkube.app/api/users/me/",
-							"protocol": "https",
-							"host": [
-								"andarzapi-stage",
-								"darkube",
-								"app"
-							],
-							"path": [
-								"api",
-								"users",
-								"me",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/users/me/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3ODQxMTc5LCJpYXQiOjE3NTc4Mzc1NzksImp0aSI6ImZmZGVjYmEzMGNjNTQwMjM4NmE5ZGY4ODM5OTI2NGZmIiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.XzYVwuIJvEcmgMjAgyGmK4pkj-eBXZLAnubt69bfKNs' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-ch-ua: \"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36'"
-					},
-					"response": []
-				},
-				{
-					"name": "Put user",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "X-CSRFToken",
-								"value": "e8b412a9aa350d1c6ccd402887cc443668f2a027"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-CSRFTOKEN",
-								"value": "ixh4HFUA341fESVlMLRqkwxxW8leHsl8AkqC2cgZKke6xRBWx0D6vDkE3sBMyjiv"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"phone_number\": \"09122981765\",\r\n  \"first_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"grade_id\": \"d9a769fe-8409-41f2-8c5d-24926cf69402\",\r\n  \"level_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"province_id\": 1,\r\n  \"city_id\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/users/{{userId}}/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"users",
-								"{{userId}}",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl -X 'PUT' \\\r\n  'https://andarzapi.darkube.app/api/users/05405f29-9a44-4b5b-b1c0-48c05cec5f9a/' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'X-CSRFToken: e8b412a9aa350d1c6ccd402887cc443668f2a027' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzU5MDAyLCJpYXQiOjE3NTc3NTU0MDIsImp0aSI6IjRhNWZhNWY5OWE2MjQ5ZjE4NGM0NWU5MzAwZjkyOTU3IiwidXNlcl9pZCI6IjUxMDg3MDc5LTAyN2QtNGI2Ni05NzIwLTNjZWJmZTUyNTg1ZSJ9._uo6pwgIiSbpPe_iGHgSu9tBBfmKO1rQFm4I3lTB8SU' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'X-CSRFTOKEN: ixh4HFUA341fESVlMLRqkwxxW8leHsl8AkqC2cgZKke6xRBWx0D6vDkE3sBMyjiv' \\\r\n  -d '{\r\n  \"phone_number\": \"string\",\r\n  \"first_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"grade_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"level_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"field_of_study_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"province\": \"string\",\r\n  \"city\": \"string\",\r\n  \"province_id\": 0,\r\n  \"city_id\": 0\r\n}'"
-					},
-					"response": []
-				},
-				{
-					"name": "Get grades",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"let response = pm.response.json();\r",
-									"\r",
-									"// انتخاب تصادفی یک دسته‌بندی (grade)\r",
-									"let randomGradeIndex = Math.floor(Math.random() * response.length);\r",
-									"let selectedGrade = response[randomGradeIndex];\r",
-									"\r",
-									"// ذخیره grade_id\r",
-									"pm.environment.set(\"grade_id\", selectedGrade.id);\r",
-									"\r",
-									"// انتخاب تصادفی یک level از grade انتخاب شده\r",
-									"let levels = selectedGrade.levels;\r",
-									"let randomLevelIndex = Math.floor(Math.random() * levels.length);\r",
-									"let selectedLevel = levels[randomLevelIndex];\r",
-									"\r",
-									"// ذخیره level_id\r",
-									"pm.environment.set(\"level_id\", selectedLevel.id);\r",
-									"\r",
-									"console.log(\"grade_id:\", selectedGrade.id);\r",
-									"console.log(\"level_id:\", selectedLevel.id);"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://stage-andarz-front.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://stage-andarz-front.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-							}
-						],
-						"url": {
-							"raw": "https://andarzapi-stage.darkube.app/api/grades/",
-							"protocol": "https",
-							"host": [
-								"andarzapi-stage",
-								"darkube",
-								"app"
-							],
-							"path": [
-								"api",
-								"grades",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/grades/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzcxNzU2LCJpYXQiOjE3NTgzNjgxNTYsImp0aSI6ImY3NjI2ZTIwZWQwNTQ3ODJiZjc2ZmE5OGM0ODIyNjM5IiwidXNlcl9pZCI6ImM5YWI3ZTVmLWY2M2MtNDI1MS1iMmUyLTM1NzYwNzU2YmIzMSJ9.7p5dA3M7-MMRfmieWV-mR9_5NRvw_DBOqkWboeOLEa0' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1'"
-					},
-					"response": []
-				},
-				{
-					"name": "Edit user -First & Last name",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"// لیست نمونه اسم‌ها و فامیلی‌ها\r",
-									"const firstNames = [\"امیر\", \"سارا\", \"رضا\", \"نرگس\", \"حسین\", \"لیلا\", \"علی\", \"مریم\"];\r",
-									"const lastNames = [\"احمدی\", \"محمدی\", \"کریمی\", \"حسینی\", \"رستمی\", \"عباسی\", \"زارعی\", \"کاظمی\"];\r",
-									"\r",
-									"// انتخاب رندوم اسم و فامیل\r",
-									"function getRandomItem(arr) {\r",
-									"    return arr[Math.floor(Math.random() * arr.length)];\r",
-									"}\r",
-									"\r",
-									"let randomFirstName = getRandomItem(firstNames);\r",
-									"let randomLastName = getRandomItem(lastNames);\r",
-									"\r",
-									"// ذخیره در متغیر محیطی\r",
-									"pm.environment.set(\"randomFirstName\", randomFirstName);\r",
-									"pm.environment.set(\"randomLastName\", randomLastName);\r",
-									"\r",
-									"console.log(\"Generated Name:\", randomFirstName, randomLastName);\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "X-CSRFToken",
-								"value": "e8b412a9aa350d1c6ccd402887cc443668f2a027"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-CSRFTOKEN",
-								"value": "ixh4HFUA341fESVlMLRqkwxxW8leHsl8AkqC2cgZKke6xRBWx0D6vDkE3sBMyjiv"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"phone_number\": \"{{SazgarPhoneNumber}}\",\r\n    \"first_name\": \"{{randomFirstName}}\",\r\n    \"last_name\": \"{{randomLastName}}\",\r\n    \"grade_id\": \"{{grade_id}}\",\r\n    \"level_id\": \"{{level_id}}\",\r\n    \"province_id\": 1,\r\n    \"city_id\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/users/{{userId}}/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"users",
-								"{{userId}}",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl -X 'PATCH' \\\r\n  'https://andarzapi.darkube.app/api/users/05405f29-9a44-4b5b-b1c0-48c05cec5f9a/' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'X-CSRFToken: e8b412a9aa350d1c6ccd402887cc443668f2a027' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzU5MDAyLCJpYXQiOjE3NTc3NTU0MDIsImp0aSI6IjRhNWZhNWY5OWE2MjQ5ZjE4NGM0NWU5MzAwZjkyOTU3IiwidXNlcl9pZCI6IjUxMDg3MDc5LTAyN2QtNGI2Ni05NzIwLTNjZWJmZTUyNTg1ZSJ9._uo6pwgIiSbpPe_iGHgSu9tBBfmKO1rQFm4I3lTB8SU' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'X-CSRFTOKEN: ixh4HFUA341fESVlMLRqkwxxW8leHsl8AkqC2cgZKke6xRBWx0D6vDkE3sBMyjiv' \\\r\n  -d '{\r\n  \"phone_number\": \"string\",\r\n  \"first_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"grade_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"level_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"field_of_study_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"province\": \"string\",\r\n  \"city\": \"string\",\r\n  \"province_id\": 0,\r\n  \"city_id\": 0\r\n}'"
-					},
-					"response": []
-				},
-				{
-					"name": "Edit user -City & Province",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "X-CSRFToken",
-								"value": "e8b412a9aa350d1c6ccd402887cc443668f2a027"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-CSRFTOKEN",
-								"value": "ixh4HFUA341fESVlMLRqkwxxW8leHsl8AkqC2cgZKke6xRBWx0D6vDkE3sBMyjiv"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"phone_number\": \"{{SazgarPhoneNumber}}\",\r\n  \"first_name\": \"{{randomFirstName}}\",\r\n  \"last_name\": \"{{randomLastName}}\",\r\n  \"grade_id\": \"{{grade_id}}\",\r\n  \"level_id\": \"{{level_id}}\",\r\n  \"field_of_study_id\": \"\",\r\n  \"province\": \"2\",\r\n  \"city\": \"1\",\r\n  \"province_id\": {{province_id}},\r\n  \"city_id\": {{city_id}}\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/users/{{userId}}/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"users",
-								"{{userId}}",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl -X 'PATCH' \\\r\n  'https://andarzapi.darkube.app/api/users/05405f29-9a44-4b5b-b1c0-48c05cec5f9a/' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'X-CSRFToken: e8b412a9aa350d1c6ccd402887cc443668f2a027' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzU5MDAyLCJpYXQiOjE3NTc3NTU0MDIsImp0aSI6IjRhNWZhNWY5OWE2MjQ5ZjE4NGM0NWU5MzAwZjkyOTU3IiwidXNlcl9pZCI6IjUxMDg3MDc5LTAyN2QtNGI2Ni05NzIwLTNjZWJmZTUyNTg1ZSJ9._uo6pwgIiSbpPe_iGHgSu9tBBfmKO1rQFm4I3lTB8SU' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'X-CSRFTOKEN: ixh4HFUA341fESVlMLRqkwxxW8leHsl8AkqC2cgZKke6xRBWx0D6vDkE3sBMyjiv' \\\r\n  -d '{\r\n  \"phone_number\": \"string\",\r\n  \"first_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"grade_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"level_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"field_of_study_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"province\": \"string\",\r\n  \"city\": \"string\",\r\n  \"province_id\": 0,\r\n  \"city_id\": 0\r\n}'"
-					},
-					"response": []
-				},
-				{
-					"name": "Edit user - grade & level",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "X-CSRFToken",
-								"value": "e8b412a9aa350d1c6ccd402887cc443668f2a027"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{tokenUser}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-CSRFTOKEN",
-								"value": "ixh4HFUA341fESVlMLRqkwxxW8leHsl8AkqC2cgZKke6xRBWx0D6vDkE3sBMyjiv"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"phone_number\": \"{{SazgarPhoneNumber}}\",\r\n  \"first_name\": \"{{randomFirstName}}\",\r\n  \"last_name\": \"{{randomLastName}}\",\r\n  \"grade_id\": \"{{grade_id}}\",\r\n  \"level_id\": \"{{level_id}}\",\r\n  \"province\": \"2\",\r\n  \"city\": \"1\",\r\n  \"province_id\": 1,\r\n  \"city_id\": 2\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{UrlStage}}/api/users/{{userId}}/",
-							"host": [
-								"{{UrlStage}}"
-							],
-							"path": [
-								"api",
-								"users",
-								"{{userId}}",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl -X 'PATCH' \\\r\n  'https://andarzapi.darkube.app/api/users/05405f29-9a44-4b5b-b1c0-48c05cec5f9a/' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'X-CSRFToken: e8b412a9aa350d1c6ccd402887cc443668f2a027' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzU5MDAyLCJpYXQiOjE3NTc3NTU0MDIsImp0aSI6IjRhNWZhNWY5OWE2MjQ5ZjE4NGM0NWU5MzAwZjkyOTU3IiwidXNlcl9pZCI6IjUxMDg3MDc5LTAyN2QtNGI2Ni05NzIwLTNjZWJmZTUyNTg1ZSJ9._uo6pwgIiSbpPe_iGHgSu9tBBfmKO1rQFm4I3lTB8SU' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'X-CSRFTOKEN: ixh4HFUA341fESVlMLRqkwxxW8leHsl8AkqC2cgZKke6xRBWx0D6vDkE3sBMyjiv' \\\r\n  -d '{\r\n  \"phone_number\": \"string\",\r\n  \"first_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"grade_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"level_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"field_of_study_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"province\": \"string\",\r\n  \"city\": \"string\",\r\n  \"province_id\": 0,\r\n  \"city_id\": 0\r\n}'"
-					},
-					"response": []
-				},
-				{
-					"name": "Get info user",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3ODQxMTc5LCJpYXQiOjE3NTc4Mzc1NzksImp0aSI6ImZmZGVjYmEzMGNjNTQwMjM4NmE5ZGY4ODM5OTI2NGZmIiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.XzYVwuIJvEcmgMjAgyGmK4pkj-eBXZLAnubt69bfKNs"
-							},
-							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
-								"key": "origin",
-								"value": "https://stage-andarz-front.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://stage-andarz-front.darkube.app/"
-							},
-							{
-								"key": "sec-ch-ua",
-								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
-							},
-							{
-								"key": "sec-ch-ua-mobile",
-								"value": "?0"
-							},
-							{
-								"key": "sec-ch-ua-platform",
-								"value": "\"Windows\""
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
-							}
-						],
-						"url": {
-							"raw": "https://andarzapi-stage.darkube.app/api/users/me/",
-							"protocol": "https",
-							"host": [
-								"andarzapi-stage",
-								"darkube",
-								"app"
-							],
-							"path": [
-								"api",
-								"users",
-								"me",
-								""
-							]
-						},
-						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/users/me/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3ODQxMTc5LCJpYXQiOjE3NTc4Mzc1NzksImp0aSI6ImZmZGVjYmEzMGNjNTQwMjM4NmE5ZGY4ODM5OTI2NGZmIiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.XzYVwuIJvEcmgMjAgyGmK4pkj-eBXZLAnubt69bfKNs' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-ch-ua: \"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36'"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Add question Student(Text)111",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "accept-language",
-						"value": "en-US,en;q=0.9"
-					},
-					{
-						"key": "authorization",
-						"value": "Bearer {{tokenUser}}"
-					},
-					{
-						"key": "cache-control",
-						"value": "no-cache"
-					},
-					{
-						"key": "content-type",
-						"value": "application/json"
-					},
-					{
-						"key": "origin",
-						"value": "https://stage-andarz-front.darkube.app"
-					},
-					{
-						"key": "pragma",
-						"value": "no-cache"
-					},
-					{
-						"key": "priority",
-						"value": "u=1, i"
-					},
-					{
-						"key": "referer",
-						"value": "https://stage-andarz-front.darkube.app/"
-					},
-					{
-						"key": "sec-fetch-dest",
-						"value": "empty"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-site"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"subject\": \"def_09\",\r\n    \"text_content\": \"تست تست تست \",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": []\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://andarzapi-stage.darkube.app/api/questions/",
-					"protocol": "https",
-					"host": [
-						"andarzapi-stage",
-						"darkube",
-						"app"
-					],
-					"path": [
-						"api",
-						"questions",
-						""
-					]
-				},
-				"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/questions/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMDk0OTI0LCJpYXQiOjE3NTkyMzA5MjQsImp0aSI6ImNmYTg2YTFlZmRlMDQyY2U5MmYyZjZjMjU5YTMyZWVlIiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjd9.TUPFpJHVYAcOjOU7_fAault0yI2pXk5HjrdpdxJUjz8' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"subject\":\"def_09\",\"text_content\":\"تست تست تست \",\"tag\":[\"string\"],\"type\":\"explain\",\"urgency_level\":1,\"media_ids\":[]}'"
-			},
-			"response": []
 		}
 	],
 	"event": [
