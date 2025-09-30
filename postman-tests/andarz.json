@@ -2229,7 +2229,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": ""
+									"src": "p./resources/math1.jpg"
 								}
 							]
 						},
@@ -3669,7 +3669,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": ""
+									"src": "p./resources/math1.jpg"
 								}
 							]
 						},
@@ -4137,7 +4137,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": ""
+									"src": "p./resources/math1.jpg"
 								}
 							]
 						},
