@@ -4631,7 +4631,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "./resources/math1.jpg"
+									"src": ""
 								}
 							]
 						},
@@ -5099,7 +5099,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "./resources/math1.jpg"
+									"src": ""
 								}
 							]
 						},
