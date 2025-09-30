@@ -173,7 +173,8 @@
 									"console.log(\"level_id:\", selectedLevel.id);"
 								],
 								"type": "text/javascript",
-								"packages": {}
+								"packages": {},
+								"requests": {}
 							}
 						}
 					],
@@ -190,7 +191,7 @@
 							},
 							{
 								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
+								"value": "Bearer {{access_token}}"
 							},
 							{
 								"key": "cache-control",
@@ -276,7 +277,8 @@
 									""
 								],
 								"type": "text/javascript",
-								"packages": {}
+								"packages": {},
+								"requests": {}
 							}
 						}
 					],
@@ -293,7 +295,7 @@
 							},
 							{
 								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
+								"value": "Bearer {{access_token}}"
 							},
 							{
 								"key": "cache-control",
@@ -378,7 +380,8 @@
 									""
 								],
 								"type": "text/javascript",
-								"packages": {}
+								"packages": {},
+								"requests": {}
 							}
 						}
 					],
@@ -395,7 +398,7 @@
 							},
 							{
 								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
+								"value": "Bearer {{access_token}}"
 							},
 							{
 								"key": "cache-control",
@@ -478,7 +481,7 @@
 							},
 							{
 								"key": "authorization",
-								"value": "Bearer {{tokenUser}}"
+								"value": "Bearer {{access_token}}"
 							},
 							{
 								"key": "cache-control",
@@ -1761,7 +1764,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": ""
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
@@ -2226,7 +2229,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "./resources/math1.jpg"
+									"src": ""
 								}
 							]
 						},
@@ -3116,7 +3119,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": ""
+									"src": "./resources/Voice.mp3"
 								}
 							]
 						},
@@ -3551,7 +3554,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": ""
+									"src": "./resources/Voice.mp3"
 								}
 							]
 						},
@@ -4247,7 +4250,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": ""
+									"src": "./resources/Voice.mp3"
 								}
 							]
 						},
