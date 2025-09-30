@@ -1724,7 +1724,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "./resources/math1.jpg"
+									"src": "postman-cloud:///1f06c72b-0597-4690-8616-3f8132353e7f"
 								}
 							]
 						},
@@ -2189,7 +2189,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "./resources/math1.jpg"
+									"src": "postman-cloud:///1f06c72b-0597-4690-8616-3f8132353e7f"
 								}
 							]
 						},
@@ -4097,7 +4097,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "./resources/math1.jpg"
+									"src": "postman-cloud:///1f06c72b-0597-4690-8616-3f8132353e7f"
 								}
 							]
 						},
