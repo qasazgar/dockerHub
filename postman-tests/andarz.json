@@ -1082,57 +1082,17 @@
 								"value": "application/json, text/plain, */*"
 							},
 							{
-								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
 								"key": "authorization",
 								"value": "Bearer {{tokenUser}}"
 							},
 							{
-								"key": "cache-control",
-								"value": "no-cache"
-							},
-							{
 								"key": "content-type",
 								"value": "application/json"
-							},
-							{
-								"key": "origin",
-								"value": "https://client.darkube.app"
-							},
-							{
-								"key": "pragma",
-								"value": "no-cache"
-							},
-							{
-								"key": "priority",
-								"value": "u=1, i"
-							},
-							{
-								"key": "referer",
-								"value": "https://client.darkube.app/"
-							},
-							{
-								"key": "sec-fetch-dest",
-								"value": "empty"
-							},
-							{
-								"key": "sec-fetch-mode",
-								"value": "cors"
-							},
-							{
-								"key": "sec-fetch-site",
-								"value": "same-site"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"subject\": \"{{random_slug}}\",\r\n    \"text_content\": \"{{randomQuestion}}\",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": []\r\n}",
+							"raw": "{\r\n    \"subject\": \"{{random_slug}}\",\r\n    \"text_content\": \"{{randomAnswer_Admin\",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": []\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2229,7 +2189,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "p./resources/math1.jpg"
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
@@ -3669,7 +3629,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "p./resources/math1.jpg"
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
@@ -4137,7 +4097,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "p./resources/math1.jpg"
+									"src": "./resources/math1.jpg"
 								}
 							]
 						},
@@ -5299,6 +5259,91 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Add question Student(Text)111",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer {{tokenUser}}"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://stage-andarz-front.darkube.app"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "priority",
+						"value": "u=1, i"
+					},
+					{
+						"key": "referer",
+						"value": "https://stage-andarz-front.darkube.app/"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"subject\": \"def_09\",\r\n    \"text_content\": \"تست تست تست \",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://andarzapi-stage.darkube.app/api/questions/",
+					"protocol": "https",
+					"host": [
+						"andarzapi-stage",
+						"darkube",
+						"app"
+					],
+					"path": [
+						"api",
+						"questions",
+						""
+					]
+				},
+				"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/questions/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMDk0OTI0LCJpYXQiOjE3NTkyMzA5MjQsImp0aSI6ImNmYTg2YTFlZmRlMDQyY2U5MmYyZjZjMjU5YTMyZWVlIiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjd9.TUPFpJHVYAcOjOU7_fAault0yI2pXk5HjrdpdxJUjz8' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"subject\":\"def_09\",\"text_content\":\"تست تست تست \",\"tag\":[\"string\"],\"type\":\"explain\",\"urgency_level\":1,\"media_ids\":[]}'"
+			},
+			"response": []
 		}
 	],
 	"event": [
