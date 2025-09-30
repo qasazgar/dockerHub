@@ -1220,7 +1220,7 @@
 									"const questionsBank = {\r",
 									"    \"Math\": [\r",
 									"        { type: \"MCQ\", question: \"5 + 7 = ?\", options: [\"10\",\"12\",\"13\",\"11\"], answer: \"12\" },\r",
-									"        { type: \"True/False\", question: \"9 * 0 = 0\", answer: true },\r",
+									"        { type: \"True/False\", question: \"9 * 0 = 0\", answer: \"اتسا تست \" },\r",
 									"        { type: \"Short\", question: \"توضیح بده مفهوم عدد اول چیست؟\" }\r",
 									"    ],\r",
 									"    \"Science\": [\r",
@@ -1240,7 +1240,7 @@
 									"    ],\r",
 									"    \"General\": [\r",
 									"        { type: \"MCQ\", question: \"رنگ آسمان در روز آفتابی چیست؟\", options: [\"سبز\", \"آبی\", \"قرمز\", \"زرد\"], answer: \"آبی\" },\r",
-									"        { type: \"True/False\", question: \"خورشید از ستاره‌هاست.\", answer: true },\r",
+									"        { type: \"True/False\", question: \"خورشید از ستاره‌هاست.\", answer:\" تست تست \"},\r",
 									"        { type: \"Short\", question: \"یک حیوان در حال انقراض نام ببر.\" }\r",
 									"    ]\r",
 									"};\r",
@@ -1253,7 +1253,7 @@
 									"\r",
 									"// فقط متن سوال را در متغیر محیطی ذخیره می‌کنیم\r",
 									"pm.environment.set(\"randomQuestion\", randomQuestion.question);\r",
-									"\r",
+									"pm.environment.set(\"randomAnswer\", randomQuestion.answer);\r",
 									"// نمایش در Console Postman برای بررسی\r",
 									"console.log(\"Random Question:\", randomQuestion.question);\r",
 									""
@@ -1282,7 +1282,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"subject\": \"{{random_slug}}\",\r\n    \"text_content\": \"{{randomAnswer_Admin}}\",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": []\r\n}",
+							"raw": "{\r\n    \"subject\": \"{{random_slug}}\",\r\n    \"text_content\": \"{{randomQuestion}}\",\r\n    \"tag\": [\r\n        \"string\"\r\n    ],\r\n    \"type\": \"explain\",\r\n    \"urgency_level\": 1,\r\n    \"media_ids\": []\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1544,7 +1544,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"question\": \"{{question_id_text}}\",\r\n  \"text_content\": \"{{randomAnswer_Admin}}\",\r\n  \"audio_url\": \"\",\r\n  \"image_url\": \"\",\r\n  \"video_link\": \"\",\r\n  \"media_ids\": [\r\n    \"{{Session_id}}\"\r\n  ]\r\n}",
+							"raw": "{\r\n  \"question\": \"{{question_id_text}}\",\r\n  \"text_content\": \"{{randomAnswer}}\",\r\n  \"audio_url\": \"\",\r\n  \"image_url\": \"\",\r\n  \"video_link\": \"\",\r\n  \"media_ids\": [\r\n    \"{{Session_id}}\"\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
