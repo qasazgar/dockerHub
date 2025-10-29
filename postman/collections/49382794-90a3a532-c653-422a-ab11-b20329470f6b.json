@@ -359,6 +359,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "dc79cd65-8378-4e5f-86fc-e9700c2385ec",
 										"exec": [
 											"// تعداد رقم‌های بعد از 09\r",
 											"const digits = 9;\r",
@@ -382,20 +383,19 @@
 										],
 										"type": "text/javascript",
 										"packages": {},
-										"requests": {},
-										"id": "dc79cd65-8378-4e5f-86fc-e9700c2385ec"
+										"requests": {}
 									}
 								},
 								{
 									"listen": "test",
 									"script": {
+										"id": "b884bdda-7181-4247-b0d9-386eeb6f7a09",
 										"exec": [
 											""
 										],
 										"type": "text/javascript",
 										"packages": {},
-										"requests": {},
-										"id": "b884bdda-7181-4247-b0d9-386eeb6f7a09"
+										"requests": {}
 									}
 								}
 							],
@@ -465,9 +465,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{UrlStage}}/api/auth/otp/request/",
+									"raw": "{{Url}}/api/auth/otp/request/",
 									"host": [
-										"{{UrlStage}}"
+										"{{Url}}"
 									],
 									"path": [
 										"api",
