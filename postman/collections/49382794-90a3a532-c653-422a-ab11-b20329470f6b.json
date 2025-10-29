@@ -482,7 +482,7 @@
 							"response": []
 						},
 						{
-							"name": "otp verify user",
+							"name": "otp verify user22",
 							"event": [
 								{
 									"listen": "test",
