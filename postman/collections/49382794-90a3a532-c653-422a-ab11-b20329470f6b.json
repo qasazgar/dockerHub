@@ -487,6 +487,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "e5a1f3dd-ab87-445c-af76-6da06d3cf6ce",
 										"exec": [
 											"let response = pm.response.json();\r",
 											"\r",
@@ -504,8 +505,7 @@
 										],
 										"type": "text/javascript",
 										"packages": {},
-										"requests": {},
-										"id": "e5a1f3dd-ab87-445c-af76-6da06d3cf6ce"
+										"requests": {}
 									}
 								}
 							],
@@ -575,9 +575,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{UrlStage}}/api/auth/otp/verify/",
+									"raw": "{{Url}}/api/auth/otp/verify/",
 									"host": [
-										"{{UrlStage}}"
+										"{{Url}}"
 									],
 									"path": [
 										"api",
