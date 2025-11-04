@@ -4164,6 +4164,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "095f1b4a-7101-4b38-b369-fb3d5bca12f3",
 								"exec": [
 									"// Fixed SyntaxError by removing extra code\r",
 									"let response = pm.response.json();\r",
@@ -4184,8 +4185,7 @@
 								],
 								"type": "text/javascript",
 								"packages": {},
-								"requests": {},
-								"id": "095f1b4a-7101-4b38-b369-fb3d5bca12f3"
+								"requests": {}
 							}
 						}
 					],
@@ -4246,12 +4246,9 @@
 							}
 						],
 						"url": {
-							"raw": "https://andarzapi-stage.darkube.app/api/courses/",
-							"protocol": "https",
+							"raw": "{{UrlStage}}/api/courses/",
 							"host": [
-								"andarzapi-stage",
-								"darkube",
-								"app"
+								"{{UrlStage}}"
 							],
 							"path": [
 								"api",
