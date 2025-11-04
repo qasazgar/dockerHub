@@ -3584,6 +3584,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "d1cd10bc-b299-4363-b62a-18911bb2b66c",
 								"exec": [
 									"const jsonData = pm.response.json();\r",
 									"\r",
@@ -3597,16 +3598,19 @@
 								],
 								"type": "text/javascript",
 								"packages": {},
-								"requests": {},
-								"id": "d1cd10bc-b299-4363-b62a-18911bb2b66c"
+								"requests": {}
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
-								"packages": {},
+								"id": "bb348427-6caa-44cc-905b-a6c66bc38ef3",
+								"exec": [
+									""
+								],
 								"type": "text/javascript",
-								"id": "bb348427-6caa-44cc-905b-a6c66bc38ef3"
+								"packages": {},
+								"requests": {}
 							}
 						}
 					],
@@ -3644,12 +3648,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://andarzapi-stage.darkube.app/api/answers/",
-							"protocol": "https",
+							"raw": "{{UrlStage}}/api/answers/",
 							"host": [
-								"andarzapi-stage",
-								"darkube",
-								"app"
+								"{{UrlStage}}"
 							],
 							"path": [
 								"api",
