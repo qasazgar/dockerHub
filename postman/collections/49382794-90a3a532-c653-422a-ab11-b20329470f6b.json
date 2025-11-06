@@ -187,7 +187,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"phone_number\": \"{{SazgarPhoneNumber}\"\r\n}",
+							"raw": "{\r\n    \"phone_number\": \"{{SazgarPhoneNumber}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
