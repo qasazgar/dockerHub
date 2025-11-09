@@ -8336,7 +8336,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "46b56e5a-532f-471d-a012-b0406713dcc9",
+				"id": "83ab2d54-0420-4803-9cab-d22a00a13a26",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -8348,7 +8348,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "9c10cbc0-455c-4919-87d4-f909206d9623",
+				"id": "616f5bfb-9112-474a-b94f-57acfe59fc38",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -8393,8 +8393,7 @@
 		},
 		{
 			"key": "image_path",
-			"value": "",
-			"type": "default"
+			"value": ""
 		}
 	]
 }
