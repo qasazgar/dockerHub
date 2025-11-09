@@ -5868,7 +5868,7 @@
 					"response": []
 				},
 				{
-					"name": "upload avatar-user Copy",
+					"name": "upload pic",
 					"event": [
 						{
 							"listen": "test",
