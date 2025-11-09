@@ -1679,6 +1679,43 @@
 								"packages": {},
 								"requests": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "62270d20-2ea9-4d05-978b-2f955b78a910",
+								"exec": [
+									"// آرایه 10 سوال و جواب درسی (می‌تونی تغییرشون بدی)\r",
+									"const questions = [\r",
+									"    { question: \"پایتخت ایران چیست؟\", answer: \"تهران\" },\r",
+									"    { question: \"بزرگ‌ترین قاره جهان کدام است؟\", answer: \"آسیا\" },\r",
+									"    { question: \"فرمول آب چیست؟\", answer: \"H₂O\" },\r",
+									"    { question: \"نویسنده کتاب 'شازده کوچولو' کیست؟\", answer: \"آنتوان دو سنت‌اگزوپری\" },\r",
+									"    { question: \"چند سیاره در منظومه شمسی داریم؟\", answer: \"۸\" },\r",
+									"    { question: \"قانون دوم نیوتن چیست؟\", answer: \"F = ma\" },\r",
+									"    { question: \"واحد انرژی در فیزیک چیست؟\", answer: \"ژول\" },\r",
+									"    { question: \"کدام عنصر نماد شیمیایی Au دارد؟\", answer: \"طلا\" },\r",
+									"    { question: \"مجموع زوایای داخلی یک مثلث چند درجه است؟\", answer: \"۱۸۰\" },\r",
+									"    { question: \"اولین رئیس‌جمهور ایران کی بود؟\", answer: \"ابوالحسن بنی‌صدر\" }\r",
+									"];\r",
+									"\r",
+									"// انتخاب تصادفی یک سوال\r",
+									"const randomIndex = Math.floor(Math.random() * questions.length);\r",
+									"const selected = questions[randomIndex];\r",
+									"\r",
+									"// ذخیره در متغیرهای محیطی\r",
+									"pm.environment.set(\"random_question\", selected.question);\r",
+									"pm.environment.set(\"randomAnswer_Admin\", selected.answer);\r",
+									"\r",
+									"// نمایش در کنسول (برای دیباگ)\r",
+									"console.log(\"سوال رندوم انتخاب شد:\");\r",
+									"console.log(\"سوال:\", selected.question);\r",
+									"console.log(\"جواب:\", selected.answer);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
 						}
 					],
 					"id": "49382794-07666676-e81b-4cd5-92f1-ca6c4d3bde0e",
