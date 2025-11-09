@@ -8336,31 +8336,32 @@
 		{
 			"listen": "prerequest",
 			"script": {
+				"id": "46b56e5a-532f-471d-a012-b0406713dcc9",
 				"type": "text/javascript",
 				"packages": {},
+				"requests": {},
 				"exec": [
 					""
-				],
-				"id": "e384647d-5af0-44ce-ab2d-bdee5d833356"
+				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
+				"id": "9c10cbc0-455c-4919-87d4-f909206d9623",
 				"type": "text/javascript",
 				"packages": {},
+				"requests": {},
 				"exec": [
 					""
-				],
-				"id": "a93ae5ee-a166-4e61-bca9-05c6f58ad105"
+				]
 			}
 		}
 	],
 	"variable": [
 		{
 			"key": "Url",
-			"value": "",
-			"type": "default"
+			"value": ""
 		},
 		{
 			"key": "Session_id",
@@ -8368,13 +8369,11 @@
 		},
 		{
 			"key": "gradeId",
-			"value": "",
-			"type": "default"
+			"value": ""
 		},
 		{
 			"key": "levelid",
-			"value": "",
-			"type": "default"
+			"value": ""
 		},
 		{
 			"key": "levelId",
@@ -8391,6 +8390,11 @@
 		{
 			"key": "randomLastName",
 			"value": ""
+		},
+		{
+			"key": "image_path",
+			"value": "",
+			"type": "default"
 		}
 	]
 }
