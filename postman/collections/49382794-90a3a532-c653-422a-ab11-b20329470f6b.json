@@ -5989,12 +5989,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "postman-cloud:///1f0b18be-d871-49b0-a89d-4d30648584f9"
-								},
-								{
-									"key": "is_avatar_image",
-									"value": "true",
-									"type": "text"
+									"src": "postman-cloud:///1f0bd6f1-350f-4e60-b47f-82acad71aac6"
 								}
 							]
 						},
