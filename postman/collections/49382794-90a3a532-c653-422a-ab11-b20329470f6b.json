@@ -5904,7 +5904,22 @@
 							"script": {
 								"id": "b6b29209-6686-42f9-877b-92730a294984",
 								"exec": [
-									""
+									"// متغیر مسیر فایل رو از Collection Variable بخون\r",
+									"const imagePath = pm.collectionVariables.get(\"image_path\");\r",
+									"\r",
+									"if (!imagePath) {\r",
+									"    throw new Error(\"متغیر image_path تنظیم نشده است!\");\r",
+									"}\r",
+									"\r",
+									"// مسیر فایل رو به صورت داینامیک در form-data ست کن\r",
+									"pm.request.body.formdata.remove(\"file\"); // اگر قبلاً وجود داشت پاک کن\r",
+									"pm.request.body.formdata.add({\r",
+									"    key: \"file\",\r",
+									"    type: \"file\",\r",
+									"    value: imagePath // مسیر فایل\r",
+									"});\r",
+									"\r",
+									"console.log(\"فایل آپلود می‌شود از:\", imagePath);"
 								],
 								"type": "text/javascript",
 								"packages": {},
