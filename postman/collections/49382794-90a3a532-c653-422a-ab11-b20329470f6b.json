@@ -6245,6 +6245,12 @@
 									"key": "input",
 									"value": "{{student_question}}",
 									"type": "text"
+								},
+								{
+									"key": "media_ids",
+									"value": "{{media_id}}",
+									"type": "text",
+									"uuid": "8af97924-2eda-44b8-ad66-cd8db1c56e35"
 								}
 							]
 						},
