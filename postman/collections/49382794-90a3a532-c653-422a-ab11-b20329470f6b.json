@@ -6888,6 +6888,18 @@
 						"description": "Generated from cURL: curl -X 'PUT' \\\r\n  'https://andarzapi.darkube.app/api/users/05405f29-9a44-4b5b-b1c0-48c05cec5f9a/' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'X-CSRFToken: e8b412a9aa350d1c6ccd402887cc443668f2a027' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzU5MDAyLCJpYXQiOjE3NTc3NTU0MDIsImp0aSI6IjRhNWZhNWY5OWE2MjQ5ZjE4NGM0NWU5MzAwZjkyOTU3IiwidXNlcl9pZCI6IjUxMDg3MDc5LTAyN2QtNGI2Ni05NzIwLTNjZWJmZTUyNTg1ZSJ9._uo6pwgIiSbpPe_iGHgSu9tBBfmKO1rQFm4I3lTB8SU' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'X-CSRFTOKEN: ixh4HFUA341fESVlMLRqkwxxW8leHsl8AkqC2cgZKke6xRBWx0D6vDkE3sBMyjiv' \\\r\n  -d '{\r\n  \"phone_number\": \"string\",\r\n  \"first_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"grade_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"level_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"field_of_study_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"province\": \"string\",\r\n  \"city\": \"string\",\r\n  \"province_id\": 0,\r\n  \"city_id\": 0\r\n}'"
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "49382794-edc31210-99b8-4cc8-bec8-299abe655e81",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "49382794-4cbbabc4-2b91-4b2f-b184-0be0a7d8998a"
