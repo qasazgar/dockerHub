@@ -8682,7 +8682,7 @@
 			"id": "49382794-c843dc4a-06a4-439d-acf7-9dc934f90215"
 		},
 		{
-			"name": "http://localhost:8000/api/third-party/user-referral-code/USER_ID/",
+			"name": "User Referral Code",
 			"id": "49382794-e1f1dbbf-79d7-4618-a611-adce6d8f580d",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
