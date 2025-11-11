@@ -8763,7 +8763,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/api/third-party/avatar/set/",
+			"name": "Avatar Set",
 			"id": "49382794-cc85e423-1b49-4d6b-bff1-3ce184767e7c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -8790,12 +8790,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/third-party/avatar/set/",
-					"protocol": "http",
+					"raw": "{{UrlStage}}/api/third-party/avatar/set/",
 					"host": [
-						"localhost"
+						"{{UrlStage}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"third-party",
