@@ -8691,7 +8691,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{UrlStage}}/api/third-party/user-referral-code/USER_ID/",
+							"raw": "{{UrlStage}}/api/third-party/user-referral-code/{{USER_ID}}/",
 							"host": [
 								"{{UrlStage}}"
 							],
@@ -8699,7 +8699,7 @@
 								"api",
 								"third-party",
 								"user-referral-code",
-								"USER_ID",
+								"{{USER_ID}}",
 								""
 							]
 						},
@@ -8718,7 +8718,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token YOUR_TOKEN"
+								"value": "Token {{USER_ID}}"
 							}
 						],
 						"body": {
