@@ -8718,7 +8718,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token {{USER_ID}}"
+								"value": "Token {{Token_SSO}}"
 							}
 						],
 						"body": {
@@ -8732,7 +8732,7 @@
 								{
 									"type": "file",
 									"key": "file",
-									"src": "avatar.png"
+									"src": "postman-cloud:///1f0b18be-d871-49b0-a89d-4d30648584f9"
 								}
 							]
 						},
