@@ -8660,12 +8660,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/api/third-party/referral-count/USER_ID/",
-							"protocol": "http",
+							"raw": "{{UrlStage}}/api/third-party/referral-count/USER_ID/",
 							"host": [
-								"localhost"
+								"{{UrlStage}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"third-party",
