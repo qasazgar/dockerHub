@@ -8644,7 +8644,20 @@
 		},
 		{
 			"name": "sso",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "49382794-7ff93f7b-a517-4b6f-ac47-f71b5bffe77a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "49382794-c843dc4a-06a4-439d-acf7-9dc934f90215"
 		}
 	],
