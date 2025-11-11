@@ -8764,7 +8764,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token YOUR_TOKEN"
+								"value": "Token {{USER_ID}}"
 							},
 							{
 								"key": "Content-Type",
