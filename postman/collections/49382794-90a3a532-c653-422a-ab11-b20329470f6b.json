@@ -8656,11 +8656,11 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token YOUR_TOKEN"
+								"value": "Token 028e8a54-974e-41b5-973d-65b5eeaa4893"
 							}
 						],
 						"url": {
-							"raw": "{{UrlStage}}/api/third-party/referral-count/USER_ID/",
+							"raw": "{{UrlStage}}/api/third-party/referral-count/{{USER_ID}}/",
 							"host": [
 								"{{UrlStage}}"
 							],
@@ -8668,7 +8668,7 @@
 								"api",
 								"third-party",
 								"referral-count",
-								"USER_ID",
+								"{{USER_ID}}",
 								""
 							]
 						},
