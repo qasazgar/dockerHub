@@ -8693,12 +8693,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/api/third-party/user-referral-code/USER_ID/",
-							"protocol": "http",
+							"raw": "{{UrlStage}}/api/third-party/user-referral-code/USER_ID/",
 							"host": [
-								"localhost"
+								"{{UrlStage}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"third-party",
