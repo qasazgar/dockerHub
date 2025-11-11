@@ -8713,6 +8713,54 @@
 				"description": "Generated from cURL: curl -X GET \"http://localhost:8000/api/third-party/user-referral-code/USER_ID/\" \\\r\n  -H \"Authorization: Token YOUR_TOKEN\""
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/third-party/avatar/upload/",
+			"id": "49382794-803ce0ef-b99c-495a-9498-985d4aca13d5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token YOUR_TOKEN"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"type": "text",
+							"key": "user_id",
+							"value": "USER_ID"
+						},
+						{
+							"type": "file",
+							"key": "file",
+							"src": "avatar.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/third-party/avatar/upload/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"third-party",
+						"avatar",
+						"upload",
+						""
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"http://localhost:8000/api/third-party/avatar/upload/\" \\\r\n  -H \"Authorization: Token YOUR_TOKEN\" \\\r\n  -F \"user_id=USER_ID\" \\\r\n  -F \"file=@avatar.png\""
+			},
+			"response": []
 		}
 	],
 	"event": [
