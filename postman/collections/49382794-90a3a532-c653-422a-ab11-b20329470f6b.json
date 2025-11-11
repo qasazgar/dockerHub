@@ -8727,7 +8727,7 @@
 								{
 									"type": "text",
 									"key": "user_id",
-									"value": "USER_ID"
+									"value": "{{USER_ID}}"
 								},
 								{
 									"type": "file",
