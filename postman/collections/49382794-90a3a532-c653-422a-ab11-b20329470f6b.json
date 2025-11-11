@@ -8644,24 +8644,11 @@
 		},
 		{
 			"name": "sso",
-			"item": [
-				{
-					"name": "New Request",
-					"id": "49382794-7ff93f7b-a517-4b6f-ac47-f71b5bffe77a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			],
+			"item": [],
 			"id": "49382794-c843dc4a-06a4-439d-acf7-9dc934f90215"
 		},
 		{
-			"name": "http://localhost:8000/api/third-party/referral-count/USER_ID/",
+			"name": "Referral Count",
 			"id": "49382794-7446670f-c957-404d-b957-c700e1165397",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
