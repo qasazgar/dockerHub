@@ -8715,7 +8715,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/api/third-party/avatar/upload/",
+			"name": "Avatar Upload",
 			"id": "49382794-803ce0ef-b99c-495a-9498-985d4aca13d5",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
