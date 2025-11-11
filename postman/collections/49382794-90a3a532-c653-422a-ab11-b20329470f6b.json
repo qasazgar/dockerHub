@@ -8656,7 +8656,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 8X3CKSUN6YnTvOfu7VCF5woqaXRIpkHFaVL8BhTNDxGX5AGiqDZTVztP_SqaERY9"
+								"value": "Token {{Token_SSO}}"
 							}
 						],
 						"url": {
@@ -8687,7 +8687,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token YOUR_TOKEN"
+								"value": "Token {{Token_SSO}}"
 							}
 						],
 						"url": {
