@@ -8764,7 +8764,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token {{USER_ID}}"
+								"value": "Token {{Token_SSO}}"
 							},
 							{
 								"key": "Content-Type",
@@ -8773,7 +8773,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"user_id\": \"USER_ID\", \"media_id\": \"MEDIA_ID\"}",
+							"raw": "{\r\n    \"user_id\": \"{{USER_ID}}\",\r\n    \"media_id\": \"{{MEDIA_ID}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
