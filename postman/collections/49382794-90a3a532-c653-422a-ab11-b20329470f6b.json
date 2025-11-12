@@ -14,6 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "777da5cd-2695-4201-9c2c-bc126bd8e5f7",
 								"exec": [
 									"// Parse the response\r",
 									"let response = pm.response.json();\r",
@@ -28,8 +29,7 @@
 								],
 								"type": "text/javascript",
 								"packages": {},
-								"requests": {},
-								"id": "777da5cd-2695-4201-9c2c-bc126bd8e5f7"
+								"requests": {}
 							}
 						}
 					],
@@ -68,9 +68,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{UrlStage}}/api/auth/token/",
+							"raw": "stageapi.andarz.io/api/auth/token/",
 							"host": [
-								"{{UrlStage}}"
+								"stageapi",
+								"andarz",
+								"io"
 							],
 							"path": [
 								"api",
