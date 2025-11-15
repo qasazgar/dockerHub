@@ -9,7 +9,7 @@
 			"name": "users",
 			"item": [
 				{
-					"name": "Login Admin Copy",
+					"name": "Login Admin",
 					"event": [
 						{
 							"listen": "test",
