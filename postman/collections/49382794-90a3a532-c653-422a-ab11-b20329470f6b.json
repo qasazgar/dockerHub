@@ -84,7 +84,7 @@
 					"response": []
 				},
 				{
-					"name": "Send otp number Copy",
+					"name": "Send otp number",
 					"event": [
 						{
 							"listen": "prerequest",
