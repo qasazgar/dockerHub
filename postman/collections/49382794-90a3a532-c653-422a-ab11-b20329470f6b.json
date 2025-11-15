@@ -82,6 +82,134 @@
 						"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://andarzapi.darkube.app/api/auth/token/' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Authorization: Token d0282c54ab0359137567cbef53bb391c84d03c2b' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'X-CSRFTOKEN: ys6oP977NGv7X94sZho0EbumQtBxR5HV9wJOJUM4hWGMaiVDAzx7c6znPrpkY6fh' \\\r\n  -d '{\r\n  \"username\": \"09393050859\",\r\n  \"password\": \"POL97asmniA5I+CauE7NUw==\"\r\n}'"
 					},
 					"response": []
+				},
+				{
+					"name": "Send otp number Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c2dc631d-414a-4285-8c1a-bfc26bf9d2a0",
+								"exec": [
+									"// تعداد رقم‌های بعد از 09\r",
+									"const digits = 9;\r",
+									"\r",
+									"// تابع برای تولید رقم رندوم\r",
+									"function getRandomDigit() {\r",
+									"    return Math.floor(Math.random() * 10); // عدد 0 تا 9\r",
+									"}\r",
+									"\r",
+									"// تولید شماره رندوم\r",
+									"let phoneNumber = '09';\r",
+									"for (let i = 0; i < digits; i++) {\r",
+									"    phoneNumber += getRandomDigit();\r",
+									"}\r",
+									"\r",
+									"// ذخیره در متغیر محیطی یا سراسری Postman\r",
+									"pm.environment.set(\"iranPhoneNumber\", phoneNumber);\r",
+									"\r",
+									"console.log(\"Generated Iran Phone Number:\", phoneNumber);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "5eb280ae-e18f-4bd8-af70-64b50e19a088",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "49382794-c5958bb9-b1f6-4fdc-bc67-1b33c9c83251",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{SazgarPhoneNumber}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UrlStage}}/api/auth/otp/request/",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"otp",
+								"request",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/auth/otp/request/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw '{\"phone_number\":\"09127988412\"}'"
+					},
+					"response": []
 				}
 			],
 			"id": "49382794-9acf097d-07f0-4b00-9fac-71349774d948",
