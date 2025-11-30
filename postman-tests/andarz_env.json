@@ -34,7 +34,7 @@
 		},
 		{
 			"key": "UrlStage",
-			"value": "https://andarzapi-stage.darkube.app",
+			"value": "stageapi.andarz.io",
 			"type": "any",
 			"enabled": true
 		},
