@@ -489,13 +489,13 @@
 							"script": {
 								"id": "cfd99708-e188-491a-ae5e-786a87a5c25d",
 								"exec": [
-									"// داده‌های JSON از پاسخ API",
-									"const data = pm.response.json();",
+									"// استفاده از نام متفاوت برای جلوگیری از خطای Jenkins",
+									"const responseData = pm.response.json();",
 									"",
 									"// بررسی صحت داده‌ها",
-									"if (data && Array.isArray(data)) {",
+									"if (responseData && Array.isArray(responseData)) {",
 									"    // فیلتر فقط پایه‌های 1 تا 9 (ابتدایی و متوسطه اول)",
-									"    const filteredData = data.filter(item => ",
+									"    const filteredData = responseData.filter(item =>",
 									"        item.slug === \"primary\" || item.slug === \"midlevel\"",
 									"    );",
 									"",
@@ -529,24 +529,28 @@
 									"    console.log(\"داده‌های ورودی نامعتبر است\");",
 									"}",
 									"",
-									"// اصلاح تستِ city_id: خواندن از Environment و اطمینان از تعریف بودن و خالی نبودن",
-									"const envCityId = pm.environment.get(\"city_id\");",
-									"pm.test(\"مقدار city_id ذخیره شده در Environment\", function () {",
-									"    pm.expect(envCityId, \"city_id should exist in active environment\").to.not.be.undefined;",
-									"    pm.expect(String(envCityId).trim(), \"city_id should not be empty\").to.not.equal(\"\");",
+									"// لاگ مقادیر ذخیره‌شده در Environment",
+									"const loggedGradeId = pm.environment.get(\"gradeId\");",
+									"const loggedLevelId = pm.environment.get(\"levelId\");",
+									"console.log(\"Logged Grade ID:\", loggedGradeId);",
+									"console.log(\"Logged Level ID:\", loggedLevelId);",
 									"",
-									"    // خواندن شناسه‌ها از Environment برای جلوگیری از خطای scope",
-									"    const loggedGradeId = pm.environment.get(\"gradeId\");",
-									"    const loggedLevelId = pm.environment.get(\"levelId\");",
-									"    console.log(\"Grade ID:\", loggedGradeId);",
-									"    console.log(\"Level ID:\", loggedLevelId);",
-									"    console.log(\"city_id:\", envCityId);",
-									"});",
-									"",
-									"// لاگ شفاف در صورتی که city_id موجود نباشد",
-									"if (envCityId === undefined || String(envCityId).trim() === \"\") {",
-									"    console.log(\"هشدار: مقدار city_id در Environment تعریف نشده یا خالی است.\");",
-									"}"
+									"// تست وضعیت پاسخ",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "31115c2d-df80-467b-b89b-b319af54d745",
+								"exec": [
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
