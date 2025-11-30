@@ -951,7 +951,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "83ab2d54-0420-4803-9cab-d22a00a13a26",
+				"id": "c1a47338-a128-4d0a-82c5-267e11b899cf",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -963,7 +963,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "616f5bfb-9112-474a-b94f-57acfe59fc38",
+				"id": "5184d675-1898-40bb-9005-6f19504b7087",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -984,10 +984,6 @@
 		},
 		{
 			"key": "gradeId",
-			"value": ""
-		},
-		{
-			"key": "levelid",
 			"value": ""
 		},
 		{
