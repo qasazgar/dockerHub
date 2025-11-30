@@ -241,7 +241,7 @@
 			]
 		},
 		{
-			"name": "Register And logout user Copy",
+			"name": "Register And logout user",
 			"item": [
 				{
 					"name": "Send otp number",
