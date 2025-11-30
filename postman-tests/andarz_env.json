@@ -1,6 +1,6 @@
 {
-	"id": "f124ef92-f92d-4544-a76c-486ba78912c3",
-	"name": "Pro-andarz",
+	"id": "ea5bbadc-7ca9-4ffc-ae8f-d3351ccfe776",
+	"name": "Pro-andarz Copy",
 	"values": [
 		{
 			"key": "tokenAdmin",
@@ -313,10 +313,28 @@
 			"value": "",
 			"type": "any",
 			"enabled": true
+		},
+		{
+			"key": "gradeId",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "levelId",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "fieldOfStudyId",
+			"value": "",
+			"type": "any",
+			"enabled": true
 		}
 	],
 	"color": 60,
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2025-11-30T21:36:42.643Z",
+	"_postman_exported_at": "2025-11-30T22:27:16.798Z",
 	"_postman_exported_using": "Postman/11.73.5"
 }
