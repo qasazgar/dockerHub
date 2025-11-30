@@ -529,7 +529,11 @@
 									"} else {\r",
 									"    console.log(\"داده‌های ورودی نامعتبر است\");\r",
 									"}\r",
-									""
+									"pm.test(\"مقدار city_id ذخیره شده در Environment\", function () {\r",
+									"    pm.expect(cityId).to.not.be.undefined;\r",
+									"    console.log(\"Grade ID:\", grade_Id);\r",
+									"    console.log(\"Level ID:\", level_Id);\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {},
