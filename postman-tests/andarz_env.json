@@ -1,5 +1,5 @@
 {
-	"id": "23d7244c-7847-49dd-a0b8-12db99f9a671",
+	"id": "f124ef92-f92d-4544-a76c-486ba78912c3",
 	"name": "Pro-andarz",
 	"values": [
 		{
@@ -195,12 +195,6 @@
 			"enabled": true
 		},
 		{
-			"key": "ُSession_id",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
 			"key": "question_id_medias",
 			"value": "",
 			"type": "default",
@@ -217,9 +211,112 @@
 			"value": "",
 			"type": "any",
 			"enabled": true
+		},
+		{
+			"key": "cookie",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "SessionId",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fieldOfStudy",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "random_question",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "found_question_text",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "province_name",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "province_slug",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "city_name",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "city_slug",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "media_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "student_question",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "Url",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "mediaa",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "USER_ID",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "Token_SSO",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "MEDIA_ID",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "media_id_Avatar",
+			"value": "",
+			"type": "any",
+			"enabled": true
 		}
 	],
+	"color": 60,
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2025-09-30T08:40:56.099Z",
-	"_postman_exported_using": "Postman/11.64.8"
+	"_postman_exported_at": "2025-11-30T21:36:42.643Z",
+	"_postman_exported_using": "Postman/11.73.5"
 }
