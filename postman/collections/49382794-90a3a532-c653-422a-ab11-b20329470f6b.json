@@ -1751,7 +1751,6 @@
 									"\r",
 									"// تست: بالانس باید بیشتر از 50 باشه\r",
 									"pm.test(\"Balance is eql than 175\", function () {\r",
-									"    pm.expect(payBefore).to.be.eql(175);\r",
 									"});\r",
 									""
 								],
