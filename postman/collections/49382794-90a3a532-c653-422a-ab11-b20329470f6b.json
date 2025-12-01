@@ -2703,7 +2703,38 @@
 					"response": []
 				}
 			],
-			"id": "49382794-b087bfcd-91c3-4764-9d22-e88c581fa53c"
+			"id": "49382794-b087bfcd-91c3-4764-9d22-e88c581fa53c",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "23cc84bb-5936-4dde-a3e4-5fd6f5a4c14f",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dc5b6e2a-1645-477e-83ba-6361caf2fd14",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Edit profile-Avatar",
@@ -3950,15 +3981,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{UrlStage}}/api/sessions/{{Session_id}}/",
+							"raw": "{{UrlStage}}/api/sessions/{{Session_id}}",
 							"host": [
 								"{{UrlStage}}"
 							],
 							"path": [
 								"api",
 								"sessions",
-								"{{Session_id}}",
-								""
+								"{{Session_id}}"
 							]
 						},
 						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/sessions/6dcdca2c-18a1-4f74-956f-0a62df74cc83/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4NjM3MzQ5LCJpYXQiOjE3NTg2MzM3NDksImp0aSI6ImU3NTU4NjQ4MzA4MzRhZWQ5ZTNmZDU5ODVlMzJiZjdmIiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjN9.Sz38MShiMzNY5Kv9JPy_jfLMOnnjnOTwVB1CK9NrBYM' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1'"
