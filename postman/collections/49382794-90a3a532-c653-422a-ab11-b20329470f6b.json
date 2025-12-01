@@ -2704,6 +2704,383 @@
 				}
 			],
 			"id": "49382794-b087bfcd-91c3-4764-9d22-e88c581fa53c"
+		},
+		{
+			"name": "Edit profile-Avatar Copy",
+			"item": [
+				{
+					"name": "Get user id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bd260aab-635e-4eb8-a9de-ca5eec2fcffb",
+								"exec": [
+									"// گرفتن ریسپانس\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"// ذخیره user_id در Environment\r",
+									"pm.environment.set(\"userId\", jsonData.user_id);\r",
+									"\r",
+									"console.log(\"user_id saved:\", jsonData.user_id);\r",
+									"\r",
+									"// تست برای اطمینان\r",
+									"pm.test(\"user_id موجود است\", function () {\r",
+									"    pm.expect(jsonData.user_id).to.not.be.undefined;\r",
+									"    pm.expect(jsonData.user_id).to.not.be.null;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "49382794-37157d05-6e6f-44f8-9665-ff2bda6237e4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{tokenUser}}"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "origin",
+								"value": "https://stage-andarz-front.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://stage-andarz-front.darkube.app/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "{{UrlStage}}/api/users/me/",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"me",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/users/me/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3ODQxMTc5LCJpYXQiOjE3NTc4Mzc1NzksImp0aSI6ImZmZGVjYmEzMGNjNTQwMjM4NmE5ZGY4ODM5OTI2NGZmIiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.XzYVwuIJvEcmgMjAgyGmK4pkj-eBXZLAnubt69bfKNs' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-ch-ua: \"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36'"
+					},
+					"response": []
+				},
+				{
+					"name": "upload avatar-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1050c521-2f13-4dd8-93d6-bde721f0158b",
+								"exec": [
+									"// دریافت پاسخ JSON\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"// بررسی وجود media و media_id\r",
+									"if (response.media && response.media.media_id) {\r",
+									"    let mediaId = response.media.media_id;\r",
+									"\r",
+									"    // ذخیره در متغیر محیطی\r",
+									"    pm.environment.set(\"media_id_Avatar\", mediaId);\r",
+									"\r",
+									"    // یا ذخیره در متغیر کالکشن\r",
+									"    // pm.collectionVariables.set(\"media_id\", mediaId);\r",
+									"\r",
+									"    console.log(\"Media ID ذخیره شد:\", mediaId);\r",
+									"} else {\r",
+									"    console.log(\"Media ID پیدا نشد!\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b6b29209-6686-42f9-877b-92730a294984",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "49382794-cac95bc0-e6a8-4c9d-8839-288ee52bc25a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{tokenUser}}"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{tokenUser}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "media_type",
+									"value": "image",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "d",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "[\"string\"]",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/WALLEX/Downloads/14030828p7bh882769.pdf"
+								},
+								{
+									"key": "for_avatar",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{UrlStage}}/api/media/upload/",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"media",
+								"upload",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/media/upload/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3Nzc0MjkzLCJpYXQiOjE3NTc3NzA2OTMsImp0aSI6ImE3NzFkZTZjZDc3YjQ3MTA5MzRkYzBkMzJjYWUyOGQ1IiwidXNlcl9pZCI6IjA1NDA1ZjI5LTlhNDQtNGI1Yi1iMWMwLTQ4YzA1Y2VjNWY5YSJ9.ZGoE_5AR7UabSfdlZNkHKmJUR9i0NJXI8QtD0ZmPRXc' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary9IPOWW8TQex8D70g' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw $'------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"media_type\"\\r\\n\\r\\nimage\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"description\"\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"tags\"\\r\\n\\r\\n[\"string\"]\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g\\r\\nContent-Disposition: form-data; name=\"file\"; filename=\"pic 1.jpg\"\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n\\r\\n------WebKitFormBoundary9IPOWW8TQex8D70g--\\r\\n'"
+					},
+					"response": []
+				},
+				{
+					"name": "set avatar",
+					"id": "49382794-8da5e5de-75f0-4ee4-b0f7-0bf7f19601d9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CSRFTOKEN",
+								"value": "idLM22DSZHoT5tHYUHJUPvdSisWLfUk9jiX9xAdAD5MZNHl8TeaWif0V4aFfB92M"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenUser}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"media_id\": \"{{media_id_Avatar}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UrlStage}}/api/users/set_avatar/",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"set_avatar",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://andarzapi-stage.darkube.app/api/users/set_avatar/' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'X-CSRFTOKEN: idLM22DSZHoT5tHYUHJUPvdSisWLfUk9jiX9xAdAD5MZNHl8TeaWif0V4aFfB92M' \\\r\n  -d '{\r\n  \"media_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n}'"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Avatar",
+					"id": "49382794-81aa2a15-8b75-418a-add8-a4b1ac628069",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CSRFTOKEN",
+								"value": "mPJei9mDL5GFKPdgIB5JxDJ4TZY54W8zmr1vS9v4GDC8weWrgHv9M4mpEMDBninW"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenUser}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://stageapi.andarz.io/api/users/delete_avatar/",
+							"protocol": "https",
+							"host": [
+								"stageapi",
+								"andarz",
+								"io"
+							],
+							"path": [
+								"api",
+								"users",
+								"delete_avatar",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl -X 'DELETE' \\\r\n  'https://stageapi.andarz.io/api/users/delete_avatar/' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'X-CSRFTOKEN: mPJei9mDL5GFKPdgIB5JxDJ4TZY54W8zmr1vS9v4GDC8weWrgHv9M4mpEMDBninW' \\\r\n  -d '{\r\n  \"media_id\": \"5c8d5b38-30ef-41a6-b725-454ca925d368\"\r\n}'"
+					},
+					"response": []
+				}
+			],
+			"id": "49382794-973a5a28-1ab2-4eb6-992f-41b69410ef55"
 		}
 	],
 	"event": [
