@@ -2179,7 +2179,7 @@
 									"console.log(\"user_id saved:\", jsonData.user_id);\r",
 									"\r",
 									"// تست برای اطمینان\r",
-									"pm.test(\"user_id و نام و نام خانوادگی درست باشد\", function () {\r",
+									"pm.test(\" و نام و نام خانوادگی درست باشد\", function () {\r",
 									"    pm.expect(jsonData.user_id).to.not.be.undefined;\r",
 									"    pm.expect(jsonData.user_id).to.not.be.null;\r",
 									"    pm.expect(jsonData).to.have.property(\"first_name\");\r",
