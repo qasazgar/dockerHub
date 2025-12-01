@@ -2397,7 +2397,7 @@
 					"response": []
 				},
 				{
-					"name": "Get locations Copy",
+					"name": "Get locations",
 					"event": [
 						{
 							"listen": "test",
