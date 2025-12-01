@@ -3387,7 +3387,7 @@
 					"response": []
 				},
 				{
-					"name": "Get user id Copy",
+					"name": "Get user id",
 					"event": [
 						{
 							"listen": "test",
