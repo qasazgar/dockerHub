@@ -3406,6 +3406,13 @@
 									"pm.test(\"user_id موجود است\", function () {\r",
 									"    pm.expect(jsonData.user_id).to.not.be.undefined;\r",
 									"    pm.expect(jsonData.user_id).to.not.be.null;\r",
+									"    pm.expect(jsonData).to.have.property(\"grade\");\r",
+									"    pm.expect(jsonData.grade).to.have.property(\"id\");\r",
+									"    pm.expect(jsonData.grade.id, \"grade.id matches\").to.eql(EXPECTED_GRADE_ID);\r",
+									"\r",
+									"    pm.expect(jsonData).to.have.property(\"level\");\r",
+									"    pm.expect(jsonData.level).to.have.property(\"id\");\r",
+									"    pm.expect(jsonData.level.id, \"level.id matches\").to.eql(EXPECTED_LEVEL_ID);\r",
 									"});"
 								],
 								"type": "text/javascript",
