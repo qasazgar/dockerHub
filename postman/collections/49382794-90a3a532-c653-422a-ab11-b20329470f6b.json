@@ -2279,7 +2279,38 @@
 					"response": []
 				}
 			],
-			"id": "49382794-993bfe0e-2c94-43c7-99cd-b7683568a64e"
+			"id": "49382794-993bfe0e-2c94-43c7-99cd-b7683568a64e",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "caea5e02-0531-48d8-8761-50cf5811d0f0",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "37d93c52-abf8-406d-8374-059aacce3a7c",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Edit profile-Locations",
