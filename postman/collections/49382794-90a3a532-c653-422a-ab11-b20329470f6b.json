@@ -1951,7 +1951,7 @@
 			]
 		},
 		{
-			"name": "Edit profile- First & Last names Copy",
+			"name": "Edit profile- First & Last names",
 			"item": [
 				{
 					"name": "Get user id",
