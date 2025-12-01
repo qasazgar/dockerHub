@@ -3080,7 +3080,38 @@
 					"response": []
 				}
 			],
-			"id": "49382794-973a5a28-1ab2-4eb6-992f-41b69410ef55"
+			"id": "49382794-973a5a28-1ab2-4eb6-992f-41b69410ef55",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "31d03c0a-5596-44c1-8e23-06d593af436d",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "22452f7c-c529-412d-8cc4-318057e5940a",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Edit profile-Level s And grade",
