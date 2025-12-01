@@ -3404,7 +3404,7 @@
 									"const EXPECTED_GRADE_ID = pm.environment.get(\"gradeId\");\r",
 									"const EXPECTED_LEVEL_ID = pm.environment.get(\"levelId\");\r",
 									"// تست برای اطمینان\r",
-									"pm.test(\"user_id موجود است\", function () {\r",
+									"pm.test(\"اطمینان از اطلاعات کاربری و سطوح آموزشی\", function () {\r",
 									"    pm.expect(jsonData.user_id).to.not.be.undefined;\r",
 									"    pm.expect(jsonData.user_id).to.not.be.null;\r",
 									"    pm.expect(jsonData).to.have.property(\"grade\");\r",
