@@ -4032,7 +4032,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ca2c7ae1-13c1-4485-a759-da01340e1390",
+						"id": "92b7075b-21f3-4dbb-a669-e5dd5894b0ae",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -4044,7 +4044,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "55845f35-8cf9-4add-bccf-d34dad01e49b",
+						"id": "b0e5bce7-5f31-4f85-882d-3087d534ed98",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -4055,7 +4055,11 @@
 							"       \r",
 							"pm.test(\"Response time is less than 200ms\", function () {\r",
 							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});"
+							"});\r",
+							"setTimeout(() => {\r",
+							"    console.log(\"Waited 200ms before sending request\");\r",
+							"}, 200);\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);"
 						]
 					}
 				}
