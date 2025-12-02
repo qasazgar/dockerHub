@@ -3358,7 +3358,8 @@
 							},
 							{
 								"key": "accept-language",
-								"value": "en-US,en;q=0.9"
+								"value": "en-US,en;q=0.9",
+								"disabled": true
 							},
 							{
 								"key": "authorization",
@@ -3366,35 +3367,43 @@
 							},
 							{
 								"key": "cache-control",
-								"value": "no-cache"
+								"value": "no-cache",
+								"disabled": true
 							},
 							{
 								"key": "origin",
-								"value": "https://stage-andarz-front.darkube.app"
+								"value": "https://stage-andarz-front.darkube.app",
+								"disabled": true
 							},
 							{
 								"key": "pragma",
-								"value": "no-cache"
+								"value": "no-cache",
+								"disabled": true
 							},
 							{
 								"key": "priority",
-								"value": "u=1, i"
+								"value": "u=1, i",
+								"disabled": true
 							},
 							{
 								"key": "referer",
-								"value": "https://stage-andarz-front.darkube.app/"
+								"value": "https://stage-andarz-front.darkube.app/",
+								"disabled": true
 							},
 							{
 								"key": "sec-fetch-dest",
-								"value": "empty"
+								"value": "empty",
+								"disabled": true
 							},
 							{
 								"key": "sec-fetch-mode",
-								"value": "cors"
+								"value": "cors",
+								"disabled": true
 							},
 							{
 								"key": "sec-fetch-site",
-								"value": "same-site"
+								"value": "same-site",
+								"disabled": true
 							},
 							{
 								"key": "user-agent",
