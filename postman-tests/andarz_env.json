@@ -190,7 +190,7 @@
 		},
 		{
 			"key": "randomAnswer_Admin",
-			"value": "",
+			"value": "math_05",
 			"type": "any",
 			"enabled": true
 		},
