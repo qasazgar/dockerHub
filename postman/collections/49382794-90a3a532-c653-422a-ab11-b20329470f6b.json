@@ -2995,7 +2995,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "31d03c0a-5596-44c1-8e23-06d593af436d",
+						"id": "25969352-f897-426a-8c91-981fe32c8b87",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -3007,7 +3007,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "22452f7c-c529-412d-8cc4-318057e5940a",
+						"id": "bf2c2b24-9c79-4219-ad23-bcd930ce50e2",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -3017,7 +3017,11 @@
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"});\r",
+							"setTimeout(() => {\r",
+							"    console.log(\"Waited 200ms before sending request\");\r",
+							"}, 200);\r",
+							"console.log(\"➡️ Request Body:\", pm.request.body);"
 						]
 					}
 				}
