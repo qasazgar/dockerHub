@@ -3923,18 +3923,6 @@
 					}
 				}
 			]
-		},
-		{
-			"name": "New Request",
-			"id": "49382794-1b249b82-60f6-42fd-83f9-8ca81585356e",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	],
 	"event": [
