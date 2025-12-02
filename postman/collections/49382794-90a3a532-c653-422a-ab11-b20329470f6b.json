@@ -3216,7 +3216,7 @@
 							},
 							{
 								"key": "authorization",
-								"value": "Bearer {{access_token}}"
+								"value": "Bearer {{tokenUser}}"
 							},
 							{
 								"key": "cache-control",
