@@ -3009,7 +3009,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "..\postman-tests\resources\math1.jpg"
+									"src": "../postman-tests/resources/math1.jpg"
 								},
 								{
 									"key": "for_avatar",
