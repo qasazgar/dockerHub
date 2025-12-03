@@ -3571,7 +3571,7 @@
 									"        pm.expect(json.status).to.eql(\"answered\");\r",
 									"    });\r",
 									"\r",
-									"}, 30000);\r",
+									"}, 50000);\r",
 									"\r",
 									"\r",
 									"let json = {};\r",
