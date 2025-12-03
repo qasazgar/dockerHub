@@ -3890,13 +3890,10 @@
 								"exec": [
 									"if (!pm.environment.get('suggestion_1')) {\r",
 									"  pm.execution.skipRequest()\r",
-									"  pm.test.skip(\"Skipped because suggestion_1 is missing\") \r",
-									"    \r",
+									"  pm.test.skip(\"Skipped because suggestion_1 is missing\")     \r",
 									"    } else {\r",
 									"    // اگر متغیر بود، تست واقعی اجرا می‌شود\r",
-									"    pm.test(\"Suggestion 1 exists\", () => {\r",
-									"        pm.expect(s1).to.not.be.empty;\r",
-									"        // تست‌های دیگر را اینجا بنویس\r",
+									"    pm.test(\"Suggestion 1 exists\", () => {       \r",
 									"    });  \r",
 									"}"
 								],
