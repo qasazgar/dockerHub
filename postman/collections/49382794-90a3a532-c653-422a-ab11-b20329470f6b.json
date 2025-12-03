@@ -4137,6 +4137,119 @@
 					"response": []
 				},
 				{
+					"name": "https://stageapi.andarz.io/api/andi/ask/?is_suggestion=true",
+					"id": "49382794-8a62b53e-9cd7-4636-acb0-7e53dd6ea8c1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTM3NzEyLCJpYXQiOjE3NjQ2NzM3MTIsImp0aSI6IjM3OTUwYTkyOGQwNTQxOWViMzhkMDk2YTY0M2Q2YjI2IiwidXNlcl9pZCI6IjAzODk4NTY5LTlhZGQtNDliNC05NWMyLWJjNDgxODhiYTk4OSIsInRva2VuX3ZlcnNpb24iOjkwfQ.Iy4r1lZn6W7OV_SubLdnHEHvo-nIr3ajzlIT7axXRdk"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "origin",
+								"value": "https://appandarz.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://appandarz.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "cross-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "input",
+									"value": "سه نکته مهم دربارهٔ زمستان؟",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "fa",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "math_05",
+									"type": "text"
+								},
+								{
+									"key": "chat_id",
+									"value": "fda0270a-5202-4ebf-96c9-ab2ae0d5222e",
+									"type": "text"
+								},
+								{
+									"key": "media_ids",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://stageapi.andarz.io/api/andi/ask/?is_suggestion=true",
+							"protocol": "https",
+							"host": [
+								"stageapi",
+								"andarz",
+								"io"
+							],
+							"path": [
+								"api",
+								"andi",
+								"ask",
+								""
+							],
+							"query": [
+								{
+									"key": "is_suggestion",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Generated from cURL: curl 'https://stageapi.andarz.io/api/andi/ask/?is_suggestion=true' \\\r\n  -H 'accept: */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTM3NzEyLCJpYXQiOjE3NjQ2NzM3MTIsImp0aSI6IjM3OTUwYTkyOGQwNTQxOWViMzhkMDk2YTY0M2Q2YjI2IiwidXNlcl9pZCI6IjAzODk4NTY5LTlhZGQtNDliNC05NWMyLWJjNDgxODhiYTk4OSIsInRva2VuX3ZlcnNpb24iOjkwfQ.Iy4r1lZn6W7OV_SubLdnHEHvo-nIr3ajzlIT7axXRdk' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: multipart/form-data; boundary=--dio-boundary-0530025589' \\\r\n  -H 'origin: https://appandarz.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://appandarz.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: cross-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw $'----dio-boundary-0530025589\\r\\ncontent-disposition: form-data; name=\"input\"\\r\\n\\r\\nسه نکته مهم دربارهٔ زمستان؟\\r\\n----dio-boundary-0530025589\\r\\ncontent-disposition: form-data; name=\"language\"\\r\\n\\r\\nfa\\r\\n----dio-boundary-0530025589\\r\\ncontent-disposition: form-data; name=\"subject\"\\r\\n\\r\\nmath_05\\r\\n----dio-boundary-0530025589\\r\\ncontent-disposition: form-data; name=\"chat_id\"\\r\\n\\r\\nfda0270a-5202-4ebf-96c9-ab2ae0d5222e\\r\\n----dio-boundary-0530025589\\r\\ncontent-disposition: form-data; name=\"media_ids\"\\r\\n\\r\\n\\r\\n----dio-boundary-0530025589--\\r\\n'"
+					},
+					"response": []
+				},
+				{
 					"name": "ask andi Copy",
 					"event": [
 						{
