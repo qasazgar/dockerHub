@@ -4154,6 +4154,33 @@
 				},
 				{
 					"name": "Ask andi is suggestion 3",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0e1c6445-89c0-40bf-9d5d-bc0102dd9f17",
+								"exec": [
+									"const s1 = pm.variables.get(\"suggestion_3\");\r",
+									"\r",
+									"// اگر متغیر وجود ندارد، تست اسکیپ می‌شود\r",
+									"if (!s3) {\r",
+									"    pm.test.skip(\"Skipped because suggestion_3 is missing\", () => {\r",
+									"        // اینجا هیچ کاری انجام نمی‌ده\r",
+									"    });\r",
+									"} else {\r",
+									"    // اگر متغیر بود، تست واقعی اجرا می‌شود\r",
+									"    pm.test(\"Suggestion 1 exists\", () => {\r",
+									"        pm.expect(s3).to.not.be.empty;\r",
+									"        // تست‌های دیگر را اینجا بنویس\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"id": "49382794-fa429f11-5732-4346-b8cb-8b48967d2b46",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
