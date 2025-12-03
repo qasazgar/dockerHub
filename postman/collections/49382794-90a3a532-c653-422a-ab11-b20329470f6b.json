@@ -3558,6 +3558,27 @@
 				},
 				{
 					"name": "Get answer Andi",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "43cf683d-d546-4575-a27d-a441ef4cd560",
+								"exec": [
+									"setTimeout(function () {\r",
+									"    const json = pm.response.json();\r",
+									"\r",
+									"    pm.test(\"Status should be answered\", function () {\r",
+									"        pm.expect(json.status).to.eql(\"answered\");\r",
+									"    });\r",
+									"\r",
+									"}, 15000); // 15 seconds"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"id": "49382794-9911b6df-4ae6-4628-a880-c2821b26642f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
