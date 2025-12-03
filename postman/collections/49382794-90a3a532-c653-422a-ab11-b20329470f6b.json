@@ -3706,6 +3706,18 @@
 							"script": {
 								"id": "3eb03e3c-b064-4c11-a3d1-47d8315de56f",
 								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c2a7e975-e491-4f39-85b3-5eda3e15fa46",
+								"exec": [
 									"const suggestion = pm.variables.get(\"suggestion_1\");\r",
 									"\r",
 									"if (!suggestion) {\r",
