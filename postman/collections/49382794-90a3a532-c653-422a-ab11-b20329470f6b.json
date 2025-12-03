@@ -3564,14 +3564,15 @@
 							"script": {
 								"id": "43cf683d-d546-4575-a27d-a441ef4cd560",
 								"exec": [
-									"setTimeout(function () {\r",
+									"setTimeout(() => {\r",
 									"    const json = pm.response.json();\r",
 									"\r",
-									"    pm.test(\"Status should be answered\", function () {\r",
+									"    pm.test(\"status == answered\", () => {\r",
 									"        pm.expect(json.status).to.eql(\"answered\");\r",
 									"    });\r",
 									"\r",
-									"}, 15000); // 15 seconds"
+									"}, 15000);\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
