@@ -3657,6 +3657,12 @@
 									"        pm.expect(s1).to.not.be.empty;\r",
 									"        // تست‌های دیگر را اینجا بنویس\r",
 									"    });\r",
+									"}\r",
+									"\r",
+									"if (!pm.environment.get('suggestion_1')) {\r",
+									"  pm.execution.skipRequest()\r",
+									"  pm.test.skip(\"Skipped because suggestion_1 is missing\") \r",
+									"  \r",
 									"}"
 								],
 								"type": "text/javascript",
