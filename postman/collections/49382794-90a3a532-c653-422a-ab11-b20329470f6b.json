@@ -3700,6 +3700,29 @@
 				},
 				{
 					"name": "Ask andi is suggestion 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3eb03e3c-b064-4c11-a3d1-47d8315de56f",
+								"exec": [
+									"const suggestion = pm.variables.get(\"suggestion_1\");\r",
+									"\r",
+									"if (!suggestion) {\r",
+									"    pm.test.skip(\"Skipping test because suggestion_1 is missing\");\r",
+									"} else {\r",
+									"    pm.test(\"Status should be answered\", function() {\r",
+									"        const json = pm.response.json();\r",
+									"        pm.expect(json.status).to.eql(\"answered\");\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"id": "49382794-8a62b53e-9cd7-4636-acb0-7e53dd6ea8c1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
