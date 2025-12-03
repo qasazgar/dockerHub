@@ -4199,7 +4199,7 @@
 							"formdata": [
 								{
 									"key": "input",
-									"value": "سه نکته مهم دربارهٔ زمستان؟",
+									"value": "{{suggestion_1}}",
 									"type": "text"
 								},
 								{
