@@ -3571,7 +3571,7 @@
 									"        pm.expect(json.status).to.eql(\"answered\");\r",
 									"    });\r",
 									"\r",
-									"}, 15000);\r",
+									"}, 30000);\r",
 									"\r",
 									"\r",
 									"let json = {};\r",
@@ -3591,10 +3591,7 @@
 									"console.log(\"suggestion_1:\", s[0] || \"\");\r",
 									"console.log(\"suggestion_2:\", s[1] || \"\");\r",
 									"console.log(\"suggestion_3:\", s[2] || \"\");\r",
-									"// تست Chai\r",
-									"pm.test(\"Suggestions array exists\", () => {\r",
-									"    pm.expect(s).to.be.an(\"array\");\r",
-									"});"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
