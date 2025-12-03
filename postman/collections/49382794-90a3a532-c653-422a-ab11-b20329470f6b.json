@@ -4225,12 +4225,9 @@
 							]
 						},
 						"url": {
-							"raw": "https://stageapi.andarz.io/api/andi/ask/?is_suggestion=true",
-							"protocol": "https",
+							"raw": "{{UrlStage}}/api/andi/ask/?is_suggestion=true",
 							"host": [
-								"stageapi",
-								"andarz",
-								"io"
+								"{{UrlStage}}"
 							],
 							"path": [
 								"api",
