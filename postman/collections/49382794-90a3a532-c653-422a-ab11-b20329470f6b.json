@@ -3853,7 +3853,7 @@
 					"response": []
 				},
 				{
-					"name": "Get answer Andi Copy 3",
+					"name": "Get answer Andi",
 					"event": [
 						{
 							"listen": "test",
