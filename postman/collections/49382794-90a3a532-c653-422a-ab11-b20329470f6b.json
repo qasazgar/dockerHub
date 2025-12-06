@@ -3661,6 +3661,23 @@
 								"packages": {},
 								"requests": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1fa437d0-64b2-45f7-9e76-ad0e2bca189d",
+								"exec": [
+									"const suggestion = pm.variables.get(\"suggestion_1\");\r",
+									"\r",
+									"if (!suggestion) {\r",
+									"    console.log(\"Skipping this request entirely\");\r",
+									"    postman.setNextRequest(null); // هیچ ریکوئستی اجرا نمی‌شود\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
 						}
 					],
 					"id": "49382794-1ece8762-6de1-482a-a822-052b10cda900",
