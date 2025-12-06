@@ -4263,7 +4263,7 @@
 					"response": []
 				},
 				{
-					"name": "Ask andi is suggestion 1",
+					"name": "AskAndSuggestion1",
 					"event": [
 						{
 							"listen": "test",
