@@ -3812,7 +3812,7 @@
 									"\r",
 									"if (!suggestion) {\r",
 									"    console.log(\"Skipping this request entirely\");\r",
-									"    postman.setNextRequest(null); // هیچ ریکوئستی اجرا نمی‌شود\r",
+									"    pm.test.skip(\"Skip test Get Answer 2\")\r",
 									"}"
 								],
 								"type": "text/javascript",
