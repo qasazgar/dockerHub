@@ -3931,6 +3931,25 @@
 								"packages": {},
 								"requests": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9217480b-a624-4a77-bbaf-2fbd9e6647cc",
+								"exec": [
+									"if (!pm.environment.get('suggestion_1')) {\r",
+									"  pm.execution.skipRequest()\r",
+									"  pm.test.skip(\"Skipped because suggestion_1 is missing\")     \r",
+									"    } else {\r",
+									"    // اگر متغیر بود، تست واقعی اجرا می‌شود\r",
+									"    pm.test(\"Suggestion 1 exists\", () => {       \r",
+									"    });  \r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
 						}
 					],
 					"id": "49382794-fb2a7655-571d-4e93-9268-7827435ff5a4",
