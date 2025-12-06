@@ -4089,7 +4089,7 @@
 					"response": []
 				},
 				{
-					"name": "Get answer Andi Copy",
+					"name": "Get answer Andi",
 					"event": [
 						{
 							"listen": "test",
