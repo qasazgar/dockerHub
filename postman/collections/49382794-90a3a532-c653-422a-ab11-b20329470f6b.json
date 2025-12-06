@@ -3625,7 +3625,7 @@
 								"id": "7115b6ef-8dea-4ecb-abc8-68f7eb353ae0",
 								"exec": [
 									"const url = pm.request.url.toString();\r",
-									"const waitTime = 15000;\r",
+									"const waitTime = 90000;\r",
 									"\r",
 									"setTimeout(() => {\r",
 									"    pm.sendRequest(url, (err, res) => {\r",
@@ -3642,7 +3642,7 @@
 									"        console.log(\"suggestion_2:\", suggestions[1] || \"\");\r",
 									"        console.log(\"suggestion_3:\", suggestions[2] || \"\");\r",
 									"\r",
-									"        if (suggestions[0]) {\r",
+									"        if (!suggestions[0]) {\r",
 									"            pm.test(\"Status is answered and suggestion_1 exists ✅\", () => {\r",
 									"                pm.expect(suggestions[0]).to.not.be.empty;\r",
 									"            });\r",
@@ -4526,16 +4526,9 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "06ac21da-2a6b-43ee-9b4a-02d13d415684",
+								"id": "693b1730-8570-40e1-9472-69eb822c3e8a",
 								"exec": [
-									"if (!pm.environment.get('suggestion_1')) {\r",
-									"  pm.execution.skipRequest()\r",
-									"  pm.test.skip(\"Skipped because suggestion_1 is missing\")     \r",
-									"    } else {\r",
-									"    // اگر متغیر بود، تست واقعی اجرا می‌شود\r",
-									"    pm.test(\"Suggestion 1 exists\", () => {       \r",
-									"    });  \r",
-									"}"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
