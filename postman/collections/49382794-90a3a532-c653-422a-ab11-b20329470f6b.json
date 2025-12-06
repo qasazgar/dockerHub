@@ -925,7 +925,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer {{tokenUser}}"
+								"value": "Bearer {{access_token}}"
 							},
 							{
 								"key": "Content-Type",
