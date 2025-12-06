@@ -3786,7 +3786,6 @@
 									"        console.log(\"suggestion_2:\", suggestions[1] || \"\");\r",
 									"        console.log(\"suggestion_3:\", suggestions[2] || \"\");\r",
 									"\r",
-									"\r",
 									"        if (!suggestions[0]) {\r",
 									"            pm.test(\"Status is answered and suggestion_1 exists ✅\", () => {\r",
 									"                pm.expect(suggestions[0]).to.not.be.empty;\r",
