@@ -3628,7 +3628,7 @@
 								"id": "7115b6ef-8dea-4ecb-abc8-68f7eb353ae0",
 								"exec": [
 									"const url = pm.request.url.toString();\r",
-									"const waitTime = 90000;\r",
+									"const waitTime = 10000;\r",
 									"\r",
 									"setTimeout(() => {\r",
 									"    pm.sendRequest(url, (err, res) => {\r",
