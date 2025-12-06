@@ -3644,14 +3644,14 @@
 							"script": {
 								"id": "c2a7e975-e491-4f39-85b3-5eda3e15fa46",
 								"exec": [
-									"if (!pm.environment.get('suggestion_1')) {\r",
-									"  pm.execution.skipRequest()\r",
-									"  pm.test.skip(\"Skipped because suggestion_1 is missing\")     \r",
-									"    } else {\r",
-									"    // اگر متغیر بود، تست واقعی اجرا می‌شود\r",
-									"    pm.test(\"Suggestion 1 exists\", () => {       \r",
-									"    });  \r",
-									"}"
+									"// if (!pm.environment.get('suggestion_1')) {\r",
+									"//   pm.execution.skipRequest()\r",
+									"//   pm.test.skip(\"Skipped because suggestion_1 is missing\")     \r",
+									"//     } else {\r",
+									"//     // اگر متغیر بود، تست واقعی اجرا می‌شود\r",
+									"//     pm.test(\"Suggestion 1 exists\", () => {       \r",
+									"//     });  \r",
+									"// }"
 								],
 								"type": "text/javascript",
 								"packages": {},
