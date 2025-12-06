@@ -3673,15 +3673,7 @@
 							"script": {
 								"id": "1fa437d0-64b2-45f7-9e76-ad0e2bca189d",
 								"exec": [
-									"const suggestion = pm.variables.get(\"suggestion_1\");\r",
-									"\r",
-									"if (!suggestion) {\r",
-									"    console.log(\"Skipping this request entirely\");\r",
-									"     pm.test.skip(\"No suggestion_1, skipping the rest of the scenario ✅\", () => {\r",
-									"                console.log(\"suggestion_1 خالی است، تست اسکیپ شد.\");\r",
-									"            });\r",
-									"    postman.setNextRequest(GetAnswerAndi-2); // هیچ ریکوئستی اجرا نمی‌شود\r",
-									"}"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
