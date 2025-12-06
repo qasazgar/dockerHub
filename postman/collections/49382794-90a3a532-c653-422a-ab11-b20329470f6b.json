@@ -3620,7 +3620,7 @@
 					"response": []
 				},
 				{
-					"name": "Get answer Andi-1",
+					"name": "GetAnswerAndi-1",
 					"event": [
 						{
 							"listen": "test",
