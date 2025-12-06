@@ -3671,7 +3671,10 @@
 									"\r",
 									"if (!suggestion) {\r",
 									"    console.log(\"Skipping this request entirely\");\r",
-									"    postman.setNextRequest(null); // هیچ ریکوئستی اجرا نمی‌شود\r",
+									"     pm.test.skip(\"No suggestion_1, skipping the rest of the scenario ✅\", () => {\r",
+									"                console.log(\"suggestion_1 خالی است، تست اسکیپ شد.\");\r",
+									"            });\r",
+									"    postman.setNextRequest(GetAnswerAndi-2); // هیچ ریکوئستی اجرا نمی‌شود\r",
 									"}"
 								],
 								"type": "text/javascript",
@@ -3752,7 +3755,7 @@
 					"response": []
 				},
 				{
-					"name": "Get answer Andi -2",
+					"name": "GetAnswerAndi-2",
 					"event": [
 						{
 							"listen": "test",
