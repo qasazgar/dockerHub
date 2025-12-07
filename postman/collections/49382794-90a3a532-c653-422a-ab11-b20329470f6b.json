@@ -3809,7 +3809,7 @@
 									"\r",
 									"if (suggestion) {\r",
 									"    console.log(\"Skipping this request entirely\");\r",
-									"    pm.test.skip(\"Skip test Get Answer 2\")\r",
+									"    pm.test.skip(null)\r",
 									"}"
 								],
 								"type": "text/javascript",
