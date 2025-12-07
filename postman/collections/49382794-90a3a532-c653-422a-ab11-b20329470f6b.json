@@ -3806,7 +3806,7 @@
 								"exec": [
 									"const suggestion = pm.variables.get(\"suggestion_1\");\r",
 									"\r",
-									"if (suggestion) {\r",
+									"if (!suggestion) {\r",
 									"    console.log(\"Skipping this request entirely\");\r",
 									"    pm.test.skip(null)\r",
 									"}"
