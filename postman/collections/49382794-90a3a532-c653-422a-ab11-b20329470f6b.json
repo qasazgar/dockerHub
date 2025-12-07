@@ -3808,7 +3808,9 @@
 									"\r",
 									"if (!suggestion) {\r",
 									"    console.log(\"Skipping this request entirely\");\r",
-									"    pm.test.skip(null)\r",
+									"    pm.test.skip(\"Skipping this request entirely\")\r",
+									"    postman.setNextRequest(\"\"); \r",
+									"\r",
 									"}"
 								],
 								"type": "text/javascript",
