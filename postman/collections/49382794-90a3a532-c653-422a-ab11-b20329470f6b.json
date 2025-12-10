@@ -4883,7 +4883,7 @@
 					"response": []
 				},
 				{
-					"name": "Get answer Andi",
+					"name": "Get answer Andi -Text+ Image",
 					"event": [
 						{
 							"listen": "test",
