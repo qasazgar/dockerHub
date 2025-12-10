@@ -4261,7 +4261,7 @@
 									"\r",
 									"    if (suggestions[0]) {\r",
 									"        pm.test(\"Status is answered and suggestion exists ✅\", () => {\r",
-									"            pm.execution.setNextRequest(\"AskAndSuggestion1\");\r",
+									"            pm.execution.setNextRequest(\"AskAndSuggestion_3\");\r",
 									"\r",
 									"        });\r",
 									"\r",
