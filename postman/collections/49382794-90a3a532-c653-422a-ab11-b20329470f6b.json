@@ -3863,7 +3863,7 @@
 								"id": "073ddf42-aea0-426b-86bf-363014e53d01",
 								"exec": [
 									"// خواندن بالانس قبلی از Environment\r",
-									"const oldBalance = Number(pm.environment.get(\"balance\"));\r",
+									"const oldBalance = Number(pm.environment.get(\"BalanceTotalBefore\"));\r",
 									"\r",
 									"// بالانس جدید (مثلاً از ریسپانس)\r",
 									"const newBalance = pm.response.json().balance;\r",
