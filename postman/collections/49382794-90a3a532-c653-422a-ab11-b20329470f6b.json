@@ -3302,6 +3302,99 @@
 					"response": []
 				},
 				{
+					"name": "balance  Student Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// گرفتن ریسپانس\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"// تست: بالانس باید بیشتر از 50 باشه\r",
+									"pm.test(\"Balance is greater than 50\", function () {\r",
+									"    pm.expect(jsonData.balance).to.be.above(50);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"id": "073ddf42-aea0-426b-86bf-363014e53d01"
+							}
+						}
+					],
+					"id": "49382794-0c102669-b761-46d9-9ed6-134e1bc8686f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{tokenUser}}"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "origin",
+								"value": "https://client.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://client.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"url": {
+							"raw": "{{UrlStage}}/api/anddo/balance/",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"anddo",
+								"balance",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi.darkube.app/api/anddo/balance/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NzYxMzEyLCJpYXQiOjE3NTc3NTc3MTIsImp0aSI6IjdkMjAxNWFjNzY3NTQ2OWZhZDhmZjU3Njg4ZWQwNmJlIiwidXNlcl9pZCI6IjVlZDA2ODE2LWNmYjUtNGYxNC1iYzBmLTFiNTExODA1MWNkYSJ9.n8HmFuhA15MG5u0aZAxa8WbXIGKF8lg6wn7vaAGeuQs' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://client.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://client.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1'"
+					},
+					"response": []
+				},
+				{
 					"name": "Ask andi",
 					"event": [
 						{
