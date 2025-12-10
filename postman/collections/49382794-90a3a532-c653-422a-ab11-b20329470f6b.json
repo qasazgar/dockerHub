@@ -3745,14 +3745,14 @@
 									"\r",
 									"    if (suggestions[0]) {\r",
 									"        pm.test(\"Status is answered and suggestion exists ✅\", () => {\r",
-									"            pm.execution.setNextRequest(\"AskAndSuggestion1\");\r",
+									"            pm.execution.setNextRequest(\"AskAndSuggestion_1\");\r",
 									"\r",
 									"        });\r",
 									"\r",
 									"    } else {\r",
 									"        pm.test.skip(\"No suggestion, skipping the rest of the scenario Get Answer Andi 2 \", () => {\r",
 									"                pm.expect(suggestions[0]).to.not.be.empty;\r",
-									"                pm.execution.setNextRequest(GetAnswerAndi-2); \r",
+									"                pm.execution.setNextRequest(null); \r",
 									"        });\r",
 									"    }\r",
 									"}, 60000); // تایم به میلی‌ثانیه\r",
@@ -3998,7 +3998,7 @@
 					"response": []
 				},
 				{
-					"name": "Get answer Andi 1",
+					"name": "GetanswerAndi_1",
 					"event": [
 						{
 							"listen": "test",
