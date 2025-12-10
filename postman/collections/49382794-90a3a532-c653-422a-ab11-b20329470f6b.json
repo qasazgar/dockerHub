@@ -3860,18 +3860,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "073ddf42-aea0-426b-86bf-363014e53d01",
 								"exec": [
-									"// گرفتن ریسپانس\r",
-									"const jsonData = pm.response.json();\r",
+									"// خواندن بالانس قبلی از Environment\r",
+									"const oldBalance = Number(pm.environment.get(\"balance\"));\r",
 									"\r",
-									"// تست: بالانس باید بیشتر از 50 باشه\r",
-									"pm.test(\"Balance is greater than 50\", function () {\r",
-									"    pm.expect(jsonData.balance).to.be.above(50);\r",
-									"});"
+									"// بالانس جدید (مثلاً از ریسپانس)\r",
+									"const newBalance = pm.response.json().balance;\r",
+									"\r",
+									"// محاسبه انتظار\r",
+									"const expectedBalance = oldBalance - 20;\r",
+									"\r",
+									"// تست\r",
+									"pm.test(\"Balance should be decreased by 20\", () => {\r",
+									"    pm.expect(newBalance).to.eql(expectedBalance);\r",
+									"});\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
-								"id": "073ddf42-aea0-426b-86bf-363014e53d01"
+								"requests": {}
 							}
 						}
 					],
