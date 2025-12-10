@@ -5008,7 +5008,7 @@
 									"                pm.execution.setNextRequest(GetAnswerAndi-1); \r",
 									"        });\r",
 									"    }\r",
-									"}, 10000); // تایم به میلی‌ثانیه\r",
+									"}, 20000); // تایم به میلی‌ثانیه\r",
 									""
 								],
 								"type": "text/javascript",
