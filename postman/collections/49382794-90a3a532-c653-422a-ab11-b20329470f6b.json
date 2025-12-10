@@ -5334,7 +5334,7 @@
 							"formdata": [
 								{
 									"key": "input",
-									"value": "{{suggestion_1}}",
+									"value": "در مورد این عکس توضیح بده",
 									"type": "text"
 								},
 								{
@@ -5354,7 +5354,7 @@
 								},
 								{
 									"key": "media_ids",
-									"value": "",
+									"value": "5b4d3936-631e-4a1a-9de4-4d01a9e3d358",
 									"type": "text"
 								}
 							]
