@@ -3214,18 +3214,16 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "073ddf42-aea0-426b-86bf-363014e53d01",
 								"exec": [
 									"// گرفتن ریسپانس\r",
 									"const jsonData = pm.response.json();\r",
-									"\r",
-									"// تست: بالانس باید بیشتر از 50 باشه\r",
-									"pm.test(\"Balance is greater than 50\", function () {\r",
-									"    pm.expect(jsonData.balance).to.be.above(50);\r",
-									"});"
+									"pm.environment.set(\"BalanceTotalBefore\",jsonData.balance)\r",
+									"console.log(\"BalanceTotalBefore : \",jsonData.balance)"
 								],
 								"type": "text/javascript",
 								"packages": {},
-								"id": "073ddf42-aea0-426b-86bf-363014e53d01"
+								"requests": {}
 							}
 						}
 					],
