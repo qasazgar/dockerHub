@@ -4119,7 +4119,7 @@
 					"response": []
 				},
 				{
-					"name": "Ask andi is suggestion 2",
+					"name": "Ask andi is suggestion2",
 					"event": [
 						{
 							"listen": "prerequest",
