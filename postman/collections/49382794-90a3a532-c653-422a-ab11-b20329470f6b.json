@@ -3634,7 +3634,7 @@
 									"                pm.execution.setNextRequest(GetAnswerAndi-2); \r",
 									"        });\r",
 									"    }\r",
-									"}, 1000); // تایم به میلی‌ثانیه\r",
+									"}, 15000); // تایم به میلی‌ثانیه\r",
 									""
 								],
 								"type": "text/javascript",
@@ -3755,7 +3755,7 @@
 									"                pm.execution.setNextRequest(GetAnswerAndi-2); \r",
 									"        });\r",
 									"    }\r",
-									"}, 1000); // تایم به میلی‌ثانیه\r",
+									"}, 30000); // تایم به میلی‌ثانیه\r",
 									""
 								],
 								"type": "text/javascript",
