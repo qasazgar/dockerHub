@@ -4026,7 +4026,7 @@
 									"                pm.execution.setNextRequest(GetAnswerAndi-2); \r",
 									"        });\r",
 									"    }\r",
-									"}, 60000); // تایم به میلی‌ثانیه\r",
+									"}, 30000); // تایم به میلی‌ثانیه\r",
 									""
 								],
 								"type": "text/javascript",
@@ -4037,8 +4037,13 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "4416ca9e-42ce-473a-9849-509711b18612",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
 								"packages": {},
-								"type": "text/javascript"
+								"requests": {}
 							}
 						}
 					],
