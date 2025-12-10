@@ -3998,7 +3998,7 @@
 					"response": []
 				},
 				{
-					"name": "GetanswerAndi_1",
+					"name": "GetanswerAndi_Suggestion_1",
 					"event": [
 						{
 							"listen": "test",
