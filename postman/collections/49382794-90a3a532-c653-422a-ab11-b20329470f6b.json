@@ -4403,7 +4403,7 @@
 							},
 							{
 								"key": "authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTM3NzEyLCJpYXQiOjE3NjQ2NzM3MTIsImp0aSI6IjM3OTUwYTkyOGQwNTQxOWViMzhkMDk2YTY0M2Q2YjI2IiwidXNlcl9pZCI6IjAzODk4NTY5LTlhZGQtNDliNC05NWMyLWJjNDgxODhiYTk4OSIsInRva2VuX3ZlcnNpb24iOjkwfQ.Iy4r1lZn6W7OV_SubLdnHEHvo-nIr3ajzlIT7axXRdk"
+								"value": "Bearer {{tokenUser}}"
 							},
 							{
 								"key": "cache-control",
