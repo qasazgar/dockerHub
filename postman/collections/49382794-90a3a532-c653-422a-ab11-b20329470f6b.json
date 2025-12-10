@@ -4243,7 +4243,7 @@
 					"response": []
 				},
 				{
-					"name": "Get answer Andi 2",
+					"name": "GetAnswerAndi_Suggestion_2",
 					"event": [
 						{
 							"listen": "test",
