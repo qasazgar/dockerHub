@@ -4364,7 +4364,7 @@
 					"response": []
 				},
 				{
-					"name": "Ask andi is suggestion 3",
+					"name": "Ask andi is suggestion3",
 					"event": [
 						{
 							"listen": "prerequest",
