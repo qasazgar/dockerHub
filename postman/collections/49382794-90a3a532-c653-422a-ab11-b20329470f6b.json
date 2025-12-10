@@ -4266,7 +4266,7 @@
 									"                pm.execution.setNextRequest(GetAnswerAndi-2); \r",
 									"        });\r",
 									"    }\r",
-									"}, 60000); // تایم به میلی‌ثانیه\r",
+									"}, 30000); // تایم به میلی‌ثانیه\r",
 									""
 								],
 								"type": "text/javascript",
@@ -4277,8 +4277,13 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "c4783ba7-e83e-4253-8496-42c66016119d",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
 								"packages": {},
-								"type": "text/javascript"
+								"requests": {}
 							}
 						}
 					],
@@ -4513,7 +4518,7 @@
 									"                pm.execution.setNextRequest(GetAnswerAndi-2); \r",
 									"        });\r",
 									"    }\r",
-									"}, 60000); // تایم به میلی‌ثانیه\r",
+									"}, 30000); // تایم به میلی‌ثانیه\r",
 									""
 								],
 								"type": "text/javascript",
