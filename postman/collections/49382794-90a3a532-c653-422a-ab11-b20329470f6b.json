@@ -4268,7 +4268,7 @@
 									"    } else {\r",
 									"        pm.test.skip(\"No suggestion, skipping the rest of the scenario Get Answer Andi 2 \", () => {\r",
 									"                pm.expect(suggestions[0]).to.not.be.empty;\r",
-									"                pm.execution.setNextRequest(GetAnswerAndi-2); \r",
+									"                pm.execution.setNextRequest(null); \r",
 									"        });\r",
 									"    }\r",
 									"}, 30000); // تایم به میلی‌ثانیه\r",
