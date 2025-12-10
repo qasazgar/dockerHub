@@ -3302,7 +3302,7 @@
 					"response": []
 				},
 				{
-					"name": "ask andi",
+					"name": "Ask andi",
 					"event": [
 						{
 							"listen": "test",
