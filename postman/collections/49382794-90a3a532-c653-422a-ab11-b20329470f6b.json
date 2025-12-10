@@ -5117,7 +5117,7 @@
 									"                pm.execution.setNextRequest(GetAnswerAndi-2); \r",
 									"        });\r",
 									"    }\r",
-									"}, 30000); // تایم به میلی‌ثانیه\r",
+									"}, 600000); // تایم به میلی‌ثانیه\r",
 									""
 								],
 								"type": "text/javascript",
