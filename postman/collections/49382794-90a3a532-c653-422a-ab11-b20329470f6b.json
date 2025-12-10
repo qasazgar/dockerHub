@@ -5238,7 +5238,7 @@
 									"                pm.execution.setNextRequest(null); \r",
 									"        });\r",
 									"    }\r",
-									"}, 60000); // تایم به میلی‌ثانیه\r",
+									"}, 90000); // تایم به میلی‌ثانیه\r",
 									""
 								],
 								"type": "text/javascript",
