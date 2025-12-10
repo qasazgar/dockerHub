@@ -4495,7 +4495,7 @@
 					"response": []
 				},
 				{
-					"name": "AskAndSuggestion_3",
+					"name": "GetAnswerAndi_Suggestion_",
 					"event": [
 						{
 							"listen": "test",
