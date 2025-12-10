@@ -5497,7 +5497,7 @@
 					"response": []
 				},
 				{
-					"name": "AskAndSuggestion_image2",
+					"name": "AskAndSuggestion_2",
 					"event": [
 						{
 							"listen": "prerequest",
