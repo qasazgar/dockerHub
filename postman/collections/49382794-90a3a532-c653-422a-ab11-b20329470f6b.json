@@ -5239,7 +5239,7 @@
 					"response": []
 				},
 				{
-					"name": "Ask Andi Soiion image",
+					"name": "Ask Andi Session image",
 					"event": [
 						{
 							"listen": "test",
