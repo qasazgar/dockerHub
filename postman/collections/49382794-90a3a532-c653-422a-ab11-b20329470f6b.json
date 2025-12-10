@@ -4015,7 +4015,7 @@
 									"    pm.environment.set(\"suggestion_3\", suggestions[2] || \"\");\r",
 									"\r",
 									"    if (suggestions[0]) {\r",
-									"        pm.test(\"Status is answered and suggestion exists ✅\", () => {\r",
+									"        pm.test(\"Status is answered and suggestion exists , go to AskAndSuggestion_2 ✅\", () => {\r",
 									"            pm.execution.setNextRequest(\"AskAndSuggestion_2\");\r",
 									"\r",
 									"        });\r",
