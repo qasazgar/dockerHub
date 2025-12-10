@@ -3622,6 +3622,126 @@
 					"response": []
 				},
 				{
+					"name": "Get answer Andi Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "72ab65f6-7358-4c6e-93b8-543b4f10dde3",
+								"exec": [
+									"const url = pm.request.url.toString();\r",
+									"const waitTime = 1000;\r",
+									"\r",
+									"setTimeout(() => {\r",
+									"    pm.sendRequest(url, (err, res) => {\r",
+									"        let json = {};\r",
+									"        try { json = res.json(); } catch(e){}\r",
+									"\r",
+									"        // گرفتن آخرین المان chat_data\r",
+									"        const lastChat = json.chat_data?.[json.chat_data.length - 1] || {};\r",
+									"        const suggestions = lastChat.suggestions || [];\r",
+									"\r",
+									"        pm.environment.set(\"suggestion_1\", suggestions[0] || \"\");\r",
+									"        pm.environment.set(\"suggestion_2\", suggestions[1] || \"\");\r",
+									"        pm.environment.set(\"suggestion_3\", suggestions[2] || \"\");\r",
+									"\r",
+									"        console.log(\"suggestion_1:\", suggestions[0] || \"\");\r",
+									"        console.log(\"suggestion_2:\", suggestions[1] || \"\");\r",
+									"        console.log(\"suggestion_3:\", suggestions[2] || \"\");\r",
+									"\r",
+									"        if (!suggestions[0]) {\r",
+									"            pm.test.skip(\"Status is answered and suggestion exists ✅\", () => {\r",
+									"                pm.expect(suggestions[0]).to.not.be.empty;\r",
+									"                pm.execution.setNextRequest(\"GetAnswerAndi-1\"); \r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test.skip(\"No suggestion, skipping the rest of the scenario ✅\", () => {\r",
+									"                console.log(\"suggestion خالی است، تست اسکیپ شد.\");\r",
+									"                pm.execution.setNextRequest(\"AskAndSuggestion1\");\r",
+									"            });\r",
+									"        }\r",
+									"    });\r",
+									"}, waitTime);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "49382794-9a0338e3-d55a-4fb6-87fd-85740daf0a5f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{tokenUser}}"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "origin",
+								"value": "https://stage-andarz-front.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://stage-andarz-front.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"url": {
+							"raw": "{{UrlStage}}/api/sessions/{{Session_id}}",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"sessions",
+								"{{Session_id}}"
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/sessions/6dcdca2c-18a1-4f74-956f-0a62df74cc83/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4NjM3MzQ5LCJpYXQiOjE3NTg2MzM3NDksImp0aSI6ImU3NTU4NjQ4MzA4MzRhZWQ5ZTNmZDU5ODVlMzJiZjdmIiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjN9.Sz38MShiMzNY5Kv9JPy_jfLMOnnjnOTwVB1CK9NrBYM' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1'"
+					},
+					"response": []
+				},
+				{
 					"name": "GetAnswerAndi-1",
 					"event": [
 						{
