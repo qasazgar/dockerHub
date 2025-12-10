@@ -4210,7 +4210,7 @@
 								},
 								{
 									"key": "chat_id",
-									"value": "fda0270a-5202-4ebf-96c9-ab2ae0d5222e",
+									"value": "{{Session_id}}",
 									"type": "text"
 								},
 								{
