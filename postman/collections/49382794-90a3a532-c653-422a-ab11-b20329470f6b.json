@@ -4731,7 +4731,7 @@
 					"response": []
 				},
 				{
-					"name": "Ask andi",
+					"name": "Ask andi Text+ Image",
 					"event": [
 						{
 							"listen": "test",
