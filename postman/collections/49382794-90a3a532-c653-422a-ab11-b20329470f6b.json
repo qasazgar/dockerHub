@@ -5503,7 +5503,7 @@
 									"                pm.execution.setNextRequest(null); \r",
 									"        });\r",
 									"    }\r",
-									"}, 30000); // تایم به میلی‌ثانیه\r",
+									"}, 60000); // تایم به میلی‌ثانیه\r",
 									""
 								],
 								"type": "text/javascript",
