@@ -2313,7 +2313,7 @@
 			]
 		},
 		{
-			"name": "Edit profile-Locations",
+			"name": "Update User Profile – Location Information (Province & City)",
 			"item": [
 				{
 					"name": "Get user id",
