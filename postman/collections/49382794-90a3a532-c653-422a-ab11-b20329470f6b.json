@@ -1079,7 +1079,7 @@
 			]
 		},
 		{
-			"name": "Register And logout user Referral",
+			"name": "Successful User Registration and Logout via Referral",
 			"item": [
 				{
 					"name": "Send otp number",
