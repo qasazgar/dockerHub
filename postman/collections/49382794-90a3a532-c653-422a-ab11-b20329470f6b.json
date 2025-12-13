@@ -2768,7 +2768,7 @@
 			]
 		},
 		{
-			"name": "Edit profile-Level s And grade",
+			"name": "Update User Profile – Education Level and Grade",
 			"item": [
 				{
 					"name": "Get user id",
