@@ -350,7 +350,7 @@
 			]
 		},
 		{
-			"name": "Register And logout user",
+			"name": "Successful User Registration and Logout Flow",
 			"item": [
 				{
 					"name": "Send otp number",
