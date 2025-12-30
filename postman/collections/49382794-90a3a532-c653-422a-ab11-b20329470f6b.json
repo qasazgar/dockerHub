@@ -3497,6 +3497,203 @@
 					"response": []
 				},
 				{
+					"name": "Ask andi Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5434ffbc-a6cf-4b35-9bf0-f8f952add1ba",
+								"exec": [
+									"// تبدیل پاسخ به JSON\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"// چک کن session_id وجود داشته باشه\r",
+									"\r",
+									"    // ذخیره در Environment\r",
+									"pm.environment.set(\"Session_id\", response.session_id);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "417583fc-3923-4368-b1a4-f3d08c422cf5",
+								"exec": [
+									"const questions = [\r",
+									"    // Reasoning\r",
+									"    \"اگر تمام Aها B باشند و هیچ Bای C نباشد، آیا ممکن است بعضی Aها C باشند؟ چرا؟\",\r",
+									"    \"مسئله کشاورز و گرگ و گوسفند و کلم را حل کن.\",\r",
+									"    \"اگر امروز دوشنبه باشد، ۴۵ روز بعد چه روزی است؟\",\r",
+									"    \"سه نفر ادعاهای متناقض می‌کنند… چه کسی راست می‌گوید؟\",\r",
+									"    \"این الگو را ادامه بده: 2 → 4 ، 4 → 16 ، 16 → ?\",\r",
+									"\r",
+									"    // Math\r",
+									"    \"مجموع عددهای ۱ تا ۳۰۰ چند است؟\",\r",
+									"    \"(12^2 - 4^3 + 5) / 7 را محاسبه کن.\",\r",
+									"    \"قطاری با سرعت ۸۰ km/h… چه زمانی می‌رسد؟\",\r",
+									"    \"دو عدد اختلافشان ۱۰ و مجموعشان ۵۰ است، آن‌ها چیستند؟\",\r",
+									"    \"احتمال آمدن ۲ بار شیر از ۳ پرتاب سکه چقدر است؟\",\r",
+									"\r",
+									"    // Language\r",
+									"    \"این جمله را رسمی‌تر بنویس: «فکر کنم این کار جواب بده.»\",\r",
+									"    \"این متن را خلاصه کن: (متن وارد شود)\",\r",
+									"    \"تفاوت effect و affect چیست؟\",\r",
+									"    \"یک متن ۵ جمله‌ای بنویس که هر جمله با حرف بعدی الفبا شروع شود.\",\r",
+									"    \"این جمله را رفع ابهام کن: «او آن را به او داد.»\",\r",
+									"\r",
+									"    // Factual Knowledge\r",
+									"    \"چرا آسمان آبی دیده می‌شود؟\",\r",
+									"    \"فتوسنتز را در سه جمله توضیح بده.\",\r",
+									"    \"تفاوت ویروس و باکتری چیست؟\",\r",
+									"    \"چرا پل‌ها در سرما منقبض می‌شوند؟\",\r",
+									"    \"GPS چگونه موقعیت را تعیین می‌کند؟\",\r",
+									"\r",
+									"    // Creativity\r",
+									"    \"یک استفاده جدید برای قاشق اختراع کن.\",\r",
+									"    \"یک داستان ۵ جمله‌ای با پایان غافلگیرکننده بنویس.\",\r",
+									"    \"یک محصول تخیلی برای حل ترافیک بساز.\",\r",
+									"    \"اگر انسان‌ها ۱ دقیقه آینده را می‌دیدند چه می‌شد؟\",\r",
+									"    \"یک ضرب‌المثل جدید بساز و معنی‌اش را بگو.\",\r",
+									"\r",
+									"    // Multi-step Tasks\r",
+									"    \"یک برنامه ۷ روزه برای یادگیری Python طراحی کن.\",\r",
+									"    \"با بودجه ۵ میلیون، یک سفر ۲ روزه برنامه‌ریزی کن.\",\r",
+									"    \"نوشتن مقاله علمی را به ۵ مرحله خرد کن.\",\r",
+									"    \"چطور به کودک ضرب یاد بدهیم؟\",\r",
+									"    \"یک روتین روزانه بهره‌ور طراحی کن.\",\r",
+									"\r",
+									"    // Edge Cases\r",
+									"    \"اگر ۱۰ ماه ۳۰ روز و ۲ ماه ۲۹ روز باشند، سال چند روز است؟\",\r",
+									"    \"چه عددی هم زوج است هم فرد؟\",\r",
+									"    \"جمله «هیچ‌کس از من کوتاه‌تر نیست» یعنی چه؟\",\r",
+									"    \"یک کلمه بگو که جمعش مثل مفردش باشد.\",\r",
+									"    \"آیا می‌شود سایه را وزن کرد؟ چرا؟\",\r",
+									"\r",
+									"    // Multilingual\r",
+									"    \"این جمله فارسی را به انگلیسی عامیانه ترجمه کن.\",\r",
+									"    \"این متن انگلیسی را رسمی بازنویسی کن.\",\r",
+									"    \"این پاراگراف را به عربی فصیح ترجمه کن.\",\r",
+									"    \"معنی دقیق واژه nuance چیست؟\",\r",
+									"    \"جمله «او آمد» را در ۵ زبان بنویس.\"\r",
+									"];\r",
+									"\r",
+									"// تابع انتخاب تصادفی\r",
+									"const getRandomItem = (array) => array[Math.floor(Math.random() * array.length)];\r",
+									"\r",
+									"// انتخاب یک سوال تصادفی\r",
+									"const randomQuestion = getRandomItem(questions);\r",
+									"\r",
+									"// ذخیره در متغیر محیطی\r",
+									"pm.environment.set(\"student_question\", randomQuestion);\r",
+									"\r",
+									"// نمایش در کنسول\r",
+									"console.log(\"سوال انتخاب‌شده:\", randomQuestion);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "49382794-4c033c11-84f2-4b8c-9b13-c1183cb8811f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{tokenUser}}"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							},
+							{
+								"key": "origin",
+								"value": "https://stage-andarz-front.darkube.app"
+							},
+							{
+								"key": "pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://stage-andarz-front.darkube.app/"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "subject",
+									"value": "{{random_slug}}",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "fa",
+									"type": "text"
+								},
+								{
+									"key": "input",
+									"value": "{{student_question}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{UrlStage}}/api/andi/ask/",
+							"host": [
+								"{{UrlStage}}"
+							],
+							"path": [
+								"api",
+								"andi",
+								"ask",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl 'https://andarzapi-stage.darkube.app/api/andi/ask/' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4NjI4NjU2LCJpYXQiOjE3NTg2MjUwNTYsImp0aSI6IjZkOWZiYzQ5NjllYzQ4MTRiYWQ0NWNmNzEyNTc4MDdkIiwidXNlcl9pZCI6ImY5NDljNjNjLTY1ODgtNDdlNi05NTQ4LTlmZDk3NWY1MWQ2NiIsInRva2VuX3ZlcnNpb24iOjN9.r9-C4JfGt3SDTwQULM6ePNpGxG7hXFGgZivNKdbwpj8' \\\r\n  -H 'cache-control: no-cache' \\\r\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundaryR00mtljdoHkqXogW' \\\r\n  -H 'origin: https://stage-andarz-front.darkube.app' \\\r\n  -H 'pragma: no-cache' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stage-andarz-front.darkube.app/' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \\\r\n  --data-raw $'------WebKitFormBoundaryR00mtljdoHkqXogW\\r\\nContent-Disposition: form-data; name=\"subject\"\\r\\n\\r\\nmath_01\\r\\n------WebKitFormBoundaryR00mtljdoHkqXogW\\r\\nContent-Disposition: form-data; name=\"language\"\\r\\n\\r\\nfa\\r\\n------WebKitFormBoundaryR00mtljdoHkqXogW\\r\\nContent-Disposition: form-data; name=\"input\"\\r\\n\\r\\n2+2 \\r\\nچند میشه\\r\\n------WebKitFormBoundaryR00mtljdoHkqXogW--\\r\\n'"
+					},
+					"response": []
+				},
+				{
 					"name": "Get answer Andi",
 					"event": [
 						{
